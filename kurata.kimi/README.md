@@ -6,6 +6,7 @@
 - http://kimikurata.com/aau/wnm617/kurata.kimi
 
 
-## Perhaps Some Notes
+## Side assigments 
+- http://kimikurata.com/aau/wnm617/kurata.kimi/initializr/
 
 - Take note of how markdown works 

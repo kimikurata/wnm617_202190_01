@@ -21,7 +21,7 @@
 :root {
 	--color-neutral-light: #E5E2F0; /*light-bg*/
 	--color-neutral-medium: #A6ADB8;
-	--color-neutral-dark: #324270; 
+	--color-neutral-dark: #4e576f; 
 
 	/*	//highlight colors */    
 	--color-highlight: #61569D; 
@@ -58,9 +58,18 @@
 /*TEXT*/
 h1, h2, h3, a, p{
 	font-family: var(--font-sans);
+	color: var(--color-black);
 }
-
-
+p{
+	font-size: 1.1em;
+	font-weight: 300;
+	color: var(--color-neutral-dark);
+}
+@media screen and (max-width: 1000px) {
+	p{
+		font-size: 1.5em;
+	}
+}
 
 
 
@@ -117,6 +126,7 @@ nav li a{
 	text-decoration: none;
 	padding: 5px 20px;
 	border-radius: 25px;
+	color: var(--color-black);
 }
 
 nav li:last-child a{
@@ -195,6 +205,7 @@ article header:after {
 	article header h1{
 		padding-top: 10%;
 	} 
+
 	article header:after {
 		content: "";
 	    max-width: 300px;
@@ -202,8 +213,8 @@ article header:after {
 	    position: relative;
 	    margin-bottom: 100px;
 	    top: 10px;
-	   	left:15%;
-	    display: inline-block;	
+	    display: none;	
+	    background-color: green;
 	}
 	article header, article header p {
 		width: 100%;
@@ -220,7 +231,7 @@ article header:after {
 /*SECTION1*/
 
 article section:nth-of-type(1):before{
-	content: "Buy and Sell NFTs";
+	content: "Lorem ipsum dolor sit";
 	font-weight: bold;
 	font-size: 2em;
 	color: var(--color-black);
@@ -285,18 +296,29 @@ article section:nth-of-type(1) p:after{
 } 
 
 @media screen and (max-width: 1000px) {
+	article section:nth-of-type(1):before{
+	    background: url("../img/md_bg1.jpg") no-repeat center fixed;
+	    background-color: var(--color-neutral-light);
+	}
 	article section:nth-of-type(1) h2{
 		margin-top: 100px;
 	}
 	article section:nth-of-type(1) h2, article section:nth-of-type(1) p  {
 		width: 80%; 
-	}article section:nth-of-type(1) p:after{
-	    max-width: 250px;
-	    max-height: 250px;
-	    position: relative;
-	    top: 20px;
-	   	left:-10%;
-	    display: inline-block;	
+	}
+	article section:nth-of-type(1) h2:after{
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+		border-radius: 50px;
+	}
+	article section:nth-of-type(1) p{
+		width: 100%;
+		padding: 20px;
+		margin-left: 0%;
+	}
+	article section:nth-of-type(1) p:after{
+	    display: none;	
 	} 
 }
 
@@ -306,7 +328,7 @@ article section:nth-of-type(1) p:after{
 article section:nth-of-type(2) {
 	position: relative;	
 	width: 100%;
-s}
+}
 
 article section:nth-of-type(2) h2{
 	text-align: left;
@@ -315,8 +337,7 @@ article section:nth-of-type(2) h2{
 	width: 60%;
 	margin-left: 40%; 
 	margin-top: 150px;
-	padding: 15px 0 15px 40px ;
-	
+	padding: 15px 0 15px 40px;
 } 
 
 article section:nth-of-type(2) h2:before{
@@ -341,7 +362,26 @@ article section:nth-of-type(2) p{
 	font-weight: 200;
 }
 
-
+@media screen and (max-width: 1000px) {
+	article section:nth-of-type(2){
+		width: 100%; 
+	}
+	article section:nth-of-type(2) h2{
+		width: 90%;
+		margin-left: 10%; 
+		margin-top: 50px;
+	} 
+	article section:nth-of-type(2) h2:before{
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+	}
+	article section:nth-of-type(2) p{
+		width: 100%;
+		padding: 20px;
+		margin-left: 0%;
+	}
+}
 
 
 
@@ -379,7 +419,6 @@ article footer h3:after{
 	bottom: 0em;
 	position: relative;
 	display: inline-block;
-
 }
 
 article footer p{
@@ -394,7 +433,26 @@ article footer p{
 	article section,  {
 		width: 100%;
 	}
+	article footer h3  {
+		width: 100%; 
+		margin-top: 50px;
+		margin: auto;
+	}
+	article footer h3:after{
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+	}
+	article footer p{
+		width: 100%;
+		margin-left: 0%;
+		margin: 40px 0 80px 0;
+		padding: 0;
+	}
 }
+
+
+
 
 
 /*ASIDE*/
@@ -403,7 +461,10 @@ aside{
 	bottom: -300px;
 	width: 300px;
 	right: 30px;
+	border-radius: 20px 20px 0 0;
 	transition: bottom 0.5s ease;
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 255, .1);
+	padding: 0;
 }
 aside:hover {
 	bottom: 0px;
@@ -422,7 +483,16 @@ aside p{
 	padding: 15px;
 	margin-block-start: 0em;
     margin-block-end: 0em;
-	background-color: var(--color-desable-dark);
+	background-color: var(--color-white);
+}
+@media screen and (max-width: 1000px) {
+	aside{
+		width: 85px;
+	}
+	aside:hover {
+		bottom: 0px;
+		width: 300px;
+	}
 }
 
 
@@ -440,6 +510,11 @@ footer h3{
 	padding: 20px 0;
 	margin-block-start: 0em;
     margin-block-end: 0em;
+}
+@media screen and (max-width: 1000px) {
+	footer{
+		padding: 0 20px;
+	}
 }
 /*CREDITS*/
 /* image sourse:Photo by Fakurian Design, https://unsplash.com/photos/PGdW_bHDbpI */

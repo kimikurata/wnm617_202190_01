@@ -5,25 +5,35 @@
 	--color-neutral-dark:#333638 ;
 
 	--color-main-light: #fff4f3;
-    --color-main-medium: #efbbb6;
-    --color-main-dark: #f295a0;
+   --color-main-medium: #efbbb6;
+   --color-main-dark: #f295a0;
 
-    --color-secondary-light: #f0fcff;
-    --color-secondary-medium: #85c4dd;
-    --color-secondary-dark: #45567a;
+   --color-secondary-light: #f0fcff;
+   --color-secondary-medium: #85c4dd;
+   --color-secondary-dark: #45567a;
 
-    --color-white: #fff;
-    --color-black: #2b3547;
+   --color-white: #F9F9F9;
+   --color-black: #2b3547;
 
-    --color-pure-white: #fff;
-    --color-pure-black: #000;
+   --color-pure-white: #fff;
+   --color-pure-black: #000;
 
-    --header-height:3rem;
+   --header-height:4rem;
+
+   --font-sans:'Hind Madurai', Tahoma, sans-serif;
+   --font-serif: 'Josefin Slab', "Times New Roman", serif;
+
+
+   /*--space-xs: 1vh;*/
+   /*--space-sm: 3vh;*/
+   /*--space-md: 8vh;*/
+   /*--space-lg:15vh;*/
+
 }
 
-
+/* CSS RESETS */
 * {
-    box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 
@@ -32,9 +42,13 @@
 a {
    color: inherit;
    text-decoration: none;
-   font-weight: bold;
 }
-
+body{
+   font-family: var(--font-sans);
+}
+h1{
+   font-weight: 500;
+}
 
 
 
@@ -55,6 +69,87 @@ a {
 
 
 
+
+   /* RESPONSIVE FLEX LEAYOUT */
+      /* PARENT */
+
+      .flex-col-center-center{ display: flex; flex-direction: column; justify-content: center; align-items: center;  }
+      .flex-col-center-start { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+      .flex-col-start-start { display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+      .flex-col-center-end {display: flex; flex-direction: column; justify-content: center; align-items: flex-end;}
+
+      .flex-row-center-center{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center;  }
+      .flex-row-center-start{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start;  }
+      .flex-row-center-end{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-end;  }
+      .flex-row-between-center{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center;  }
+      .flex-row-between-start{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;  }
+      .flex-row-around-center{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around  ; align-items: center;  }
+      .flex-row-stretch-stretch{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around  ; align-items: stretch; align-content: stretch; }
+      .flex-row-start-between{display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start  ; align-items: space-between ; }
+      .flex-row-start-center{display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start  ; align-items: center ; }
+      .flex-row-start-start{display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start  ; align-items: flex-start; }
+      .flex-row-start-start-nowrap{display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start  ; align-items: flex-start; }
+
+
+      /* no wrap */
+      .flex-row-nowrap-start-center{display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start  ; align-items: center ; }
+
+       /* CHILDREN */
+       
+      .flex-grow1_0{ flex-grow: 1.0;}
+      /*.flex-grow1_2{ flex-grow: 1.2;}*//*DELETE IF NOT IN USE*/
+      /*.flex-grow1_5{ flex-grow: 1.5;}*//*DELETE IF NOT IN USE*/
+      .flex-grow2_0{ flex-grow: 2.0;}
+      .flex-grow3_0{ flex-grow: 3.0;}
+      /*.flex-grow4_0{ flex-grow: 4.0;}*//*DELETE IF NOT IN USE*/
+
+
+   // scroll
+
+   .overscroll { overflow:auto; }
+   .overscroll-x { overflow-x:auto; }
+   .overscroll-y { overflow-y:auto; }
+
+
+
+/* VERTICAL SPACINGS */ /*DELETE IF NOT UESED*/
+
+
+/*.top-padding-xs{ padding-top: var(--space-xs) }
+.top-padding-sm{ padding-top: var(--space-sm) }
+.top-padding-md{ padding-top: var(--space-md) }
+.top-padding-lg{ padding-top: var(--space-lg) }
+
+.bottom-padding-xs{ padding-bottom: var(--space-xs) }
+.bottom-padding-sm{ padding-bottom: var(--space-sm) }
+.bottom-padding-md{ padding-bottom: var(--space-md) }
+.bottom-padding-lg{ padding-bottom: var(--space-lg) }
+
+.top-margin-xs{ margin-top: var(--space-xs) }
+.top-margin-sm{ margin-top: var(--space-sm) }
+.top-margin-md{ margin-top: var(--space-md) }
+.top-margin-lg{ margin-top: var(--space-lg) }
+
+.bottom-margin-xs{ margin-bottom: var(--space-xs) }
+.bottom-margin-sm{ margin-bottom: var(--space-sm) }
+.bottom-margin-md{ margin-bottom: var(--space-md) }
+.bottom-margin-lg{ margin-bottom: var(--space-lg) }*/
+
+
+/* IMAGES */
+
+.image-cover{
+   object-fit: cover;
+   background-repeat: no-repeat;
+}
+
+.image-contain{
+   object-fit: contain;
+   background-repeat: no-repeat;
+}
+/* http://placehold.jp/500x500.png */
+
+
 /* PAGE ELEMENTS */
 .ui-mobile .ui-page-active {
    display: flex;
@@ -64,19 +159,46 @@ a {
 [data-role="main"] {
    flex: 1 1 100%;
 }
-[data-role="header"],
-[data-role="footer"] {
+[data-role="header"] {
    flex: none;
    height: var(--header-height);
    line-height: var(--header-height);
    border-width: 0;
    background-color: var(--color-white);
-   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   /*box-shadow: 0 0 5px rgba(0,0,0,0.2);*/
    position: relative;
    overflow: hidden;
 }
 
+.bottom-nav{
+   flex: none;
+   height: var(--header-height);
+   /*line-height: var(--header-height);*/
+   border-width: 0;
+   background-color: var(--color-white);
+   /*box-shadow: 0 0 5px rgba(0,0,0,0.2);*/
+   position: relative;
+   /*overflow: hidden;*/
+}
+.bottom-nav-link{
+   width: 50%;
+}
+.bottom-nav-name{
+   height: auto;
+   margin-block-start:0em;
+   margin-block-end:0em;
+   font-size: 0.8em;
+}
+.map-link{
 
+}
+.list-link{
+   
+}
+
+
+
+/*
 [data-role="header"] ul,
 [data-role="footer"] ul {
    display: flex;
@@ -92,12 +214,12 @@ a {
 [data-role="header"] a,
 [data-role="footer"] a {
    display: block;
-}
+}*/
 [data-role="header"] a {
    padding: 0 1em;
 }
 
-.ui-header .ui-title {
+/*.ui-header .ui-title {
    position: absolute;
    top: 0;
    left: 0;
@@ -107,7 +229,7 @@ a {
    margin: 0;
    font-size: 1rem;
    padding: 0;
-}
+}*/
 
 
 
@@ -141,3 +263,140 @@ a {
     text-decoration: none;
 }
 .form-label {}
+
+
+/*ICONS*/
+
+.icon{
+   fill: var(--color-dark);
+}
+
+.icon.active{
+   fill: var(--color-main-dark);
+}
+.icon-xs{
+   height:1em;
+   width:1em;
+}
+.icon-sm{
+   height:1.5em;
+   width:1.5em;
+}
+.icon-md{
+   height:2em;
+   width:2em;
+}
+.icon-lg{
+   height:3em;
+   width:3em;
+}
+
+
+
+/*BUTTONS*/
+.primary-btn{
+   width: 100%;
+   display: inline-block;
+   border-width: 0;
+   background-color: var(--color-main-dark);
+   color: var(--color-pure-white);
+   margin: 0;
+   padding: 0.5em 1em;
+   border-radius: 1em;
+   outline: 0;
+   font: inherit;
+   text-align: center;
+   cursor: pointer;
+   text-decoration: none;
+   font-weight: 600;
+}
+
+.next-btn{
+   width: 30%;
+}
+.full-btn{
+   width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*UPWRAP NAV*/
+
+.upward-nav{
+   height: 3rem;
+}
+.zindex10{
+   z-index: 10;
+}
+
+.profile-icon{
+   border-radius: 50%;
+   background-color: var(--color-white);
+   object-fit: contain;
+   width: 30px;
+   height: 30px;
+   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   margin: 1em;
+   position: absolute;
+   right: 0em;
+}
+
+
+
+/*MAP PAGE*/
+#page-map{
+   background-image: url("../images/map_placeholder2.png");
+   background-repeat: no-repeat;
+   background-origin: content-box;
+   background-size: cover;
+   /*filter: grayscale(100%);*/
+}
+
+/*ADD LOCATION*/
+.bottom-container{
+   background-color: var(--color-pure-white);
+   border-radius: 1em 1em 0em 0em ;
+   box-shadow: 0px 14px 20px 9px rgba(0,0,0,0.2);
+   padding: 1em;
+   border-style: hidden;
+   position: relative;
+}
+
+
+   /*SET LOCATION*/
+   #set-location{
+      background-color: var(--color-white);
+
+   }
+
+
+
+
+
+
+
+
+
+/*PROFILE PAGE*/
+.profile-image{
+   border-radius: 50%;
+   background-color: var(--color-neutral-light);
+   object-fit: contain;
+   width: 100px;
+   height: 100px;
+}
+.profile-more-icon{
+   position: absolute;
+   right: 1em;
+}
+.profile-content-container{
+   padding-top: 10px;
+}

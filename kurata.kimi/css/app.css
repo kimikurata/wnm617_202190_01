@@ -8,8 +8,8 @@
    --color-main-medium: #efbbb6;
    --color-main-dark: #f295a0;
 
-   --color-secondary-light: #f0fcff;
-   --color-secondary-medium: #85c4dd;
+   --color-secondary-light: #eef6f6;
+   --color-secondary-medium: #85dcdd;
    --color-secondary-dark: #45567a;
 
    --color-white: #F9F9F9;
@@ -114,8 +114,9 @@ h1{
 
 
    // scroll
+   .overscroll{overflow: auto;}
 
-   .overscroll { overflow:auto; }
+
    .overscroll-x { overflow-x:auto; }
    .overscroll-y { overflow-y:auto; }
 
@@ -148,6 +149,10 @@ h1{
    margin: 1em 3em;
 }
 
+.container{
+   margin:0 1em ;
+}
+
 /* IMAGES */
 
 .image-cover{
@@ -166,10 +171,17 @@ h1{
 .ui-mobile .ui-page-active {
    display: flex;
    flex-direction: column;
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   overflow: hidden;
 }
 
 [data-role="main"] {
    flex: 1 1 100%;
+   position: relative;
 }
 [data-role="header"] {
    flex: none;
@@ -223,7 +235,6 @@ h1{
    top: 0px;
    overflow: hidden;
    z-index: 1; 
-
 }
 
 
@@ -279,6 +290,7 @@ h1{
     outline: 0;
     font: inherit;
 }
+.form .form-button,
 .form-button {
     width: 100%;
     display: inline-block;
@@ -384,6 +396,8 @@ h1{
 
 
 /*BUTTONS*/
+
+.form-control .primary-btn,
 .primary-btn{
    width: 100%;
    height: 2.5em;
@@ -401,13 +415,149 @@ h1{
    text-decoration: none;
    font-weight: 600;
 }
-
+.btn-circle{
+   display: inline-block;
+   background-color: var(--color-white);
+   width: 3rem;
+   height: 3rem;
+   line-height: 3rem;
+   text-align: center;
+   font-size: 1.5rem;
+   border-radius: 2em;
+   box-shadow: 2px 2px 5px rgba(0,0,0,0.5);   
+}
 .next-btn{
    width: 30%;
 }
 .full-btn{
    width: 100%;
 }
+
+
+
+
+/*FLOATER*/
+.floater { position:absolute; }
+.floater.left { left:1em; }
+.floater.right { right:1em; }
+.floater.top { top:1em; }
+.floater.bottom { bottom:5em; }
+
+
+
+/* MODAL */
+.modal {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   opacity: 0;
+   transition: all 0.3s;
+   z-index: 12;
+}
+.modal.active {
+   pointer-events: initial;
+   opacity: 1;
+}
+.modal-back {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.7);
+}
+
+
+/* MODAL */
+.modal {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   opacity: 0;
+   transition: all 0.3s;
+}
+.modal.active {
+   pointer-events: initial;
+   opacity: 1;
+}
+.modal-back {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.7);
+}
+
+/* Modal Popup */
+.modal-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,calc(-50% + 3em));
+    border-radius: 5px;
+    width: 80vmin;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.modal-body {
+    padding: 10px;
+    background-color: var(--color-white);
+}
+.modal-head,
+.modal-foot {
+    background-color: var(--color-neutral-light);
+    line-height: 2rem;
+    padding: 0 1em;
+}
+.modal.active .modal-popup {
+   transform: translate(-50%,-50%);
+}
+
+
+
+/* Modal Drawer */
+.modal-drawer {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   transition: all 0.3s;
+   box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+.modal-drawer.left,
+.modal-drawer.right {
+   height: 100%;
+   width: 70vw;
+}
+.modal-drawer.left { left: 0; transform:translateX(-100%); }
+.modal-drawer.right { right: 0; transform:translateX(100%); }
+
+.modal-drawer.top,
+.modal-drawer.bottom {
+   height: 40vh;
+   width: 100%;
+}
+.modal-drawer.top { top: 0; transform:translateY(-100%); }
+.modal-drawer.bottom { bottom: 0; transform:translateY(100%); }
+
+.modal.active .modal-drawer {
+   transform: translate(0);
+}
+
+
+.modal-drawer .modal-body {
+   flex: 1 1 100%;
+}
+
+
+
+
 
 
 
@@ -479,12 +629,18 @@ h1{
    position: relative;
    right: 0em;
 }
-#page-map{
+.map{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
    background-image: url("../images/map_placeholder2.png");
-   background-repeat: no-repeat;
-   background-origin: content-box;
    background-size: cover;
-   /*filter: grayscale(100%);*/
+   background-position: center;
+}
+#page-map{
+
 }
 
 .add-btn{
@@ -500,6 +656,7 @@ h1{
    margin-right: auto;
    left: 0;
    right: 0;
+   z-index: 11;
    /*box-shadow: 0px 0px 9px 4px  rgba(255,195,201,0.6);*/
 
 }
@@ -545,8 +702,8 @@ h1{
    height: 100px;
 }
 .profile-more-icon{
-   position: absolute;
-   right: 1em;
+   /*position: absolute;*/
+   /*right: 1em;*/
 }
 .profile-content-container{
    padding-top: 10px;

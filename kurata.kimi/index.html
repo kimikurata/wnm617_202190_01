@@ -23,6 +23,8 @@
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/signin.js"></script>
+
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
 
@@ -56,7 +58,7 @@
 					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><span class="label-password"></span>
 				</div>
 				<div class="form-control ">
-					<a href="#page-map" class="primary-btn">Login</a>
+					<input type="submit" class="primary-btn" value="Login">
 				</div>
 				<div class="flex-col-center-center">
 					<a class="signup-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight">Sign UP</span></a>
@@ -100,23 +102,25 @@
 
 
 	<!-- PAGE MAP-->
-	<section data-role="page" id="page-map">
+	<section data-role="page" id="page-map" class="map">
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch">
 				<form  action="">
 					<input class="search-bar" type="text" name="search" placeholder="Search..">
 				</form>
 			</div>
-			<a href="user_profile.html">
+			<a href="#page-user-profile">
 	     		<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
 	     	</a>
 
 		</div>
+
 		<div data-role="main">
 			
-			<a class="" href="#page-set-category" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
+			
 
 		</div>
+		<a class="" href="#page-set-category" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
 		<footer class="bottom-nav" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 					<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
@@ -189,27 +193,76 @@
 
 	<!-- PAGE LIST -->
 	<section data-role="page" id="page-list">
-		<div class="">
-			<a href="user_profile.html">
+		<div class="flex-row-nowrap-between-center">
+			<div class="flex-stretch">
+				<form  action="">
+					<input class="search-bar" type="text" name="search" placeholder="Search..">
+				</form>
+			</div>
+			<a href="#page-user-profile">
 	     		<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
 	     	</a>
+
 		</div>
-		<div data-role="main">
-			<ul>
-				<!-- li*10>a[href=#page-flower-profile]{Flower $} -->
-				<li><a href="#page-flower-profile">Flower 1</a></li>
-				<li><a href="#page-flower-profile">Flower 2</a></li>
-				<li><a href="#page-flower-profile">Flower 3</a></li>
-				<li><a href="#page-flower-profile">Flower 4</a></li>
-				<li><a href="#page-flower-profile">Flower 5</a></li>
-				<li><a href="#page-flower-profile">Flower 6</a></li>
-				<li><a href="#page-flower-profile">Flower 7</a></li>
-				<li><a href="#page-flower-profile">Flower 8</a></li>
-				<li><a href="#page-flower-profile">Flower 9</a></li>
-				<li><a href="#page-flower-profile">Flower 10</a></li>
-			</ul>
-			<a class="" href="#page-set-category" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
+		<div data-role="main" class="overscroll-x">
+				<ul>
+					<!-- li*10>a[href=#page-flower-profile]{Flower $} -->
+					<li><a href="#page-flower-profile">Flower 1</a></li>
+					<li><a href="#page-flower-profile">Flower 2</a></li>
+					<li><a href="#page-flower-profile">Flower 3</a></li>
+					<li><a href="#page-flower-profile">Flower 4</a></li>
+					<li><a href="#page-flower-profile">Flower 5</a></li>
+					<li><a href="#page-flower-profile">Flower 6</a></li>
+					<li><a href="#page-flower-profile">Flower 7</a></li>
+					<li><a href="#page-flower-profile">Flower 8</a></li>
+					<li><a href="#page-flower-profile">Flower 9</a></li>
+					<li><a href="#page-flower-profile">Flower 10</a></li>
+					<li><a href="#page-flower-profile">Flower 11</a></li>
+					<li><a href="#page-flower-profile">Flower 12</a></li>
+					<li><a href="#page-flower-profile">Flower 13</a></li>
+					<li><a href="#page-flower-profile">Flower 14</a></li>
+					<li><a href="#page-flower-profile">Flower 15</a></li>
+					<li><a href="#page-flower-profile">Flower 16</a></li>
+					<li><a href="#page-flower-profile">Flower 17</a></li>
+					<li><a href="#page-flower-profile">Flower 18</a></li>
+					<li><a href="#page-flower-profile">Flower 19</a></li>
+					<li><a href="#page-flower-profile">Flower 20</a></li>
+					<li><a href="#page-flower-profile">Flower 21</a></li>
+					<li><a href="#page-flower-profile">Flower 22</a></li>
+					<li><a href="#page-flower-profile">Flower 23</a></li>
+					<li><a href="#page-flower-profile">Flower 24</a></li>
+					<li><a href="#page-flower-profile">Flower 25</a></li>
+					<li><a href="#page-flower-profile">Flower 26</a></li>
+					<li><a href="#page-flower-profile">Flower 27</a></li>
+					<li><a href="#page-flower-profile">Flower 28</a></li>
+					<li><a href="#page-flower-profile">Flower 29</a></li>
+					<li><a href="#page-flower-profile">Flower 30</a></li>
+					<li><a href="#page-flower-profile">Flower 31</a></li>
+					<li><a href="#page-flower-profile">Flower 32</a></li>
+					<li><a href="#page-flower-profile">Flower 33</a></li>
+					<li><a href="#page-flower-profile">Flower 34</a></li>
+					<li><a href="#page-flower-profile">Flower 35</a></li>
+					<li><a href="#page-flower-profile">Flower 36</a></li>
+					<li><a href="#page-flower-profile">Flower 37</a></li>
+					<li><a href="#page-flower-profile">Flower 38</a></li>
+					<li><a href="#page-flower-profile">Flower 39</a></li>
+					<li><a href="#page-flower-profile">Flower 40</a></li>
+					<li><a href="#page-flower-profile">Flower 41</a></li>
+					<li><a href="#page-flower-profile">Flower 42</a></li>
+					<li><a href="#page-flower-profile">Flower 43</a></li>
+					<li><a href="#page-flower-profile">Flower 44</a></li>
+					<li><a href="#page-flower-profile">Flower 45</a></li>
+					<li><a href="#page-flower-profile">Flower 46</a></li>
+					<li><a href="#page-flower-profile">Flower 47</a></li>
+					<li><a href="#page-flower-profile">Flower 48</a></li>
+					<li><a href="#page-flower-profile">Flower 49</a></li>
+					<li><a href="#page-flower-profile">Flower 50</a></li>
+				</ul>
 		</div>
+		<div class="floater bottom right">
+					<a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+				</div>
+		<a class="" href="#page-set-category" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
 		<footer class="bottom-nav" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 					<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
@@ -225,20 +278,64 @@
 					</a>
 			</div>
 		</footer>
+		<div class="modal" id="list-add-modal">
+	         <div class="modal-back" data-deactivate="#list-add-modal"></div>
+	         <div class="modal-popup">
+	            <div class="modal-head">head</div>
+	            <div class="modal-body">body</div>
+	            <div class="modal-foot">foot</div>
+	         </div>
+	      </div>
 	</section>
 
-<!-- 	<section data-role="page" id="page-user-profile">
-		<div data-role="main">
-			USER!
+	<section data-role="page" id="page-user-profile">
+		<div class="overscroll-x" data-role="main ">
+			<header class="flex-row-nowrap-around-center" data-role="header">
+				<a class="zindex10" href="#" data-rel="back">Back</a>
+				<h1>Profile</h1>
+				<div class="profile-more-icon">
+					<div class="icon-sm" data-activate="#profile-more-modal" href="#" ><img src="images/icons/more.svg" alt=""></div>
+				</div>
+			</header>
+			<div class="profile-content-container">
+				
+			    <div class="flex-col-center-center profile-image-container">
+			    	<div class="profile-image flex-col-center-center">
+			    		<img class="icon-lg" src="images/icons/profile.svg" alt="profile">
+			    	</div>
+			    </div>
+			    <!-- <hr class="spacer-line "> -->
+			    <div class="flex-row-nowrap-between-center user-numbers-container">
+			    	<div class="number-card flex-col-center-center">
+			    		<p class="data-number">7</p>
+			    		<p class="data-title">Flowers</p>
+			    	</div>
+			    	<div class="number-card flex-col-center-center">
+			    		<p class="data-number">3</p>
+			    		<p class="data-title">Colors</p>
+			    	</div>
+			    	<div class="number-card flex-col-center-center">
+			    		<p class="data-number">14</p>
+			    		<p class="data-title">Locations</p>
+			    	</div>
+			    </div>
+			</div>
+
+			<div class="container">
+	            <button class="primary-btn js-logout">Log Out</button>
+	        </div>
 		</div>
-		<footer class="bottom-nav" data-role="footer">
-			<ul>
-				<li><a href="#page-map">Recent</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-list">Profile</a></li>
-			</ul>
-		</footer>
-	</section> -->
+		<div class="modal" id="profile-more-modal">
+	        <div class="modal-back" data-deactivate="#profile-more-modal"></div>
+	        <div class="modal-drawer right">
+	            <div class="modal-head">Drawer</div>
+	            <div class="modal-body">
+	               <p>Edit</p>
+	               <p>Change password</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
 
 	<section data-role="page" id="page-flower-profile">
 		<header data-role="header">
@@ -251,9 +348,5 @@
 			Flower!
 		</div>
 	</section>
-
-
-
-
 </body>
 </html>

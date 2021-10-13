@@ -1,1 +1,11 @@
-<svg id="icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="60" cy="94.81" r="6.5" style="fill:#2b3547"/><path d="M60,19.32A24.3,24.3,0,0,0,35.73,43.59c0,11.14,14.62,31.2,19.1,37.08a6.5,6.5,0,0,0,10.34,0c4.48-5.88,19.1-25.94,19.1-37.08A24.3,24.3,0,0,0,60,19.32Zm0,35A10.91,10.91,0,1,1,70.91,43.42,10.91,10.91,0,0,1,60,54.33Z" style="fill:#2b3547"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F295A0;}
+</style>
+<circle class="st0" cx="60" cy="94.8" r="6.5"/>
+<path class="st0" d="M60,19.3c-13.4,0-24.3,10.9-24.3,24.3c0,11.1,14.6,31.2,19.1,37.1c2.2,2.9,6.3,3.4,9.1,1.2
+	c0.5-0.4,0.9-0.8,1.2-1.2c4.5-5.9,19.1-25.9,19.1-37.1C84.3,30.2,73.4,19.3,60,19.3z"/>
+</svg>

@@ -3,7 +3,21 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#231F20;}
+	.st0{fill:#fff;}
 </style>
-<path class="st0" d="M79,0.7c0,21.5-17.5,39-39,39S1,22.2,1,0.7H0v158.7h80V0.7H79z"/>
+<!-- sourse -->
+<!-- https://stackoverflow.com/questions/6088409/svg-drop-shadow-using-css3 -->
+
+<filter id="dropshadow" height="130%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
+  <feOffset dx="0" dy="3" result="offsetblur"/> <!-- how much to offset -->
+  <feComponentTransfer>
+    <feFuncA type="linear" slope="0.2"/> <!-- slope is the opacity of the shadow -->
+  </feComponentTransfer>
+  <feMerge> 
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+  </feMerge>
+</filter>
+<path class="st0" style="filter:url(#dropshadow)" d="M79,0c0,21.5-17.5,39-39,39S1,21.5,1,0H0v158.7h80V0H79z"/>
 </svg>

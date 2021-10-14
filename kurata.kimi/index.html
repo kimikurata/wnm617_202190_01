@@ -58,13 +58,11 @@
 					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><span class="label-password"></span>
 				</div>
 				<div class="form-control ">
-					<input type="submit" class="primary-btn" data-role="none" value="Login">
+					<input type="submit" class="form-button" data-role="none" value="Login">
 				</div>
-
 				<div class="flex-col-center-center">
 					<a class="signup-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight">Sign UP</span></a>
 				</div>
-				
 			</form>
 		</div>
 	</section>
@@ -97,7 +95,7 @@
 					<input class="form-input-lined" type="password" id="sign-up-password" data-role="none" placeholder="Password"><span class="label-password"></span>
 				</div>
 				<div class="form-control ">
-					<a href="#page-map" class="primary-btn">Create Account</a>
+					<a href="#page-map" class="form-button">Create Account</a>
 				</div>
 				<div class="flex-col-center-center">
 					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-highlight">Login</span></a>
@@ -126,8 +124,8 @@
 		<div class="chip-container flex-row-nowrap-start-center overscroll-y">
 			<p class="chip all-chip">All</p>
 			<hr class="chip-separator" width="1" size="15px">
-			<p class="chip active">Tulip</p>
-			<p class="chip">Lili</p>
+			<p class="chip active">Tulips</p>
+			<p class="chip">Lily</p>
 			<p class="chip">Rose</p>
 			<hr class="chip-separator" width="1" size="15px">
 			<p class="chip">Pink</p>
@@ -138,7 +136,7 @@
 			<div class="map-area flex-col-center-center">
 				<div class="map-item-container flex-col-center-center" data-activate="#map-item-modal">
 					<div class="map-item-img-box">
-						<img class="image-contain" src="images/flower_placeholder.png" alt="">
+						<img class="map-item-img" src="images/tulips.jpeg" alt="">
 					</div>
 					<div class="location-dot"></div>
 				</div>
@@ -173,9 +171,13 @@
 				<div class="modal-body">
 					<a class="flex-row-start-center" href="#page-flower-profile" >
 						<div class="map-modal-item-img-container">
-							<img class="image-contain map-modal-item-img" src="images/flower_placeholder.png" alt="">
+							<img class="image-cover map-modal-item-img" src="images/tulips.jpeg" alt="">
 						</div>
-						<p class="drawer-item-text">Flower nickname</p>
+						<div class="flex-col-start-center">
+							<p class="drawer-item-text-title text-bold">Flower nickname</p>
+							<p class="drawer-item-text-info text-gray">Purple / Tulip</p>
+						</div>
+						
 					</a>
 				</div>
 			</div>
@@ -204,20 +206,25 @@
 			<div class="card flex-col-center-center show-all-card ">
 				<p class=" list-filter-title">All</p>
 			</div>
-			<hr class="list-filter-separator" width="1" size="65px">
+			
+			<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
+			
 			<div class="card flex-col-center-start list-filter-item active">
-				<p class="list-filter-title ">Tulip33</p>
+				<p class="list-filter-title ">Tulips</p>
 				<p class="list-filter-counts">3 Items</p>
 			</div>
 			<div class="card flex-col-center-start list-filter-item ">
-				<p class="list-filter-title">Lili</p>
+				<p class="list-filter-title">Lily</p>
 				<p class="list-filter-counts">3 Items</p>
 			</div>
 			<div class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title">Rose</p>
 				<p class="list-filter-counts">3 Items</p>
 			</div>
-			<hr class="list-filter-separator" width="1" size="65px">
+			<a class="card dark flex-col-center-center " href="#page-new-category">
+				<p class=" list-filter-title">+</p>
+			</a>
+			<hr class="list-filter-separator"style="border-right: 1px solid var(--color-neutral-medium;">
 			<div class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title">Pink</p>
 				<p class="list-filter-counts">3 Items</p>
@@ -231,10 +238,30 @@
 				<p class="list-filter-counts">3 Items</p>
 			</div>
 			
+			<div class="flex-stretch"></div>
 		</div>
 		<div data-role="main" class="overscroll-x">
-			<ul>
-				<!-- li*10>a[href=#page-flower-profile]{Flower $} -->
+			
+			<div class="display-flex flex-vertical">
+				<div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+                <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
+
+            </div>
+			<!-- <ul class="flowerlist">
+				li*10>a[href=#page-flower-profile]{Flower $}
 				<li><a href="#page-flower-profile">Flower 1</a></li>
 				<li><a href="#page-flower-profile">Flower 2</a></li>
 				<li><a href="#page-flower-profile">Flower 3</a></li>
@@ -252,53 +279,20 @@
 				<li><a href="#page-flower-profile">Flower 15</a></li>
 				<li><a href="#page-flower-profile">Flower 16</a></li>
 				<li><a href="#page-flower-profile">Flower 17</a></li>
-				<li><a href="#page-flower-profile">Flower 18</a></li>
-				<li><a href="#page-flower-profile">Flower 19</a></li>
-				<li><a href="#page-flower-profile">Flower 20</a></li>
-				<li><a href="#page-flower-profile">Flower 21</a></li>
-				<li><a href="#page-flower-profile">Flower 22</a></li>
-				<li><a href="#page-flower-profile">Flower 23</a></li>
-				<li><a href="#page-flower-profile">Flower 24</a></li>
-				<li><a href="#page-flower-profile">Flower 25</a></li>
-				<li><a href="#page-flower-profile">Flower 26</a></li>
-				<li><a href="#page-flower-profile">Flower 27</a></li>
-				<li><a href="#page-flower-profile">Flower 28</a></li>
-				<li><a href="#page-flower-profile">Flower 29</a></li>
-				<li><a href="#page-flower-profile">Flower 30</a></li>
-				<li><a href="#page-flower-profile">Flower 31</a></li>
-				<li><a href="#page-flower-profile">Flower 32</a></li>
-				<li><a href="#page-flower-profile">Flower 33</a></li>
-				<li><a href="#page-flower-profile">Flower 34</a></li>
-				<li><a href="#page-flower-profile">Flower 35</a></li>
-				<li><a href="#page-flower-profile">Flower 36</a></li>
-				<li><a href="#page-flower-profile">Flower 37</a></li>
-				<li><a href="#page-flower-profile">Flower 38</a></li>
-				<li><a href="#page-flower-profile">Flower 39</a></li>
-				<li><a href="#page-flower-profile">Flower 40</a></li>
-				<li><a href="#page-flower-profile">Flower 41</a></li>
-				<li><a href="#page-flower-profile">Flower 42</a></li>
-				<li><a href="#page-flower-profile">Flower 43</a></li>
-				<li><a href="#page-flower-profile">Flower 44</a></li>
-				<li><a href="#page-flower-profile">Flower 45</a></li>
-				<li><a href="#page-flower-profile">Flower 46</a></li>
-				<li><a href="#page-flower-profile">Flower 47</a></li>
-				<li><a href="#page-flower-profile">Flower 48</a></li>
-				<li><a href="#page-flower-profile">Flower 49</a></li>
-				<li><a href="#page-flower-profile">Flower 50</a></li>
-			</ul>
+			</ul> -->
 		</div>
 		
 		
 		<footer class="bottom-nav" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 				<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
-					<svg id="iconmap" class="icon icon-md active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg>	
-					<p class="bottom-nav-name active">MAP</p>
+					<svg id="iconmap" class="icon icon-md " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg>	
+					<p class="bottom-nav-name ">MAP</p>
 				</a>
 				<div class="spacer-container"><img class="spacer-image " src="images/circle_spacer.svg" alt=""></div>
 				<a class="bottom-nav-link list-link flex-col-center-center" href="#page-list">
-					<svg id="iconlist" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
-					<p class="bottom-nav-name">LIST</p>
+					<svg id="iconlist" class="icon icon-md active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
+					<p class="bottom-nav-name active">LIST</p>
 				</a>
 			</div>
 		</footer>
@@ -313,33 +307,44 @@
 
 	<!-- PAGE FLOWER PROFILE -->
 	<section data-role="page" id="page-flower-profile">
-		<header data-role="header">
-			
-			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"></a>
-
-		</header>
+		
 		<div data-role="main " class="overscroll-x">
-			<div class="flower-image-container disply-flex">
-				<img class="flower-image image-cover" src="images/flower_placeholder.png" alt="flowe image">
-				<div class="flex-row-nowrap-end-center">
+			<div class="flower-image-container ">
+				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flowe image">
+				<div class="flex-row-nowrap-end-start">
 					<div class="edit-flower-img">+</div>
 				</div>
+				<div class="flex-col-start-start corners">
+					<img class="inverted-corner" src="images/inverted_corner.svg" alt="">
+					<div class="corner-box-top">
+						<div class="container top-padding-xs flower-info-box">
+							
+
+							<div class="flex-row-center-center">
+								<p class=" flower-profile-name " >Flower Name</p>
+								<div class="flex-stretch"></div>
+								<a class="flex-col-center-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;"><svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg></a>
+								<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#bdc4c6"/><circle cx="88.48" cy="31.45" r="9" style="fill:#bdc4c6"/></svg></a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="container top-padding-xs">
-				<div class="flex-row-center-center">
-					<p class=" flower-profile-name " >Flower Name</p>
-					<div class="flex-stretch"></div>
-					<a class="flex-col-center-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;"><svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg></a>
-					<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#bdc4c6"/><circle cx="88.48" cy="31.45" r="9" style="fill:#bdc4c6"/></svg></a>
-				</div>
+			<div class="container top-padding-xs flower-info-box">
+				
 				<p class="text-light text-gray flower-info"><span style="color: var(--color-main-medium); font-weight: 600;">Color: </span>Pink</p>
-				<p class="text-light text-gray flower-info bottom-padding-xs"><span style="color: var(--color-main-medium); font-weight: 600;">Size: </span>Small</p>
-				</div>
+				<p class="text-light text-gray flower-info "><span style="color: var(--color-main-medium); font-weight: 600;">Size: </span>Small</p>
+				<p class="bottom-padding-xs flower-location-title-box">Location:</p>
+			</div>
 			<div class=" locations-box">
 				<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image">
 			</div>
 		</div>
+		<header data-role="header" class="floating-header">
+			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
+					<img class="icon-md icon" src="images/icons/arrow_w.svg" alt="back"></a>
+
+		</header>
 		<div class="modal" id="delete-flower-modal">
 			<div class="modal-back" data-deactivate="#delete-flower-modal"></div>
 			<div class="modal-popup">
@@ -374,25 +379,30 @@
 			<a>		
 			<a class="zindex10" href="" data-rel="back">Cancel</a>
 		</header>
-		<div class="overscroll-x" data-role="main overscroll-x">
-			<div class="container top-padding-xs">
-				<h1 class="container top-padding-xs">Edit flower information</h1>
-				<form class="form container" data-ajax="false"  id="edit-flower-form" style="padding:10px">
+		<div class="" data-role="main" >
+			<form class="form fill-parent display-flex flex-vertical" data-ajax="false"  id="edit-flower-form" style="padding:0 1em">
+				<div class="flex-stretch position-relative">
+					<div class="fill-parent overscroll position-absolute">
+						<h1 class="top-padding-xs">Edit flower information</h1>
+						<div class="form-control">
+							<input class="form-input-lined" type="text" id="edit-flower-name" data-role="none" placeholder="Flower name"><span class="label-flower-name"></span>
+						</div>
+						<div class="form-control ">
+							<input class="form-input-lined" type="text" id="edit-flower-color" data-role="none" placeholder="Flower color"><span class="label-flower-color"></span>
+						</div>
+						
+						<div class="form-control">
+							<input class="form-input-lined" type="text" id="edit-flower-size" data-role="none" placeholder="Flower size"><span class="label-flower-size"></span>
+						</div>
+					</div>
+				</div>
+				<div class="flex-none">
 					<div class="form-control">
-						<input class="form-input-lined" type="text" id="edit-flower-name" data-role="none" placeholder="Flower name"><span class="label-flower-name"></span>
-					</div>
-					<div class="form-control ">
-						<input class="form-input-lined" type="text" id="edit-flower-color" data-role="none" placeholder="Flower color"><span class="label-flower-color"></span>
-					</div>
-					<div class="form-control bottom-padding-lg">
-						<input class="form-input-lined" type="text" id="edit-flower-size" data-role="none" placeholder="Flower size"><span class="label-flower-size"></span>
-					</div>
-					
-					<div class="form-control">
+						<!-- <button type="submit" class="form-button">Save</button> -->
 						<a href="#page-flower-profile" class="primary-btn">Save</a>
-					</div>			
-				</form>
-			</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	</section>
 
@@ -404,9 +414,6 @@
 	
 	<!-- PAGE ADD -->
 	<section data-role="page" id="page-set-category">
-		<!-- <header data-role="header">
-			<a class="zindex10" href="#page-set-location" data-rel="back">Back</a>
-		</header> -->
 		<header class="flex-row-nowrap-start-center" data-role="header">
 				<a class="" href="" data-rel="back"></a>
 				<a class="zindex10 " href="index.html#page-map" data-rel="back">Cancel</a>
@@ -416,21 +423,9 @@
 				<div class="progress-bar percent30"></div>
 			</div>
 			<div class="illustration-contaier flex-col-center-center">
-				<img class="image-contain category-illustration" src="images/category_illustration.png" alt="">
+				<img class="image-cover category-illustration" src="images/category_illustration.png" alt="">
 			</div>
-
-
 		</div>
-		<!-- <footer class="bottom-container" data-role="footer">
-			<h3>What is the Category?</h3>
-			<p>Chose 1 category</p>
-			<p>Create a new one</p>
-
-			<div class="display-flex">
-				<div class="flex-stretch"></div>
-				<div class="next-btn"><a class="primary-btn" href="#page-set-location">Next</a></div>
-			</div>
-		</footer> -->
 		<form class="form login-container" data-ajax="false"  id="category-form" style="padding:10px">
 				<!-- <h3 class="login-title">Create Account</h3> -->
 			<h3>What is the Category?</h3>
@@ -442,10 +437,11 @@
 					<option value="Mexico">Rose</option>
 				</select><span class="label-category-name"></span>
 			</div>
-			<p>Or create a new one</p>
-			<div class="form-control">
-				<input class="form-input-lined" type="text" id="new-category" data-role="none" placeholder="New Category name"><span class="label--new-category-name"></span>
+			<div class="flex-row-center-center top-padding-xs bottom-padding-xs">
+				<a class="text-center text-bold text-highlight"  data-role="none" href="#page-new-category">Or create new category</a>
+				
 			</div>
+			
 			
 			<div class="display-flex form-control">
 				<div class="flex-stretch"></div>
@@ -460,7 +456,7 @@
 			
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
 					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"></a>
-			<a class="zindex10" href="index.html#page-map" data-rel="#page-map">Cancel</a>
+			<a class="zindex10" href="#" data-rel="back">Cancel</a>
 		</header>
 		<div data-role="main">
 			<div class="progress-bar-container">
@@ -501,7 +497,7 @@
 				<div class="progress-bar percent100"></div>
 			</div>
 			<div class="illustration-contaier flex-col-center-center">
-				<img class="image-contain info-illustration" src="images/info_illustration.png" alt="">
+				<img class="image-cover info-illustration" src="images/info_illustration.png" alt="">
 			</div>
 		</div>
 		<!-- <footer class="bottom-container" data-role="footer">
@@ -530,6 +526,39 @@
 		</form>
 	</section>
 
+	<section data-role="page" id="page-new-category">
+		<header data-role="header">
+			<a class="flex-col-center-center back-icon-link" href="" data-rel="none"></a>
+			<a class="zindex10" href="#" data-rel="back">Cancel</a>
+		</header>
+		<div data-role="main">
+			<div class="illustration-contaier flex-col-center-center">
+				<img class="image-cover info-illustration" src="images/new_category_illustration.png" alt="">
+			</div>
+		</div>
+		<form class="form login-container" data-ajax="false"  id="new-category-form" style="padding:10px">
+				<!-- <h3 class="login-title">Create Account</h3> -->
+			<h3>New category</h3>
+
+			<div class="form-control">
+				<input class="form-input-lined" type="text" id="new-category-name" data-role="none" placeholder="New category name"><span class="label-new-category-name"></span>
+			</div>
+			<p>Add an image</p>
+				<div class="flex-col-center-start profile-image-container display-flex">
+					<div class="new-category-img-container">
+						<img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" >
+					</div>
+					<div class="flex-row-nowrap-end-center" style="height: 0px;">
+						<div class="chage-category-img-container">+</div>
+					</div>
+				</div>			
+			<div class="display-flex form-control">
+				<div class="full-btn"><a class="primary-btn" href="#" data-rel="back">Save</a></div>
+				
+			</div>			
+		</form>
+	</section>
+
 	
 
 
@@ -549,7 +578,7 @@
 			<div class="profile-content-container ">
 				<div class="flex-col-center-center profile-image-container display-flex">
 					<div class="profile-image flex-col-center-center">
-						<img class="icon-lg" src="images/icons/profile.svg" alt="profile">
+						<img class="image-cover" src="images/profile.jpg" alt="profile">
 					</div>
 					<div class="flex-row-nowrap-end-center" style="height: 0px;">
 						<div class="chage-img-container">+</div>
@@ -581,9 +610,9 @@
 					<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID:</span> 00063</p>
 				</div>
 			</div>
-			<div class="container top-padding-sm bottom-padding-xs">
+			<!-- <div class="container top-padding-sm bottom-padding-xs">
 				<button class="outlined-btn js-logout">Log Out</button>
-			</div>
+			</div> -->
 		</div>
 		<div class="modal" id="profile-more-modal">
 			<div class="modal-back" data-deactivate="#profile-more-modal"></div>
@@ -606,6 +635,13 @@
 						</div>
 						<p class="drawer-item-text">Change password</p>
 					</a>
+					<hr style="border-top: 1px solid  var(--color-neutral-light);">
+					<a class="flex-row-start-center js-logout"  >
+						<div class="flex-col-center-center">
+							<img class=" icon icon-sm" src="images/icons/logout.svg" alt="password">
+						</div>
+						<p class="drawer-item-text">Log Out</p>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -622,28 +658,28 @@
 			<a class="zindex10" href="#page-user-profile" data-rel="#page-map">Cancel</a>
 		</header>
 		<div class="overscroll-x" data-role="main">
-			<h1 class="container top-padding-xs">Edit Profile</h1>
-			<form class="form container" data-ajax="false"  id="edit-profile-form" style="padding:10px">
-				<p class="body-text">Type your new information.
-				<div class="form-control top-padding-xs">
-					<input class="form-input-lined" type="text" id="user-name" data-role="none" placeholder="Username"><span class="label-user-name"></span>
+			<form class="form fill-parent display-flex flex-vertical" data-ajax="false"  id="edit-user-form" style="padding:0 1em">
+				<div class="flex-stretch position-relative">
+					<div class="fill-parent overscroll position-absolute">
+						<h1 class="top-padding-xs">Type your new information.</h1>
+						<div class="form-control top-padding-xs">
+							<input class="form-input-lined" type="text" id="user-name" data-role="none" placeholder="Username"><span class="label-user-name"></span>
+						</div>
+						<div class="form-control ">
+							<input class="form-input-lined" type="email" id="user-email" data-role="none" placeholder="Email"><span class="label-email"></span>
+						</div>
+					</div>
 				</div>
-				<div class="form-control bottom-padding-lg">
-					<input class="form-input-lined" type="email" id="user-email" data-role="none" placeholder="Email"><span class="label-email"></span>
+				<div class="flex-none">
+					<div class="form-control">
+						<!-- <button type="submit" class="form-button">Save</button> -->
+
+						<a href="#page-user-profile" class="primary-btn">Save</a>
+					</div>
 				</div>
-				
-				<div class="form-control">
-					<a href="#page-user-profile" class="primary-btn">Save</a>
-				</div>			
 			</form>
 		</div>
-		<!-- <footer class="bottom-container" data-role="footer">
-			<h3>Where’s the new location?</h3>
-			<div class="display-flex">
-				<div class="flex-stretch"></div>
-				<div class="next-btn"><a class="primary-btn" href="#page-set-info">Next</a></div>
-			</div>
-		</footer> -->
+		
 		
 	</section>
 
@@ -660,32 +696,30 @@
 			<a class="zindex10" href="#page-user-profile" data-rel="#page-map">Cancel</a>
 		</header>
 		<div class="overscroll-x" data-role="main">
-			<h1 class="container top-padding-xs">Change password</h1>
-			<form class="form container" data-ajax="false"  id="change-password-form" style="padding:10px">
-				<div class="form-control top-padding-xs">
-					<input class="form-input-lined" type="text" id="old-password" data-role="none" placeholder="Old password"><span class="label-old-password"></span>
-				</div>
+			<form class="form fill-parent display-flex flex-vertical" data-ajax="false"  id="change-password-form" style="padding:0 1em">
+				<div class="flex-stretch position-relative">
+					<div class="fill-parent overscroll position-absolute">
+						<h1 class="top-padding-xs">Change password</h1>
+						<div class="form-control top-padding-xs">
+							<input class="form-input-lined" type="text" id="old-password" data-role="none" placeholder="Old password"><span class="label-old-password"></span>
+						</div>
 
-				<div class="form-control ">
-					<input class="form-input-lined" type="password" id="new-password" data-role="none" placeholder="New password"><span class="label-new-password"></span>
+						<div class="form-control ">
+							<input class="form-input-lined" type="password" id="new-password" data-role="none" placeholder="New password"><span class="label-new-password"></span>
+						</div>
+						<div class="form-control ">
+							<input class="form-input-lined" type="password" id="confirm-password" data-role="none" placeholder="Confirm password"><span class="label-confirm-password"></span>
+						</div>
+					</div>
 				</div>
-				<div class="form-control bottom-padding-lg">
-					<input class="form-input-lined" type="password" id="confirm-password" data-role="none" placeholder="Confirm password"><span class="label-confirm-password"></span>
+				<div class="flex-none">
+					<div class="form-control">
+						<!-- <button type="submit" class="form-button">Save</button> -->
+						<a href="#page-user-profile" class="primary-btn">Save</a>
+					</div>
 				</div>
-				
-				<div class="form-control">
-					<a href="#page-user-profile" class="primary-btn">Save</a>
-				</div>			
 			</form>
 		</div>
-		<!-- <footer class="bottom-container" data-role="footer">
-			<h3>Where’s the new location?</h3>
-			<div class="display-flex">
-				<div class="flex-stretch"></div>
-				<div class="next-btn"><a class="primary-btn" href="#page-set-info">Next</a></div>
-			</div>
-		</footer> -->
-		
 	</section>
 
 	
@@ -693,6 +727,19 @@
 
 
 
+
+
+
+   <script type="text/template" id="flowerlist-item-template">
+	<a class="flex-row-nowrap-start-center list-item-container" href="#page-flower-profile">
+		<div class="flower-list-image-container">
+			<img class="image-cover flower-list-image" src="images/tulips.jpeg" alt="">
+		</div>
+		<p class="flower-list-item-name">Flower nickname</p>
+	</a>
+	<hr style="border: 1px solid var(--color-pure-white);">
+
+   </script>
 
 
 

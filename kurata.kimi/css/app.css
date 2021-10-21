@@ -740,7 +740,9 @@ select:valid { color:var(--color-black); }
    width: 70vw;
 }
 .modal-drawer.left { left: 0; transform:translateX(-100%); }
-.modal-drawer.right { right: 0; transform:translateX(100%); }
+.modal-drawer.right { right: 0; transform:translateX(100%);
+   border-radius: 0 0 0 3em;
+}
 
 .modal-drawer.top,
 .modal-drawer.bottom {

@@ -2,6 +2,20 @@
 // DOCUMENT READY
 $(()=>{
 
+  // FLOWER ITEM TRANSPARENT NAVBAR
+  // SOURSE: https://codepen.io/Abdel-fattah/pen/grXOak
+
+  $("#flower-profile-main").scroll(function(){
+    var scroll = $("#flower-profile-main").scrollTop();
+    console.log(scroll);
+    if (scroll > 127) {
+      $(".floating-header").css("background" , "rgb(2 32 60 / 90%)");
+    }
+    else{
+      $(".floating-header").css("background" , "rgb(2 32 60 / 59%)"); 
+      console.log(scroll);  
+    }
+  })
 
 
   // CHECK DEVICE WIDTH
@@ -10,10 +24,12 @@ $(()=>{
   
   if (deviceWidth%2 == 0) {
     $(".spacer-container").addClass("spacer-even-width");
-    // console.log("even width");
+    $(".spacer-image").attr("src", "images/circle_spacer.svg");
+    console.log("even screen");
   }else{
     $(".spacer-container").addClass("spacer-odd-width");
-    // console.log("odd width");
+    $(".spacer-image").attr("src", "images/circle_spacer_even.svg");
+    console.log("odd screen");
 
   }
 

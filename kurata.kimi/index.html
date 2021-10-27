@@ -40,7 +40,7 @@
 
 </head>
 <body>
-	<!-- LOGIN -->
+	<!-- Sign in -->
 	<section data-role="page" id="page-signin">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
@@ -58,10 +58,10 @@
 					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><span class="label-password"></span>
 				</div>
 				<div class="form-control ">
-					<input type="submit" class="form-button" data-role="none" value="Login">
+					<input type="submit" class="form-button" data-role="none" value="Sign in">
 				</div>
 				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight">Sign UP</span></a>
+					<a class="signup-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight">Sign up</span></a>
 				</div>
 			</form>
 		</div>
@@ -98,7 +98,7 @@
 					<a href="#page-map" class="form-button">Create Account</a>
 				</div>
 				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-highlight">Login</span></a>
+					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-highlight text-underlined">Sign up</span></a>
 				</div>
 			</form>
 		</div>
@@ -151,7 +151,7 @@
 					<p class="bottom-nav-name active">MAP</p>
 				</a>
 				<div class="spacer-container">
-					<img class="spacer-image " src="images/circle_spacer.svg" alt="">
+					<img class="spacer-image " src="images/circle_spacer_even.svg" alt="">
 				</div>
 				<a class="bottom-nav-link list-link flex-col-center-center" href="#page-list">
 					<svg id="iconlist" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
@@ -308,7 +308,7 @@
 	<!-- PAGE FLOWER PROFILE -->
 	<section data-role="page" id="page-flower-profile">
 		
-		<div data-role="main " class="overscroll-x">
+		<div data-role="main " class="overscroll-x " id="flower-profile-main">
 			<div class="flower-image-container ">
 				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flowe image">
 				<div class="flex-row-nowrap-end-start">
@@ -340,7 +340,7 @@
 				<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image">
 			</div>
 		</div>
-		<header data-role="header" class="floating-header">
+		<header data-role="header" class="floating-header" id="flower-profile-topnav">
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
 					<img class="icon-md icon" src="images/icons/arrow_w.svg" alt="back"></a>
 
@@ -574,7 +574,7 @@
 				<h1 class="profile-page-title">Profile</h1>
 				<div class="flex-col-center-center  profile-more-icon-conainer" data-activate="#profile-more-modal" href="#" ><img class="icon-sm" src="images/icons/more.svg" alt="more"></div>	
 			</header>
-		<div class="overscroll-x" data-role="main ">
+		<div class="overscroll-x" data-role="main" >
 			<div class="profile-content-container ">
 				<div class="flex-col-center-center profile-image-container display-flex">
 					<div class="profile-image flex-col-center-center">
@@ -731,11 +731,20 @@
 
 
    <script type="text/template" id="flowerlist-item-template">
-	<a class="flex-row-nowrap-start-center list-item-container" href="#page-flower-profile">
-		<div class="flower-list-image-container">
-			<img class="image-cover flower-list-image" src="images/tulips.jpeg" alt="">
+	<a class="flex-row-nowrap-between-center list-item-container" href="#page-flower-profile">
+		<div class="flex-row-nowrap-start-center">
+			<div class="flower-list-image-container">
+				<img class="image-cover flower-list-image" src="images/tulips.jpeg" alt="image">
+			</div>
+			<div class="flower-list-item-info">
+				<p class="flower-list-item-name">Flower nickname</p>
+				<p class="flower-list-item-category">Tulip</p>
+			</div>
+			
 		</div>
-		<p class="flower-list-item-name">Flower nickname</p>
+		<div>
+			<img class="icon icon-sm" src="images/icons/arrow-right.svg" alt="next">
+		</div>
 	</a>
 	<hr style="border: 1px solid var(--color-pure-white);">
 

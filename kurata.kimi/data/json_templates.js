@@ -1,4 +1,18 @@
 // https://www.json-generator.com/
+// directions: 
+// 1.- open https://www.json-generator.com/ and paste one of these templates creators: users, flowers or locations
+// 2.- click on generate and copy the json 
+// 3.- open https://konbert.com/convert paste the raw jason and click on upload. this is to convert json to sql 
+// 4.- verify the table looks good, click on export go to sql tap and choose MySQL name the table as you named it on the actual database on phpMyAdmin
+// 5.- hit export file and wait until it's ready (it takes a little)
+// 6.- download the file 
+// 7.- open the file and coppy evrithing from INSERT INTO track_flowers VALUES, all the way down
+// 8.- go to godady-> my products -> manage web hostig -> oepn cPannel -> phpMyAdmin -> oepn the correct table or create one incase it's not there yet.
+// 9.- go to the SQL tab
+// 10.- Delete everything that is on the big text box area and Paste what you copy from the downloaded file.
+// 11.- click on "GO" to insert the data in the table. don't forget to take a look to the data to make sure it's done correctly.
+
+
 
 // USER
 
@@ -38,6 +52,31 @@
     
     img: function(tags){
       return 'https://via.placeholder.com/400/'+tags.integer(700,999)+'/fff/?text=' + this.name;
+    },
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    
+  }
+]
+
+
+
+
+// FLOWERS v2  it pics random color between the following: "FFD391", "F09B9B", "E69B8C", "AEBCB9" for img
+
+[
+  '{{repeat(50)}}',
+  {
+    id:'{{index(1)}}',
+    user_id: '{{integer(1, 10)}}',
+    
+    name: '{{company()}}', 
+    
+    type: '{{random("Tulip", "Rose", "Lily")}}',
+    
+    size: '{{random("small", "medium", "large")}}',
+    
+    img: function(tags){
+      return 'https://via.placeholder.com/400/'+tags.random("FFD391", "F09B9B", "E69B8C", "AEBCB9")+'/fff/?text=' + this.name;
     },
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
     
@@ -128,3 +167,7 @@
 
 // TRANSFORM JASON TO MY SQL DATA 
 // https://konbert.com/convert
+
+
+
+

@@ -718,7 +718,6 @@ select:valid { color:var(--color-black); }
    line-height: 2rem;
    padding: 0 0.2em;
    z-index: 13;
-
 }
 
 .modal.active .modal-popup {

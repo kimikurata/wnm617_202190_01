@@ -14,7 +14,30 @@
 
 
 
-// USER
+// USER V1
+
+// [
+//   '{{repeat(10)}}',
+//   {
+//     id:'{{index(1)}}',
+//     name: '{{firstName()}} {{surname()}}', 
+//     username: function(){
+//     return 'user' + this.id;
+//     },
+//     email: function(){
+//       return this.username + '@gmail.com';
+//     },
+//     password: 'md5(pass)',
+//     img: function(tags){
+//       return 'https://via.placeholder.com/400/'+tags.integer(700,999)+'/fff/?text=' + this.username;
+//     },
+//     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    
+//   }
+// ]
+
+
+// USER V2 it pics random color between the following: "C3B7AD", "45567A", "F295A0", "85A5DD" for img
 
 [
   '{{repeat(10)}}',
@@ -29,34 +52,35 @@
     },
     password: 'md5(pass)',
     img: function(tags){
-      return 'https://via.placeholder.com/400/'+tags.integer(700,999)+'/fff/?text=' + this.username;
+      return 'https://via.placeholder.com/400/'+tags.random("C3B7AD", "45567A", "F295A0", "85A5DD")+'/fff/?text=' + this.username;
     },
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
     
   }
 ]
 
-// FLOWERS
 
-[
-  '{{repeat(50)}}',
-  {
-    id:'{{index(1)}}',
-    user_id: '{{integer(1, 10)}}',
+// FLOWERS V1
+
+// [
+//   '{{repeat(50)}}',
+//   {
+//     id:'{{index(1)}}',
+//     user_id: '{{integer(1, 10)}}',
     
-    name: '{{company()}}', 
+//     name: '{{company()}}', 
     
-    type: '{{random("Tulip", "Rose", "Lily")}}',
+//     type: '{{random("Tulip", "Rose", "Lily")}}',
     
-    size: '{{random("small", "medium", "large")}}',
+//     color: '{{random("pink", "red", "white", "purple")}}',
     
-    img: function(tags){
-      return 'https://via.placeholder.com/400/'+tags.integer(700,999)+'/fff/?text=' + this.name;
-    },
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+//     img: function(tags){
+//       return 'https://via.placeholder.com/400/'+tags.integer(700,999)+'/fff/?text=' + this.name;
+//     },
+//     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
     
-  }
-]
+//   }
+// ]
 
 
 
@@ -73,7 +97,7 @@
     
     type: '{{random("Tulip", "Rose", "Lily")}}',
     
-    size: '{{random("small", "medium", "large")}}',
+    color: '{{random("pink", "red", "white", "purple")}}',
     
     img: function(tags){
       return 'https://via.placeholder.com/400/'+tags.random("FFD391", "F09B9B", "E69B8C", "AEBCB9")+'/fff/?text=' + this.name;
@@ -85,27 +109,41 @@
 
 
 
-// LOCATIONS
+// // LOCATIONS V1
+
+// [
+//   '{{repeat(250)}}',
+//   {
+//     id:'{{index(1)}}',
+//     flower_id: '{{integer(1, 10)}}',
+//     lat: '{{floating(37.429667, 37.429667)}}',
+//     lng: '{{floating(-122.168277, -122.168277)}}',
+//     size: '{{random("small", "medium", "large")}}',
+//     photo: 'https://via.placeholder.com/400/',
+//     icon: 'https://via.placeholder.com/400/?text=ICON',
+//     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    
+//   }
+// ]
+
+// LOCATIONS V2 it pics random color between the following: "A8C6F8", "AA92E0", "CFF2F6", "798BD7" for img
 
 [
   '{{repeat(250)}}',
   {
     id:'{{index(1)}}',
     flower_id: '{{integer(1, 10)}}',
-   
     lat: '{{floating(37.429667, 37.429667)}}',
     lng: '{{floating(-122.168277, -122.168277)}}',
-    color: '{{random("pink", "red", "white", "purple")}}',
-    photo: 'https://via.placeholder.com/400/',
+    size: '{{random("small", "medium", "large")}}',
+    photo: function(tags){
+      return 'https://via.placeholder.com/400/'+tags.random("A8C6F8", "AA92E0", "CFF2F6", "798BD7")+'/fff/';
+    },
     icon: 'https://via.placeholder.com/400/?text=ICON',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
     
   }
 ]
-
-
-
-
 
 
 // ORIGINAL

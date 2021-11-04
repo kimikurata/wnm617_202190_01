@@ -293,8 +293,6 @@ h2, h3, h4{
    pointer-events: none;
    top: 0px;
    overflow: hidden;
-   /*z-index: 1; */
-   overflow: hidden;
    height: var(--header-height);
    object-fit: cover;
    width: 81px;

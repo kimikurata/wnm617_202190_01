@@ -23,6 +23,9 @@
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/signin.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -242,7 +245,7 @@
 		</div>
 		<div data-role="main" class="overscroll-x">
 			
-			<div class="display-flex flex-vertical">
+			<div class="display-flex flex-vertical flowerlist">
 				<div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
                 <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
                 <div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
@@ -310,12 +313,12 @@
 		
 		<div data-role="main " class="overscroll-x " id="flower-profile-main">
 			<div class="flower-image-container ">
-				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flowe image">
+				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flower image"/>
 				<div class="flex-row-nowrap-end-start">
 					<div class="edit-flower-img">+</div>
 				</div>
 				<div class="flex-col-start-start corners">
-					<img class="inverted-corner" src="images/inverted_corner.svg" alt="">
+					<img class="inverted-corner" src="images/inverted_corner.svg" alt=""/>
 					<div class="corner-box-top">
 						<div class="container top-padding-xs flower-info-box">
 							
@@ -331,13 +334,18 @@
 				</div>
 			</div>
 			<div class="container top-padding-xs flower-info-box">
-				
-				<p class="text-light text-gray flower-info"><span style="color: var(--color-main-medium); font-weight: 600;">Color: </span>Pink</p>
-				<p class="text-light text-gray flower-info "><span style="color: var(--color-main-medium); font-weight: 600;">Size: </span>Small</p>
+				<div class="flex-row-nowrap-start-center">
+					<p class="text-light text-gray flower-info" style="color: var(--color-main-medium); font-weight: 600;">Category:&nbsp;</p>
+					<p class="text-light text-gray flower-info flower-data-type">Tulip</p>
+				</div>
+				<div class="flex-row-nowrap-start-center">
+					<p class="text-light text-gray flower-info" style="color: var(--color-main-medium); font-weight: 600;">Size:&nbsp;</p>
+					<p class="text-light text-gray flower-info flower-data-size">Gigant</p>
+				</div>
 				<p class="bottom-padding-xs flower-location-title-box">Location:</p>
 			</div>
 			<div class=" locations-box">
-				<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image">
+				<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/>
 			</div>
 		</div>
 		<header data-role="header" class="floating-header" id="flower-profile-topnav">

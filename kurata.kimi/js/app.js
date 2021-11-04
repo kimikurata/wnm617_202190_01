@@ -2,7 +2,79 @@
 // DOCUMENT READY
 $(()=>{
 
-  // FLOWER ITEM TRANSPARENT NAVBAR
+
+// AIP TESTER: call the api for data 
+   // query({
+   //    type:'flowers_by_user_id',
+   //    params:[4]
+   // }).then(d=>{
+   //    console.log(d)
+   // })
+
+	checkUserId();
+  // Event Delegation
+  $(document)
+
+
+
+   .on("pagecontainerbeforeshow",function(event, ui){
+    // Page Routing
+      // console.log(ui.toPage[0].id);
+      switch(ui.toPage[0].id) {
+         case "page-map": MapPage(); break;
+         case "page-list": ListPage(); break;
+         case "page-user-profile": UserProfilePage(); break;
+         case "page-flower-profile": FlowerProfilePage(); break;
+      }
+   })
+
+
+  //FORM SUBMITS
+  .on("submit","#signin-form",function(e) {
+  e.preventDefault();
+  checkSigninForm();
+  })
+
+
+  // ANCHOR CLICKS
+  .on("click",".js-logout",function(e) {
+   
+    sessionStorage.removeItem("userId");
+    checkUserId();
+  })
+
+   .on("click",".flower-jump",function(e) {
+      if(!$(this).data("id")) throw("No ID on element");
+      sessionStorage.flowerId = $(this).data("id");
+      $.mobile.navigate("#page-flower-profile");
+   })
+
+
+  .on("click","[data-activate]",function(e){
+    
+    let target = $(this).data("activate");
+    $(target).addClass("active");
+  })
+  .on("click","[data-deactivate]",function(e){
+    
+    let target = $(this).data("deactivate");
+    $(target).removeClass("active");
+  })
+   .on("click","[data-toggle]",function(e){
+   
+    let target = $(this).data("toggle");
+    $(target).toggleClass("active");
+  })
+
+
+  $("[data-template]").each(function(){
+    let target = $(this).data("template");
+    $(this).html($(target).html());
+  })
+
+
+
+   // FLOWER ITEM TRANSPARENT NAVBAR
   // SOURSE: https://codepen.io/Abdel-fattah/pen/grXOak
 
   $("#flower-profile-main").scroll(function(){
@@ -33,51 +105,6 @@ $(()=>{
 
   }
 
-
-
-	checkUserId();
-   // Event Delegation
-   $(document)
-
-   //FORM SUBMITS
-   .on("submit","#signin-form",function(e) {
-    e.preventDefault();
-    checkSigninForm();
-  })
-
-   // ANCHOR CLICKS
-   .on("click",".js-logout",function(e) {
-   
-    sessionStorage.removeItem("userId");
-    checkUserId();
-  })
-
-
-
-
-
-   .on("click","[data-activate]",function(e){
-    
-    let target = $(this).data("activate");
-    $(target).addClass("active");
-  })
-   .on("click","[data-deactivate]",function(e){
-    
-    let target = $(this).data("deactivate");
-    $(target).removeClass("active");
-  })
-   .on("click","[data-toggle]",function(e){
-   
-    let target = $(this).data("toggle");
-    $(target).toggleClass("active");
-  })
-
-
-
-  $("[data-template]").each(function(){
-    let target = $(this).data("template");
-    $(this).html($(target).html());
-  })
 
   
  });

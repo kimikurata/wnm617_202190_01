@@ -8,10 +8,6 @@ const query = (options) => {
    }).then(d=>d.json());
 }
 
-// o = object
-// i = index
-// a = 
-
 
 // Curried Function
 

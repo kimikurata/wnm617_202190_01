@@ -11,10 +11,10 @@
 	<title>Tulip</title>
 
 
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 	<base href="/aau/wnm617/kurata.kimi/">
 
@@ -48,23 +48,24 @@
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
 			<div class="flex-col-center-center">
-				<img class="intro-logo" src="images/tulip-full-logo.svg" alt="logo">
+				<img class="intro-logo" src="images/tulip-full-logo.svg" alt="logo"/>
 				<p class="slogan">The Flower Explorer</p>
 			</div>
 			<div class="flex-stretch"></div>
 			<form class="form login-container" data-ajax="false"  id="signin-form" style="padding:10px">
-				<!-- <h3 class="login-title">Welcome back</h3> -->
+				<h3 class="login-title">Welcome back</h3>
 				<div class="form-control top-padding-xs">
-					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username"><span class="label-username"></span>
+					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username"/>
+					<label class="label-helper">User name</label>
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><span class="label-password"></span>
+					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"/><label class="label-helper">Password</label>
 				</div>
 				<div class="form-control ">
-					<input type="submit" class="form-button" data-role="none" value="Sign in">
+					<input type="submit" class="form-button" data-role="none" value="Sign in"/>
 				</div>
 				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight">Sign up</span></a>
+					<a class="login-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight text-underlined">Sign up</span></a>
 				</div>
 			</form>
 		</div>
@@ -86,22 +87,23 @@
 				<p class="slogan">The Flower Explorer</p>
 			</div>
 			<div class="flex-stretch"></div>
-			<form class="form login-container" data-ajax="false"  id="sign-up-form" style="padding:10px">
-				<!-- <h3 class="login-title">Create Account</h3> -->
+			<form class="form signup-container" data-ajax="false"  id="sign-up-form" style="padding:10px">
+				<h3 class="signup-title">Welcome</h3>
 				<div class="form-control  top-padding-xs">
-					<input class="form-input-lined" type="text" id="sign-up-username" data-role="none" placeholder="Username"><span class="label-username"></span>
+					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username"/>
+					<label class="label-helper">User name</label>
 				</div>
 				<div class="form-control ">
-					<input class="form-input-lined" type="email" id="sign-up-email" data-role="none" placeholder="Email"><span class="label-email"></span>
+					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email"/><label class="label-helper">Email</label>
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined" type="password" id="sign-up-password" data-role="none" placeholder="Password"><span class="label-password"></span>
+					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" /><label class="label-helper">Password</label>
 				</div>
 				<div class="form-control ">
-					<a href="#page-map" class="form-button">Create Account</a>
+					<a href="#page-map" class="primary-btn-inverted">Create Account</a>
 				</div>
 				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-highlight text-underlined">Sign up</span></a>
+					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Login</span></a>
 				</div>
 			</form>
 		</div>
@@ -117,7 +119,7 @@
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch search-container">
 				<form  action="">
-					<input class="search-bar" type="text" name="search" placeholder="Search..">
+					<input class="search-bar" type="text" name="search" placeholder="Search.."/>
 				</form>
 			</div>
 			<a href="#page-user-profile">
@@ -198,7 +200,7 @@
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch search-container">
 				<form  action="">
-					<input class="search-bar" type="text" name="search" placeholder="Search..">
+					<input class="search-bar" type="text" name="search" placeholder="Search.."/>
 				</form>
 			</div>
 			<a href="#page-user-profile">
@@ -321,8 +323,6 @@
 					<img class="inverted-corner" src="images/inverted_corner.svg" alt=""/>
 					<div class="corner-box-top">
 						<div class="container top-padding-xs flower-info-box">
-							
-
 							<div class="flex-row-center-center">
 								<p class=" flower-profile-name " >Flower Name</p>
 								<div class="flex-stretch"></div>
@@ -393,14 +393,14 @@
 					<div class="fill-parent overscroll position-absolute">
 						<h1 class="top-padding-xs">Edit flower information</h1>
 						<div class="form-control">
-							<input class="form-input-lined" type="text" id="edit-flower-name" data-role="none" placeholder="Flower name"><span class="label-flower-name"></span>
+							<input class="form-input-lined" type="text" id="edit-flower-name" data-role="none" placeholder="Flower name"/><label class="label-helper"/>Flower name</label>
 						</div>
 						<div class="form-control ">
-							<input class="form-input-lined" type="text" id="edit-flower-color" data-role="none" placeholder="Flower color"><span class="label-flower-color"></span>
+							<input class="form-input-lined" type="text" id="edit-flower-color" data-role="none" placeholder="Flower color"/><label class="label-helper ">Color</label>
 						</div>
 						
 						<div class="form-control">
-							<input class="form-input-lined" type="text" id="edit-flower-size" data-role="none" placeholder="Flower size"><span class="label-flower-size"></span>
+							<input class="form-input-lined" type="text" id="edit-flower-size" data-role="none" placeholder="Flower size"/><label class="label-helper "/>Size</label>
 						</div>
 					</div>
 				</div>
@@ -435,8 +435,7 @@
 			</div>
 		</div>
 		<form class="form login-container" data-ajax="false"  id="category-form" style="padding:10px">
-				<!-- <h3 class="login-title">Create Account</h3> -->
-			<h3>What is the Category?</h3>
+			<h3 class="bottom-padding-xs">What is the Category?</h3>
 			<div class="form-control">
 				<select class="form-select-lined" id="category" name="example6">
 					<option value="" selected disabled hidden >Select an option</option>
@@ -463,7 +462,7 @@
 		<header data-role="header">
 			
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"></a>
+					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10" href="#" data-rel="back">Cancel</a>
 		</header>
 		<div data-role="main">
@@ -471,7 +470,7 @@
 				<div class="progress-bar percent60"></div>
 			</div>
 			<div class="location-selector flex-col-center-center">
-				<img class="icon-xl" src="images/icons/location.svg" alt="location">
+				<img class="icon-xl" src="images/icons/location.svg" alt="location"/>
 			</div>
 		</div>
 		<!-- <footer class="bottom-container" data-role="footer">
@@ -497,7 +496,7 @@
 	<section data-role="page" id="page-set-info">
 		<header data-role="header">
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"></a>
+					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10" href="index.html#page-map" data-rel="#page-map">Cancel</a>
 		</header>
 		<div data-role="main">
@@ -505,27 +504,22 @@
 				<div class="progress-bar percent100"></div>
 			</div>
 			<div class="illustration-contaier flex-col-center-center">
-				<img class="image-cover info-illustration" src="images/info_illustration.png" alt="">
+				<img class="image-cover info-illustration" src="images/info_illustration.png" alt=""/>
 			</div>
 		</div>
-		<!-- <footer class="bottom-container" data-role="footer">
-			<h3>What are the characteristics?</h3>
-			<div class="display-flex">
-				<div class="full-btn"><a class="primary-btn" href="#page-map">Save</a></div>
-			</div>
-		</footer> -->
+
 		<form class="form login-container" data-ajax="false"  id="flower-info-form" style="padding:10px">
 				<!-- <h3 class="login-title">Create Account</h3> -->
 			<h3>Tell us about the flower</h3>
 
 			<div class="form-control">
-				<input class="form-input-lined" type="text" id="flower-nickname" data-role="none" placeholder="Nickname"><span class="label-flower-nickname"></span>
+				<input class="form-input-lined" type="text" id="flower-nickname" data-role="none" placeholder="Nickname"><label class="label-helper">Nickname</label>
 			</div>
 			<div class="form-control">
-				<input class="form-input-lined" type="text" id="flower-color" data-role="none" placeholder="Color"><span class="label-flower-color"></span>
+				<input class="form-input-lined" type="text" id="flower-color" data-role="none" placeholder="Color"/><label class="label-helper"/>Color</label>
 			</div>
 			<div class="form-control bottom-padding-sms">
-				<input class="form-input-lined" type="text" id="flower-size" data-role="none" placeholder="Size"><span class="label-flower-size"></span>
+				<input class="form-input-lined" type="text" id="flower-size" data-role="none" placeholder="Size"/><label class="label-helper">Size</label>
 			</div>
 			<div class="display-flex form-control ">
 				<div class="full-btn"><a class="primary-btn" href="#page-map">Save</a></div>
@@ -541,20 +535,20 @@
 		</header>
 		<div data-role="main">
 			<div class="illustration-contaier flex-col-center-center">
-				<img class="image-cover info-illustration" src="images/new_category_illustration.png" alt="">
+				<img class="image-cover info-illustration" src="images/new_category_illustration.png" alt=""/>
 			</div>
 		</div>
 		<form class="form login-container" data-ajax="false"  id="new-category-form" style="padding:10px">
 				<!-- <h3 class="login-title">Create Account</h3> -->
-			<h3>New category</h3>
+			<h3 class="bottom-padding-xs">New category</h3>
 
 			<div class="form-control">
-				<input class="form-input-lined" type="text" id="new-category-name" data-role="none" placeholder="New category name"><span class="label-new-category-name"></span>
+				<input class="form-input-lined" type="text" id="new-category-name" data-role="none" placeholder="New category name"/><label class="label-helper">New category name</label>
 			</div>
 			<p>Add an image</p>
 				<div class="flex-col-center-start profile-image-container display-flex">
 					<div class="new-category-img-container">
-						<img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" >
+						<img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" />
 					</div>
 					<div class="flex-row-nowrap-end-center" style="height: 0px;">
 						<div class="chage-category-img-container">+</div>
@@ -562,7 +556,6 @@
 				</div>			
 			<div class="display-flex form-control">
 				<div class="full-btn"><a class="primary-btn" href="#" data-rel="back">Save</a></div>
-				
 			</div>			
 		</form>
 	</section>
@@ -580,13 +573,13 @@
 				<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
 					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
 				<h1 class="profile-page-title">Profile</h1>
-				<div class="flex-col-center-center  profile-more-icon-conainer" data-activate="#profile-more-modal" href="#" ><img class="icon-sm" src="images/icons/more.svg" alt="more"></div>	
+				<div class="flex-col-center-center  profile-more-icon-conainer" data-activate="#profile-more-modal" href="#" ><img class="icon-sm" src="images/icons/more.svg" alt="more"/></div>	
 		</header>
 		<div class="overscroll-x" data-role="main" >
 			<div class="profile-content-container ">
 				<div class="flex-col-center-center profile-image-container display-flex">
 					<div class="profile-image flex-col-center-center">
-						<img class="image-cover" src="images/profile.jpg" alt="profile">
+						<img class="image-cover" src="images/profile.jpg" alt="profile"/>
 					</div>
 					<div class="flex-row-nowrap-end-center" style="height: 0px;">
 						<div class="chage-img-container">+</div>
@@ -618,9 +611,6 @@
 					<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID:</span> 00063</p>
 				</div>
 			</div>
-			<!-- <div class="container top-padding-sm bottom-padding-xs">
-				<button class="outlined-btn js-logout">Log Out</button>
-			</div> -->
 		</div>
 		<div class="modal" id="profile-more-modal">
 			<div class="modal-back" data-deactivate="#profile-more-modal"></div>
@@ -631,22 +621,22 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<a class="flex-row-start-center" href="#page-edit-user" >
+					<a class="flex-row-start-center" href="#page-edit-user">
 						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/edit.svg" alt="edit">
+							<img class=" icon icon-sm" src="images/icons/edit.svg" alt="edit"/>
 						</div>
 						<p class="drawer-item-text">Edit</p>
 					</a>
 					<a class="flex-row-start-center" href="#page-edit-password" >
 						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/password.svg" alt="password">
+							<img class=" icon icon-sm" src="images/icons/password.svg" alt="password"/>
 						</div>
 						<p class="drawer-item-text">Change password</p>
 					</a>
 					<hr style="border-top: 1px solid  var(--color-neutral-light);">
 					<a class="flex-row-start-center js-logout"  >
 						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/logout.svg" alt="password">
+							<img class=" icon icon-sm" src="images/icons/logout.svg" alt="password"/>
 						</div>
 						<p class="drawer-item-text">Log Out</p>
 					</a>
@@ -660,9 +650,6 @@
 	<!-- EDIT USER -->
 	<section class="" data-role="page" id="page-edit-user">
 		<header data-role="header">
-			
-			<a>
-					
 			<a class="zindex10" href="#page-user-profile" data-rel="#page-map">Cancel</a>
 		</header>
 		<div class="overscroll-x" data-role="main">
@@ -671,10 +658,10 @@
 					<div class="fill-parent overscroll position-absolute">
 						<h1 class="top-padding-xs">Type your new information.</h1>
 						<div class="form-control top-padding-xs">
-							<input class="form-input-lined" type="text" id="user-name" data-role="none" placeholder="Username"><span class="label-user-name"></span>
+							<input class="form-input-lined" type="text" id="user-name" data-role="none" placeholder="Username"/><label class="label-helper">User name</label>
 						</div>
 						<div class="form-control ">
-							<input class="form-input-lined" type="email" id="user-email" data-role="none" placeholder="Email"><span class="label-email"></span>
+							<input class="form-input-lined" type="email" id="user-email" data-role="none" placeholder="Email"/><label class="label-helper">Email</label>
 						</div>
 					</div>
 				</div>
@@ -699,8 +686,7 @@
 
 	<!-- CHANGE PASSWORD -->
 	<section class="" data-role="page" id="page-edit-password">
-		<header data-role="header">	
-			<a>			
+		<header data-role="header">		
 			<a class="zindex10" href="#page-user-profile" data-rel="#page-map">Cancel</a>
 		</header>
 		<div class="overscroll-x" data-role="main">
@@ -709,14 +695,14 @@
 					<div class="fill-parent overscroll position-absolute">
 						<h1 class="top-padding-xs">Change password</h1>
 						<div class="form-control top-padding-xs">
-							<input class="form-input-lined" type="text" id="old-password" data-role="none" placeholder="Old password"><span class="label-old-password"></span>
+							<input class="form-input-lined" type="text" id="old-password" data-role="none" placeholder="Old password"/><label class="label-helper">Old password</label>
 						</div>
 
 						<div class="form-control ">
-							<input class="form-input-lined" type="password" id="new-password" data-role="none" placeholder="New password"><span class="label-new-password"></span>
+							<input class="form-input-lined" type="password" id="new-password" data-role="none" placeholder="New password"/><label class="label-helper">New password</label>
 						</div>
 						<div class="form-control ">
-							<input class="form-input-lined" type="password" id="confirm-password" data-role="none" placeholder="Confirm password"><span class="label-confirm-password"></span>
+							<input class="form-input-lined" type="password" id="confirm-password" data-role="none" placeholder="Confirm password"/><label class="label-helper">Confirm password</label>
 						</div>
 					</div>
 				</div>

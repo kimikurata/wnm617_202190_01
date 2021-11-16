@@ -38,6 +38,7 @@
 
 
 // USER V2 it pics random color between the following: "C3B7AD", "45567A", "F295A0", "85A5DD" for img
+// NOTE:  don't forget to change the users' passwords format from "md5(pass)",  to md5("pass")
 
 [
   '{{repeat(10)}}',
@@ -58,7 +59,6 @@
     
   }
 ]
-
 
 // FLOWERS V1
 
@@ -98,6 +98,8 @@
     type: '{{random("Tulip", "Rose", "Lily")}}',
     
     color: '{{random("pink", "red", "white", "purple")}}',
+
+    size: '{{random("small", "medium", "large")}}',
     
     img: function(tags){
       return 'https://via.placeholder.com/400/'+tags.random("FFD391", "F09B9B", "E69B8C", "AEBCB9")+'/fff/?text=' + this.name;
@@ -128,6 +130,23 @@
 
 // LOCATIONS V2 it pics random color between the following: "A8C6F8", "AA92E0", "CFF2F6", "798BD7" for img
 
+// [
+//   '{{repeat(250)}}',
+//   {
+//     id:'{{index(1)}}',
+//     flower_id: '{{integer(1, 50)}}',
+//     lat: '{{floating(37.391561, 37.284103)}}',
+//     lng: '{{floating(-121.960312, -121.844773)}}',
+//     photo: function(tags){
+//       return 'https://via.placeholder.com/400/'+tags.random("A8C6F8", "AA92E0", "CFF2F6", "798BD7")+'/fff/?text=img';
+//     },
+//     icon: 'https://via.placeholder.com/400/?text=ICON',
+//     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    
+//   }
+// ]
+
+// LOCATIONS V3: custom ion 
 [
   '{{repeat(250)}}',
   {
@@ -135,15 +154,15 @@
     flower_id: '{{integer(1, 50)}}',
     lat: '{{floating(37.391561, 37.284103)}}',
     lng: '{{floating(-121.960312, -121.844773)}}',
-    size: '{{random("small", "medium", "large")}}',
     photo: function(tags){
       return 'https://via.placeholder.com/400/'+tags.random("A8C6F8", "AA92E0", "CFF2F6", "798BD7")+'/fff/?text=img';
     },
-    icon: 'https://via.placeholder.com/400/?text=ICON',
+    icon: 'http://kimikurata.com/aau/wnm617/kurata.kimi/images/tulip-map-icon.png',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
     
   }
 ]
+
 
 
 // ORIGINAL

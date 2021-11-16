@@ -26,6 +26,9 @@ $(()=>{
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
          case "page-flower-profile": FlowerProfilePage(); break;
+         case "page-edit-flower": FlowerEditPage();break;
+         case "page-edit-user": UserEditPage();break;
+
       }
    })
 

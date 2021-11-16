@@ -8,6 +8,9 @@ const resultQuery = async (options) => {
    return result;
 }
 
+
+
+
 const ListPage = async() => {
    let result = await resultQuery({
          type:'flowers_by_user_id',
@@ -16,6 +19,8 @@ const ListPage = async() => {
 
    $("#page-list .flowerlist").html(makeFlowerList(result));
 }
+
+
 
 
 const MapPage = async() => {
@@ -31,11 +36,11 @@ const MapPage = async() => {
       return r;
    },[]);
 
- 
-
    let mapEl = await makeMap("#page-map .map");
-   makeMarkers(mapEl,result);
+   makeMarkers(mapEl,flowers);
 }
+
+
 
 
 const UserProfilePage = async() => {
@@ -48,16 +53,15 @@ const UserProfilePage = async() => {
 }
 
 
+
 const FlowerProfilePage = async() => {
    let flower_result = await resultQuery({
          type:'flower_by_id',
          params:[sessionStorage.flowerId]
       });
   
-
    let [flower] = flower_result;
    $(".flower-image-container img").attr("src",flower.img);
-
 
    let location_result = await resultQuery({
          type:'locations_by_flower_id',
@@ -67,14 +71,44 @@ const FlowerProfilePage = async() => {
    let mapEl = await makeMap("#page-flower-profile .map");
    makeMarkers(mapEl,location_result);
 
-
-
    $(".flower-profile-name").text(flower.name);
    $(".flower-data-type").text(flower.type);
+   $(".flower-data-color").text(flower.color);
    $(".flower-data-size").text(flower.size);
 }
 
 
+
+const FlowerEditPage = async() => {
+   let flower_result = await resultQuery({
+         type:'flower_by_id',
+         params:[sessionStorage.flowerId]
+      });
+
+   let [flower] = flower_result;
+
+   // $(".flower-image-container img").attr("src",flower.img);
+
+   $("#flower-edit-name").val(flower.name);
+   $("#flower-edit-color").val(flower.color);
+   $("#flower-edit-size").val(flower.size);
+}
+
+
+
+const UserEditPage = async() => {
+   let result = await resultQuery({
+         type:'user_by_id',
+         params:[sessionStorage.userId]});
+
+   let [user] = result;
+
+
+   // $(".profile-image img").attr("src",user.img);
+
+   $("#user-edit-name").val(user.username);
+   $("#user-edit-email").val(user.email);
+}
 
 
 

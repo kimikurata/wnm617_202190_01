@@ -4,56 +4,13 @@ $(()=>{
 
 
 // AIP TESTER: call the api for data 
-  query({
-    type:'flowers_by_user_id',
-    params:[6]
-  }).then(d=>{
+  // query({
+  //   type:'user_by_id',
+  //   params:[6]
 
-  const entries = [
-    {id: 16, user_id: 6, name: 'Zedalis', type: 'Rose', color: 'red',},
-    {id: 21, user_id: 6, name: 'Comtext', type: 'Rose', color: 'white',},
-    {id: 22, user_id: 6, name: 'Grupoli', type: 'Rose', color: 'white',},
-    {id: 34, user_id: 6, name: 'Xelegyl', type: 'Tulip', color: 'pink',},
-    {id: 35, user_id: 6, name: 'Earthplex', type: 'Tulip', color: 'pink',},
-    {id: 41, user_id: 6, name: 'Updat', type: 'Rose', color: 'white', },
-    {id: 43, user_id: 6, name: 'Imaginart', type: 'Rose', color: 'pink',}
-  ]
-
-  const unique = [...new Set(entries.map(item => item.type))];
-
-
-  // type:'flowers_by_user_id',
-  //       params:[6]
-
-
-
-// EXAMPLE WITH ARRAY
-
-// const array =
-//   [
-//     { "name": "Joe", "age": 17 },
-//     { "name": "Bob", "age": 17 },
-//     { "name": "Carl", "age": 35 }
-//   ]
-
-// const key = 'name';
-
-// const arrayUniqueByKey = [...new Map(array.map(item =>
-//   [item[key], item])).values()];
-
-// EXAMPLE WITH OBJECT
-
-// const data = [
-//   { group: 'A', name: 'SD' }, 
-//   { group: 'B', name: 'FI' }, 
-//   { group: 'A', name: 'MM' },
-//   { group: 'B', name: 'CO'}
-// ];
-// const unique = [...new Set(data.map(item => item.group))];
-
-
-      console.log(d);
-   })
+  // }).then(d=>{
+  //     console.log(d);
+  //  });
 
 	checkUserId();
   // Event Delegation
@@ -76,7 +33,7 @@ $(()=>{
   //FORM SUBMITS
   .on("submit","#signin-form",function(e) {
   e.preventDefault();
-  checkSigninForm();
+  checkSigninForm();  
   })
 
 
@@ -85,6 +42,7 @@ $(()=>{
    
     sessionStorage.removeItem("userId");
     checkUserId();
+
   })
 
    .on("click",".flower-jump",function(e) {
@@ -123,13 +81,13 @@ $(()=>{
 
   $("#flower-profile-main").scroll(function(){
     var scroll = $("#flower-profile-main").scrollTop();
-    console.log(scroll);
+    // console.log(scroll);
     if (scroll > 127) {
       $(".floating-header").css("background" , "rgb(2 32 60 / 90%)");
     }
     else{
       $(".floating-header").css("background" , "rgb(2 32 60 / 59%)"); 
-      console.log(scroll);  
+      // console.log(scroll);  
     }
   })
 
@@ -146,9 +104,6 @@ $(()=>{
     $(".spacer-container").addClass("spacer-odd-width");
     $(".spacer-image").attr("src", "images/circle_spacer_even.svg");
     console.log("odd screen");
-
   }
-
-
   
  });

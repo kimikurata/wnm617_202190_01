@@ -11,7 +11,6 @@
 	<title>Tulip</title>
 
 
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,8 +26,17 @@
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/signin.js"></script>
+	<script src="js/maps.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+
+
+    <!-- GOOGLEMAPS Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQsIZ6uIy9ysZfvVXzzSmPMsFH8Czs-Kg"
+      async
+    ></script>
 
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -55,14 +63,14 @@
 			<form class="form login-container" data-ajax="false"  id="signin-form" style="padding:10px">
 				<h3 class="login-title">Welcome back</h3>
 				<div class="form-control top-padding-xs">
-					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username"/>
+					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username">
 					<label class="label-helper">User name</label>
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"/><label class="label-helper">Password</label>
+					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><label class="label-helper">Password</label>
 				</div>
 				<div class="form-control ">
-					<input type="submit" class="form-button" data-role="none" value="Sign in"/>
+					<input type="submit" class="form-button" data-role="none" value="Sign in">
 				</div>
 				<div class="flex-col-center-center">
 					<a class="login-link bottom-padding-xs text-center" href="#page-signup">Don't have an account? <span class="text-highlight text-underlined">Sign up</span></a>
@@ -90,20 +98,20 @@
 			<form class="form signup-container" data-ajax="false"  id="sign-up-form" style="padding:10px">
 				<h3 class="signup-title">Welcome</h3>
 				<div class="form-control  top-padding-xs">
-					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username"/>
+					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username#signin-form"/>
 					<label class="label-helper">User name</label>
 				</div>
 				<div class="form-control ">
-					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email"/><label class="label-helper">Email</label>
+					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email"><label class="label-helper">Email</label>
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" /><label class="label-helper">Password</label>
+					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" ><label class="label-helper">Password</label>
 				</div>
 				<div class="form-control ">
 					<a href="#page-map" class="primary-btn-inverted">Create Account</a>
 				</div>
 				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Login</span></a>
+					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Signin</span></a>
 				</div>
 			</form>
 		</div>
@@ -115,7 +123,8 @@
 
 
 	<!-- PAGE MAP-->
-	<section data-role="page" id="page-map" class="map">
+	<section data-role="page" id="page-map" class="">
+			
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch search-container">
 				<form  action="">
@@ -126,7 +135,8 @@
 				<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
 			</a>
 		</div>
-		<div class="chip-container flex-row-nowrap-start-center overscroll-y">
+		
+<!-- 		<div class="chip-container flex-row-nowrap-start-center overscroll-y">
 			<p class="chip all-chip">All</p>
 			<hr class="chip-separator" width="1" size="15px">
 			<p class="chip active">Tulips</p>
@@ -136,9 +146,9 @@
 			<p class="chip">Pink</p>
 			<p class="chip">White</p>
 			<p class="chip">Purple</p>
-		</div>
-		<div data-role="main">
-			<div class="map-area flex-col-center-center">
+		</div> -->
+		<div class="map"></div>
+<!-- 			<div class="map-area flex-col-center-center">
 				<div class="flex-col-center-center" data-activate="#map-item-modal">
 					<div class="map-item-img-box">
 						<img class="map-item-img" src="images/tulips.jpeg" alt="" />
@@ -146,10 +156,8 @@
 					<div class="location-dot"></div>
 				</div>
 				
-			</div>
-		</div>
-		
-		<footer class="bottom-nav" data-role="footer">
+			</div> -->
+		<footer class="bottom-nav map-footer" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 				<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
 					<svg id="iconmap" class="icon icon-md active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg>	
@@ -313,7 +321,7 @@
 	<!-- PAGE FLOWER PROFILE -->
 	<section data-role="page" id="page-flower-profile">
 		
-		<div data-role="main " class="overscroll-x " id="flower-profile-main">
+		<div data-role="main " class="overscroll-x" id="flower-profile-main">
 			<div class="flower-image-container ">
 				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flower image"/>
 				<div class="flex-row-nowrap-end-start">
@@ -344,8 +352,8 @@
 				</div>
 				<p class="bottom-padding-xs flower-location-title-box">Location:</p>
 			</div>
-			<div class=" locations-box">
-				<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/>
+			<div class="map profile-map-conainer">
+			<!-- 	<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/> -->
 			</div>
 		</div>
 		<header data-role="header" class="floating-header" id="flower-profile-topnav">

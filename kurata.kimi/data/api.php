@@ -50,20 +50,21 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
 function makeStatement($data) {
    try{
       $c = makeConn();
-      $t = $data->type;
-      $p = $data->params;
+      $t = @$data->type;
+      $p = @$data->params;
 
       switch($t) {
-         case "users_all":
-            return makeQuery($c,"SELECT * FROM `track_users`",[]);
-         case "flowers_all":
-            return makeQuery($c,"SELECT * FROM `track_flowers`",[]);
-         case "locations_all":
-            return makeQuery($c,"SELECT * FROM `track_locations`",[]);
+
+         // case "users_all":
+         //    return makeQuery($c,"SELECT * FROM `track_users`",[]);
+         // case "flowers_all":
+         //    return makeQuery($c,"SELECT * FROM `track_flowers`",[]);
+         // case "locations_all":
+         //    return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
 
          case "user_by_id":
-            return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+            return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
          case "flower_by_id":
             return makeQuery($c,"SELECT * FROM `track_flowers` WHERE `id`=?",$p);
          case "location_by_id":
@@ -78,6 +79,38 @@ function makeStatement($data) {
 
          case "check_signin":
             return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
+
+
+         // case "recent_flower_locations":
+         //    return makeQuery($c,"SELECT * 
+         //       FROM `track_flowers` a 
+         //       JOIN `track_locations`  l
+         //       ON a.id = l.flower_id
+         //       WHERE a.user_id = ?
+
+         //       ",$p);
+
+
+         case "recent_flower_locations":
+            return makeQuery($c,"SELECT *
+               FROM `track_flowers` a
+               JOIN (
+                  SELECT lg.*
+                  FROM `track_locations` lg
+                  WHERE lg.id = (
+                     SELECT lt.id
+                     FROM `track_locations` lt
+                     WHERE lt.flower_id = lg.flower_id
+                     ORDER BY lt.date_create DESC
+                     LIMIT 1
+                  )
+               ) l
+               ON a.id = l.flower_id
+               WHERE a.user_id = ?
+               ORDER BY l.flower_id, l.date_create DESC
+               ",$p);
+
+         
 
 
          default: return ["error"=>"No Matched Type"];

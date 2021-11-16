@@ -132,12 +132,12 @@
   '{{repeat(250)}}',
   {
     id:'{{index(1)}}',
-    flower_id: '{{integer(1, 10)}}',
-    lat: '{{floating(37.429667, 37.429667)}}',
-    lng: '{{floating(-122.168277, -122.168277)}}',
+    flower_id: '{{integer(1, 50)}}',
+    lat: '{{floating(37.391561, 37.284103)}}',
+    lng: '{{floating(-121.960312, -121.844773)}}',
     size: '{{random("small", "medium", "large")}}',
     photo: function(tags){
-      return 'https://via.placeholder.com/400/'+tags.random("A8C6F8", "AA92E0", "CFF2F6", "798BD7")+'/fff/';
+      return 'https://via.placeholder.com/400/'+tags.random("A8C6F8", "AA92E0", "CFF2F6", "798BD7")+'/fff/?text=img';
     },
     icon: 'https://via.placeholder.com/400/?text=ICON',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'

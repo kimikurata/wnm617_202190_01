@@ -31,9 +31,12 @@ const checkUserId = () => {
       //Not Logged in
       if(!p.some(o=>window.location.hash===o))
          $.mobile.navigate("#page-signin");
+      // console.log("didn't log in");
    }else{
       //Logged in
       if(p.some(o=>window.location.hash===o))
          $.mobile.navigate("#page-map");   
+      // console.log("log in");
+
    }
 }

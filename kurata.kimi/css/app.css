@@ -252,6 +252,11 @@ h2, h3, h4{
    /*pointer-events: none;*/
 }
 
+.bottom-nav.map-footer{
+   position: fixed;
+   bottom: 0px;
+   width: 100%;
+}
 .bottom-nav-link{
    width: 50%;
    height: var(--header-height);
@@ -342,7 +347,6 @@ h2, h3, h4{
 [data-role="header"] a.back-icon-link{
    line-height: inherit;
 }
-
 /*.ui-header .ui-title {
    position: absolute;
    top: 0;
@@ -448,6 +452,10 @@ h2, h3, h4{
 }
 .search-bar::placeholder{
    color: var(--color-neutral-medium);
+}
+input.search-bar:focus{
+   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   
 }
 
 .ui-input-text, .ui-input-search{
@@ -926,9 +934,7 @@ select:valid { color:var(--color-black); }
    left: 0;
    width: 100%;
    height: 100%;
-   background-image: url("../images/map_placeholder2.png");
-   background-size: cover;
-   background-position: center;
+   z-index: -2;
 }
 
 .add-btn{
@@ -1302,9 +1308,10 @@ hr.list-filter-separator{
    margin-block-end: 0em;
 }
 .locations-box{
-   width: 100%;
-   height: 60%;
+   /*width: 100%;*/
+   /*height: 60%;*/
    /*min-height: 400px;*/
+   position: relative;
 }
 .flower-location-title-box{
    margin-block-start: 0.5em;
@@ -1319,6 +1326,14 @@ hr.list-filter-separator{
    margin: 1em 0.5em;
 }
 
+
+.map.profile-map-conainer{
+   /*flex: 1 1 auto;*/
+   position: relative;
+
+   height: 400px;
+   width: 100%;
+}
 
 
 
@@ -1424,15 +1439,14 @@ hr.list-filter-separator{
 }
 
 
+/* MAP-PAGE MAP MARKERS */
+section#page-map [aria-roledescription="map"] div div div div img {
+   border-radius: 0px;
+}
 
-
-
-
-
-
-
-
-
+section#page-map [aria-roledescription="map"] div div div img {
+   border-radius: 1em;
+}
 
 
 

@@ -64,7 +64,7 @@ function makeStatement($data) {
 
 
          case "user_by_id":
-            return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
+            return makeQuery($c,"SELECT id,username,name,email,img,YEAR(date_create) AS  date_create FROM `track_users` WHERE `id`=?",$p);
          case "flower_by_id":
             return makeQuery($c,"SELECT * FROM `track_flowers` WHERE `id`=?",$p);
          case "location_by_id":
@@ -77,8 +77,14 @@ function makeStatement($data) {
             return makeQuery($c,"SELECT * FROM `track_locations` WHERE `flower_id`=?",$p);
 
 
+
+
          case "check_signin":
             return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
+
+
+
+               
 
 
          // case "recent_flower_locations":
@@ -110,7 +116,108 @@ function makeStatement($data) {
                ORDER BY l.flower_id, l.date_create DESC
                ",$p);
 
-         
+
+            case "all_flower_locations":
+               return makeQuery($c,"SELECT *
+                  FROM `track_flowers` a
+                  JOIN `track_locations` l
+                  ON a.id = l.flower_id
+                  WHERE user_id = ?
+                  ",$p);
+
+            case "all_flower_colors":
+               return makeQuery($c,"SELECT DISTINCT color 
+                  FROM `track_flowers`
+                  WHERE `user_id`=?
+                  ",$p);
+
+
+
+         /* CREATE */ 
+         case "insert_user":
+            $r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? OR `email` = ?",$p);
+            if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+
+            $r = makeQuery($c,"INSERT INTO
+               `track_users`
+               (`username`, `email`, `password`, `img`, `date_create`)
+               VALUES
+               (?, ?, md5(?), 'http://via.placeholder.com/400/?text=USER', NOW())
+               ",$p,false);
+            return ["id" => $c->lastInsertId()];
+
+
+         case "insert_flower":
+            $r = makeQuery($c,"INSERT INTO
+               `track_flowers`
+               (`user_id`, `name`, `type`, `color`, `size`, `img`, `date_create`)
+               VALUES
+               (?,?,?,?,?, 'http://via.placeholder.com/400/?text=FLOWER', Now())
+               ",$p, false);
+            return["id" => $c->lastInsertId()];
+
+
+         case "insert_location":
+            $r = makeQuery($c,"INSERT INTO
+               `track_locations`
+               (`flower_id`, `lat`, `lng`, `photo`, `icon`, `date_create` )
+               VALUES
+               (?,?,?,'http://via.placeholder.com/400/?text=PHOTO', 'http://kimikurata.com/aau/wnm617/kurata.kimi/images/tulip-map-icon.png', NOW())
+               ",$p, false);
+            return["id" => $c->lastInsertId()];
+
+
+
+
+
+
+
+            /* UDATE */
+         case "update_user":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `username` = ?,
+                  `name` = ?,
+                  `email` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+         case "update_user_password":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `password` = md5(?)
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+
+         case "update_flower":
+            $r = makeQuery($c,"UPDATE
+               `track_flowers`
+               SET
+                  `name` = ?,
+                  `type` = ?,
+                  `color` = ?,
+                  `size` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+
+
+
+         // case "update_location":
+         //    $r = makeQuery($c,"UPDATE
+         //       `track_locations`
+         //       SET
+         //          `description` = ?
+         //       WHERE `id` = ?
+         //       ",$p,false);
+         //    return ["result" => "success"];
+
 
 
          default: return ["error"=>"No Matched Type"];
@@ -119,6 +226,7 @@ function makeStatement($data) {
       return ["error"=>"Bad Data"];
    }
 }
+
 
 
 $data = json_decode(file_get_contents("php://input"));

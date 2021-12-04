@@ -9,16 +9,18 @@ const resultQuery = async (options) => {
 }
 
 
-
-
 const ListPage = async() => {
-   let result = await resultQuery({
+   
+      let flowers = await resultQuery({
          type:'flowers_by_user_id',
          params:[sessionStorage.userId]
    });
+   
+   makeFlowerListSet(flowers);
 
-   $("#page-list .flowerlist").html(makeFlowerList(result));
 }
+
+
 
 
 
@@ -38,8 +40,6 @@ const MapPage = async() => {
 
    let mapEl = await makeMap("#page-map .map");
    makeMarkers(mapEl,flowers);
-
-
 
    let {infoWindow,map,markers} = mapEl.data();
    markers.forEach((o,i)=>{
@@ -99,6 +99,9 @@ const UserProfilePage = async() => {
    let [user] = result;
    // $("#profile-image").html(makeUserProfileImage(user));
    $("#page-user-profile [data-role='main']").html(makeUserProfile(user, tflowers, tcolors, tlocations));
+   $("#user-image-to-replace").css({
+            "background-image":`url(${user.img})`
+         });
 
 }
 
@@ -111,7 +114,7 @@ const FlowerProfilePage = async() => {
       });
   
    let [flower] = flower_result;
-   $(".flower-image-container img").attr("src",flower.img);
+   $("#flower-profile-img").attr("src",flower.img);
 
    let location_result = await resultQuery({
          type:'locations_by_flower_id',
@@ -121,10 +124,37 @@ const FlowerProfilePage = async() => {
    let mapEl = await makeMap("#page-flower-profile .map");
    makeMarkers(mapEl,location_result);
 
+   console.log(location_result);
+
+   let {infoWindow,map,markers} = mapEl.data();
+   markers.forEach((o,i)=>{
+      o.addListener("click",function(){
+
+         /* Simple Example */
+         // sessionStorage.flowerId = flowers[i].flower_id;
+         // $.mobile.navigate("#page-flower-profile")
+
+         /* InfoWindow Example */
+         
+         infoWindow.open(map,o);
+         infoWindow.setContent(makeLocationPopup(location_result[i]));
+
+
+         // /* Activate Example */
+         // $("#map-item-modal")
+         //    .addClass("active")
+         //    .find(".modal-body")
+         //    .html(makeFlowerModal(flowers[i]))
+      })
+   });
+
    $(".flower-profile-name").text(flower.name);
    $(".flower-data-type").text(flower.type);
    $(".flower-data-color").text(flower.color);
    $(".flower-data-size").text(flower.size);
+   $("#flower-image-to-replace").css({
+            "background-image":`url(${flower.img})`
+         });
 }
 
 
@@ -182,6 +212,10 @@ const AddLocationPage = async() => {
       $("#location-lat").val(e.latLng.lat());
       $("#location-lng").val(e.latLng.lng());
       makeMarkers(mapEl,[e.latLng]);
+      $( "#save-new-location" ).removeClass( "disable" );
+      $("#set-location-direction").css("color", "var(--color-neutral-dark)");
+
+
    })
 }
 
@@ -217,4 +251,8 @@ const SetCategoryPage = async() => {
     console.log("flower id is " + selectedval);
     // alert(selectedval);
    });
+   $("#select-category").val(result[0].id);
 }
+
+
+

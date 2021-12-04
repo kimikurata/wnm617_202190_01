@@ -8,7 +8,15 @@ const query = (options) => {
    }).then(d=>d.json());
 }
 
+const checkUpload = (file) => {
+   let fd = new FormData();
+   fd.append("image",file);
 
+   return fetch('data/api.php',{
+      method:'POST',
+      body:fd,
+   }).then(d=>d.json());
+}
 // Curried Function
 
 // o = object
@@ -19,7 +27,7 @@ const query = (options) => {
 const templater = f => a =>
    (Array.isArray(a)?a:[a])
    .reduce((r,o,i,a)=>r+f(o,i,a),'');
-
+// ANOTHER WAY TO WHRITE THE SAME CODE
 /*
 function templater(func) {
    return function(a) {
@@ -41,3 +49,6 @@ const checkData = (exterior_check) => new Promise((resolve,reject)=>{
    }
    interior_check();
 });
+
+
+

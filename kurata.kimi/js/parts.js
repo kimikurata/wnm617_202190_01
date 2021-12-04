@@ -18,15 +18,21 @@ const makeFlowerList = templater((o) => `
 `); 
 
 
+
 const makeUserProfile =(o, tflowers, tcolors, tlocations) => 
 `
 <div class="profile-content-container ">
 	<div class="flex-col-center-center profile-image-container display-flex">
 		<div class="profile-image flex-col-center-center">
-			<img class="image-cover" src="${o.img}" alt="profile">
+			<img class="image-cover" src="${o.img}" alt="profile" id="user-display-img">
 		</div>
-		<div class="flex-row-nowrap-end-center" style="height: 0px;">
-			<div class="chage-img-container flex-col-center-center "><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
+		<div class="flex-row-nowrap-end-center" style="height: 0px;" >
+			<div class="chage-img-container flex-col-center-center uplad-img-input-icon" >
+				<input type="hidden" id="user-upload-filename" >
+	         <label class="image-picker replace " id="user-imagepicker-label" data-activate="#save-userprofile-img-modal">
+	            <input type="file" data-role="none" class="uplad-img-input">
+	         </label>
+			</div>
 		</div>
 	</div>
 	<p class="text-center text-bold">${o.name}</p>
@@ -62,6 +68,9 @@ const makeUserProfile =(o, tflowers, tcolors, tlocations) =>
 `;
 
 
+
+
+
 const makeFlowerPopup = (o) => `
 <div class="flex-col-center-center flower-jump" data-id="${o.flower_id}">
    <div class="flex-none flower-popup-image">
@@ -74,6 +83,26 @@ const makeFlowerPopup = (o) => `
    </div>
 </div>
 `;
+
+         
+const makeLocationPopup = (o) => `
+${sessionStorage.locationId = o.id}
+<div class="flex-col-center-center" data-id="${o.id}">
+   <div class="flex-none flower-popup-image">
+      <img src="${o.photo}" alt="">
+   </div>
+   <div class="flex-stretch flower-popup-body padding-md">
+      <div class="flower-popup-type  text-highlight text-bold">Created on: <span class="text-gray  ">${o.date_create}</span> </div>
+   </div>
+   <div class="remove-flower">
+		<div class="flex-row-start-center" data-activate="#delete-location-modal" style="margin-right: 1em;">
+			<svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg>
+			<p class="text-light text-gray">Delete Location</p>
+		</div>
+	</div>
+</div>
+`;
+
 
 const makeFlowerModal = (o) => `
 <div class="flex-row-start-center flower-jump" data-id="${o.flower_id}" data-deactivate="#map-item-modal">
@@ -217,12 +246,7 @@ ${FormControlInputEdit({
    placeholder:"Email",
    value:o.email
 })}
-<div class="remove-user">
-	<a class="flex-row-start-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;">
-		<svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg>
-		<p class="text-light text-gray">Delete Account</p>
-	</a>
-</div>
+
 `;
 
 
@@ -254,3 +278,71 @@ const makeFlowerChoiceSelect = ({flowers, name, chosen=0}) =>`
 		`)(flowers)}
 </select><span class="label-category-name"></span>
 `;
+
+const makeFlowerListSet = (arr,target="#page-list .flowerlist") => {
+	$(".list-filter-container").html(makeFilterList(arr));
+   $(target).html(makeFlowerList(arr));
+}
+//HOW TO CREATE THIS MAP USING THE VALUE FROM SEARCH BAR??????-----------------------
+// const makeLocationsMapSet = (arr) =>{
+// 	console.log(arr);
+
+// 	let mapEl = await makeMap("#page-map .map");
+//    makeMarkers(mapEl,flowers);
+
+
+
+//    let {infoWindow,map,markers} = mapEl.data();
+//    markers.forEach((o,i)=>{
+//       o.addListener("click",function(){
+
+//          /* Simple Example */
+//          // sessionStorage.flowerId = flowers[i].flower_id;
+//          // $.mobile.navigate("#page-flower-profile")
+
+//          /* InfoWindow Example */
+//          // infoWindow.open(map,o);
+//          // infoWindow.setContent(makeFlowerPopup(flowers[i]))
+
+//          // /* Activate Example */
+//          $("#map-item-modal")
+//             .addClass("active")
+//             .find(".modal-body")
+//             .html(makeFlowerModal(flowers[i]))
+//       })
+//    });
+// }
+
+
+// FILTERS
+const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+const filterList = (flowers,type) => {
+   let a = [...(new Set(flowers.map(o=>o[type])))];
+   return templater(o=>o?`
+   	<a href="#" data-filter="${type}" data-value="${o}" class="card flex-col-center-start list-filter-item ">
+				<p class="list-filter-title ">${capitalize(o)}</p>
+				<p class="list-filter-counts">3 Items</p>
+			</a>
+   	`:'')(a);
+}
+
+
+const makeFilterList = (flowers) => {
+	return`
+		<a data-value="" class="card flex-col-center-center show-all-card all" data-filter="all">
+			<p class=" list-filter-title">All</p>
+		</a>
+		<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
+		${filterList(flowers,'type')}
+		<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
+		${filterList(flowers,'color')}
+		<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
+		${filterList(flowers,'size')}
+
+
+	`;
+}
+
+
+

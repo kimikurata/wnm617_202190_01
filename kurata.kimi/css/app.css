@@ -99,6 +99,8 @@ h2, h3, h4{
 .flex-align-center { align-items:center; }
 .flex-justify-center { justify-content:center; }
 .flex-vertical { flex-direction:column; }
+.flex-horizontal { flex-direction:row; }
+
 
 
 
@@ -208,13 +210,16 @@ h2, h3, h4{
 .image-cover{
    object-fit: cover;
    background-repeat: no-repeat;
-   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
+
 }
 
 .image-contain{
    object-fit: contain;
    background-repeat: no-repeat;
-   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
 }
 /* http://placehold.jp/500x500.png */
 
@@ -464,6 +469,39 @@ h2, h3, h4{
    min-height: 0em;
    color: var(--color-black);
 }
+.search-bar-form{
+   background-image: url(../images/icons/search.svg);
+   background-position: 10px center;
+   background-repeat: no-repeat;
+   background-size: 1.5em 1.5em;
+   border-radius: 2em;
+   background-color: var(--color-pure-white);
+   padding: 0em 0em 0em 2.5em;
+   height: 2.5em;
+   font-size: 1em;
+   min-height: 0em;
+   color: var(--color-black);
+   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   margin-left: 1em;
+}
+
+.search-bar-form input{
+   border-width: 0;
+   background-color: transparent;
+   border-radius: 0;
+   -webkit-appearance: none;
+   font: inherit;
+   color: inherit;
+   outline: 0;
+   flex: 1 1 auto;
+   width: 95%;
+   height: 100%;
+}
+/*.hotdog input{
+   border-width: 0;
+   background-color: transparent;
+   border-radius: 0;
+}*/
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: var(--color-neutral-medium);
@@ -476,6 +514,18 @@ h2, h3, h4{
 input.search-bar:focus{
    box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
+.uplad-img-input-icon{
+   background: url(../images/icons/camera.svg) no-repeat scroll ;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: 1.2em 1.2em;
+   /*padding-left:30px;*/
+
+}
+.image-picker.replace input {
+   display: none;
+}
+
 
 .ui-input-text, .ui-input-search{
    margin: 0em 0em 0 1em;
@@ -618,7 +668,10 @@ select:valid { color:var(--color-black); }
    font-weight: 600;
    line-height: normal;
 }
-
+.primary-btn.disable{
+   background-color: var(--color-neutral-light);
+   /*color: var(--color-pure-white);*/
+}
 .primary-btn-inverted{
    width: 100%;
    height: 2.5em;
@@ -808,7 +861,29 @@ select:valid { color:var(--color-black); }
    font-weight: 500;
    font-size: 1.2em;
 }
-
+.flower-upload-img-modal-popup {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    /*border-radius: 1em;*/
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    transition: all 0.3s;
+    z-index: 13;
+}
+.user-upload-img-modal-popup {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    border-radius: 1em;
+    width: 80vmin;
+    overflow: hidden;
+    transition: all 0.3s;
+    z-index: 13;
+}
 
 
 
@@ -1088,6 +1163,9 @@ hr.chip-separator{
    padding: 0.8em;
    border-radius: 1em;
    margin: 0.3em;
+   overflow: hidden;
+   max-width: fit-content;
+
 }
 
 .card.dark{
@@ -1099,9 +1177,12 @@ hr.chip-separator{
 }
 
 .card.list-filter-item{
-   min-width: 70px;
+   min-width: fit-content;
 }
+.card.all{
+   min-width: 50px;
 
+}
 .card:not(:first-child){
    margin-left: 0.5em;
 }
@@ -1144,8 +1225,6 @@ hr.list-filter-separator{
    background-color: var(--color-medium-light);
    border-radius: 0 0 0 0em;
 }
-
-
 
 .flower-list-image-container{
    width: 80px;
@@ -1241,6 +1320,8 @@ hr.list-filter-separator{
 
 
 
+
+
 /*SET LOCATION*/
 #set-location{
    background-color: var(--color-white);
@@ -1276,6 +1357,12 @@ hr.list-filter-separator{
    height: auto;
    margin: auto;
 }
+
+
+
+
+
+
 
 
 
@@ -1318,16 +1405,19 @@ hr.list-filter-separator{
 
 
 
+
+
+
+
+
 /*FLOWER PROFILE*/
 .flower-image-container{
    width: 100%;
    height:50%;
    border-radius: 0 0 0em 0em;
-   /*box-shadow: 2px 2px 5px rgba(0,0,0,0.5);   */
    background-color: var(--color-neutral-light);
    overflow: hidden; 
    max-height: 500px;
-
 }
 
 .flower-image{
@@ -1445,6 +1535,24 @@ hr.list-filter-separator{
    right: 0.5em;
    color: var(--color-neutral-medium);
 }
+.flower-image-modal-container{
+   width: 100%;
+   height:50%;
+   border-radius: 0 0 0em 0em;
+   overflow: hidden; 
+   max-height: 500px;
+}
+#flower-image-to-replace{
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-image: url(../images/tulip-image-placeholder.png);
+
+}
+
+
+
+
 
 
 
@@ -1556,7 +1664,11 @@ hr.list-filter-separator{
    margin-block-end: 0em;
 }
 
-
+#user-image-to-replace{
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
 
 
 
@@ -1589,6 +1701,18 @@ section#page-map [aria-roledescription="map"] div div div img {
 
 
 
+
+
+.image-picker.replace {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+}
 
 
 

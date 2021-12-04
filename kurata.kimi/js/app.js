@@ -35,6 +35,7 @@ $(()=>{
        case "page-set-info": AddFlowerInfo();break;
        case "page-edit-password": ChangePasswordPage();break;
        case "page-set-category": SetCategoryPage();break;
+       // case "page-user-upload": UserImageUpload();break;
 
 
      }
@@ -70,6 +71,23 @@ $(()=>{
     userEditPasswordForm();
   })
 
+  .on("submit", "#list-search-form", function(e) {
+    e.preventDefault();
+    let s = $(this).find("input").val();
+    // console.log(s);
+    checkSearchForm(s);
+  })
+
+  .on("submit", "#map-search-form", function(e) {
+    e.preventDefault();
+    let s = $(this).find("input").val();
+    // console.log(s);
+    checkMapSearchForm(s);
+  })
+
+
+
+
 // FORM ANCHOR CLICKS -> USE THIS METHOD TO SUBMIT A FORM FORM A BUTTON OUTSIDE THE FORM ELEMENT,  add js-submituseredit to the button as a clas, delete any href="#" or data-rel="back" from the button or anchor 
  // EXAMPLE: 
     // .on("click",".js-submituseredit",function(e) {
@@ -83,6 +101,89 @@ $(()=>{
    })
 
 
+  .on("click",".js-reset-add-location-page",function(e){
+    $("#location-lat").removeAttr('value');
+    $("#location-lng").removeAttr('value');
+    $("#set-location-direction").css("color", "var(--color-neutral-dark)");
+    $( "#save-new-location" ).addClass( "disable" );
+
+
+  })
+
+
+// FILTER LIST
+   .on("click","[data-filter]",function(e){
+      let {filter,value} = $(this).data();
+      if(value=="") ListPage();
+      else checkFilter(filter,value);
+   })
+
+
+// UPLOAD IMAGES
+  // user image edit
+  .on("change","#user-imagepicker-label input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d + sessionStorage.userId);
+         $("#user-upload-filename").val("uploads/"+d.result);
+         $("#user-image-to-replace").css({
+            "background-image":`url(uploads/${d.result})`
+         });
+      })
+   })
+  .on("click",".js-submituserupload",function(e) {
+      let images = $("#user-upload-filename").val();
+      let image = (images.length === 0)? $("#user-display-img").attr('src'): images;
+
+
+      query({
+         type:"update_user_image",
+         params: [image,sessionStorage.userId]
+      }).then(d=>{
+
+         if(d.error) throw(d.error);
+
+         history.go(0);
+      })
+   })
+
+
+
+   // flower image edit
+  .on("change","#flower-imagepicker-label input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d);
+         $("#flower-upload-filename").val("uploads/"+d.result);
+         $("#flower-image-to-replace").css({
+            "background-image":`url(uploads/${d.result})`
+         });
+      })
+   })
+  .on("click",".js-submitflowerupload",function(e) {
+      let images = $("#flower-upload-filename").val();
+      let image = (images.length === 0)? $("#flower-profile-img").attr('src'): images;
+
+      query({
+         type:"update_flower_image",
+
+         params: [image,sessionStorage.flowerId]
+      }).then(d=>{
+         if(d.error) throw(d.error);
+
+         history.go(0);
+      })
+   })
+
+
+
+
+
+
+
+
+// ADD LOCATION CATEGORY
+
 .on("click", "#open-new-category", function(){
   $("#existing-category").hide();
   $("#new-category").show();
@@ -92,6 +193,29 @@ $(()=>{
   $("#new-category").hide();
 
 })
+
+
+// DETELE 
+
+.on("click",".js-flower-delete",function(e){
+  query({
+     type:"delete_flower",
+     params: [sessionStorage.flowerId]
+  }).then(d=>{
+     history.go(-2);
+  })
+})
+
+
+.on("click",".js-location-delete",function(e){
+  query({
+     type:"delete_location",
+     params: [sessionStorage.locationId]
+  }).then(d=>{
+     history.go(0);
+  })
+})
+
 
 
   // ANCHOR CLICKS
@@ -125,9 +249,6 @@ $(()=>{
   .on("click", ".js-navigateback-two", function(e){
     history.go(-2);
    })
-
-
-
 
 
 

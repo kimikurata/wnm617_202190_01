@@ -33,6 +33,7 @@
 
 
 
+
     <!-- GOOGLEMAPS Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQsIZ6uIy9ysZfvVXzzSmPMsFH8Czs-Kg"
@@ -127,8 +128,11 @@
 			
 		<div class="flex-row-nowrap-between-center search-container">
 			<div class="flex-stretch ">
-				<form  action="">
+				<!-- <form  action="">
 					<input class="search-bar" type="text" name="search" placeholder="Search.."/>
+				</form> -->
+				<form data-ajax="false" id="map-search-form" class="search-bar-form">
+					<input  type="search" data-role="none" placeholder="Search.."/>
 				</form>
 			</div>
 			<a href="#page-user-profile">
@@ -212,51 +216,43 @@
 	<section data-role="page" id="page-list">
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch search-container">
-				<form  action="">
-					<input class="search-bar" type="text" name="search" placeholder="Search.."/>
-				</form>
+				<div class="flex-stretch ">
+					<form data-ajax="false" id="list-search-form" class="search-bar-form">
+						<input  type="search" data-role="none" placeholder="Search.."/>
+					</form>
+				</div>
 			</div>
 			<a href="#page-user-profile">
 				<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
 			</a>
 		</div>
+		<!-- DELETE WHEN FINISH WITH SEARCH BAR CODE -->
+<!-- 		<div class="search-bar header flex-none">
+        <form data-ajax="false" id="list-search-form" class="hotdog medium">
+           <input type="search" data-role="none" placeholder="Search...">
+        </form>
+     </div> -->
 		<div class="list-filter-container flex-row-nowrap-start-stretch overscroll-y ">
-			<div class="card flex-col-center-center show-all-card ">
+   /*min-width: 70px;*/
+			<a href="#" class="card flex-col-center-center show-all-card all">
 				<p class=" list-filter-title">All</p>
-			</div>
+			</a>
 			
 			<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
 			
-			<div class="card flex-col-center-start list-filter-item active">
+			<a href="#" data-filter="type" data-value="Tulip" class="card flex-col-center-start list-filter-item active">
 				<p class="list-filter-title ">Tulips</p>
 				<p class="list-filter-counts">3 Items</p>
-			</div>
-			<div class="card flex-col-center-start list-filter-item ">
+			</a>
+			<a href="#" data-filter="type" data-value="Lily" class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title">Lily</p>
 				<p class="list-filter-counts">3 Items</p>
-			</div>
-			<div class="card flex-col-center-start list-filter-item ">
+			</a>
+			<a href="#" data-filter="type" data-value="Rose" class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title">Rose</p>
 				<p class="list-filter-counts">3 Items</p>
-			</div>
-<!-- 			<a class="card dark flex-col-center-center " href="#page-new-category">
-				<p class=" list-filter-title">+</p>
-			</a> -->
-			<hr class="list-filter-separator"style="border-right: 1px solid var(--color-neutral-medium;">
-			<div class="card flex-col-center-start list-filter-item ">
-				<p class="list-filter-title">Pink</p>
-				<p class="list-filter-counts">3 Items</p>
-			</div>
-			<div class="card flex-col-center-start list-filter-item ">
-				<p class="list-filter-title">White</p>
-				<p class="list-filter-counts">3 Items</p>
-			</div>
-			<div class="card flex-col-center-start list-filter-item ">
-				<p class="list-filter-title">Purple</p>
-				<p class="list-filter-counts">3 Items</p>
-			</div>
-			
-			<div class="flex-stretch"></div>
+			</a>
+
 		</div>
 		<div data-role="main" class="overscroll-x">
 			
@@ -288,11 +284,20 @@
 
 	<!-- PAGE FLOWER PROFILE -->
 	<section data-role="page" id="page-flower-profile">
+		<header data-role="header" class="floating-header" id="flower-profile-topnav">
+			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
+					<img class="icon-md icon" src="images/icons/arrow_w.svg" alt="back"></a>
+		</header>
 		<div data-role="main " class="overscroll-x" id="flower-profile-main">
 			<div class="flower-image-container ">
-				<img class="flower-image image-cover" src="images/tulips.jpeg" alt="flower image"/>
-				<div class="flex-row-nowrap-end-start">
-					<div class="edit-flower-img flex-col-center-center"><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
+				<img class="flower-image image-cover" id="flower-profile-img" src="images/tulip-image-placeholder.png" alt="flower image"/>
+				<div class="flex-row-nowrap-end-center"  >
+					<div class="edit-flower-img flex-col-center-center uplad-img-input-icon" >
+						<input type="hidden" id="flower-upload-filename" >
+			         <label class="image-picker replace " id="flower-imagepicker-label" data-activate="#save-flowerprofile-img-modal">
+			            <input type="file" data-role="none" class="uplad-img-input">
+			         </label>
+					</div>
 				</div>
 				<div class="flex-col-start-start corners">
 					<img class="inverted-corner" src="images/inverted_corner.svg" alt=""/>
@@ -314,7 +319,7 @@
 					<p class=" flower-info  flower-info-title" >Category</p>
 				</div><div class="vertical-separation"></div>
 				<div class="flex-col-start-center flower-info-box">
-					<p class=" flower-info  flower-info-text flower-data-color">Transparent</p>
+					<p class=" flower-info  flower-info-text flower-data-color">Pink</p>
 					<p class=" flower-info  flower-info-title" >Color</p>
 				</div><div class="vertical-separation"></div>
 				<div class="flex-col-start-center flower-info-box">
@@ -322,8 +327,7 @@
 					<p class=" flower-info  flower-info-title" >Size</p>
 				</div>
 			</div>
-				<p class="bottom-padding-xs flower-location-title-box container">Location:</p>
-
+				<p class="bottom-padding-xs flower-location-title-box container">Locations:</p>
 			<div >
 				<div class="position-relative">
 					<a href="#page-set-location" class="add-location-btn js-chooseflower" data-setnavigateback="-2">&plus;</a>
@@ -332,10 +336,53 @@
 			<!-- 	<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/> -->
 			</div>
 		</div>
-		<header data-role="header" class="floating-header" id="flower-profile-topnav">
-			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow_w.svg" alt="back"></a>
-		</header>
+
+
+		<!-- DELETE A LOCATION MODAL -->
+		<div class="modal" id="delete-location-modal">
+			<div class="modal-back" data-deactivate="#delete-location-modal"></div>
+
+			<div class="modal-popup">
+
+				<div class="modal-body">
+					<p class="modal-body-text text-center">Delete this location?</p>
+				</div>
+				<div class="modal-foot">
+					<div class="">
+						<form class="form  flex-row-nowrap-between-center delete-confirm-footer" data-ajax="false"  id="delete-location-form" >
+							<div class="form-control flex-stretch delete-confirm-control">
+								<a href="#" data-deactivate="#delete-location-modal" class="primary-btn">NO</a>
+							</div>
+							<div class="form-control flex-stretch delete-confirm-control">
+								<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
+								<div  class="outlined-btn js-location-delete">YES</div>
+							</div>			
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CHANGE FLOWER PROFILE IMAGE MODAL -->
+		<div class="modal" id="save-flowerprofile-img-modal">
+			<div class="modal-back" data-deactivate="#save-flowerprofile-img-modal"></div>
+			<div class="flower-upload-img-modal-popup">
+				<div class="flower-image-modal-container " id="flower-image-to-replace">
+			<!-- 		<img class="flower-image image-cover" id="flower-profile-img" src="images/tulip-image-placeholder.png" alt="flower image"/> -->
+				</div>
+				<form class="form  flex-row-nowrap-between-center delete-confirm-footer" data-ajax="false"  id="save-flower-profile-form" >
+					<div class="form-control flex-stretch delete-confirm-control">
+						<a href="#" data-deactivate="#save-flowerprofile-img-modal" class="outlined-btn">Cancel</a>
+					</div>
+					<div class="form-control flex-stretch delete-confirm-control">
+						<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
+						<div  class="primary-btn js-submitflowerupload">Save</div>
+					</div>			
+				</form>
+				
+				
+			</div>
+		</div>
 	</section>
 
 
@@ -365,7 +412,7 @@
 				</div>
 			</form>
 		</div>
-				<div class="modal" id="delete-flower-modal">
+		<div class="modal" id="delete-flower-modal">
 			<div class="modal-back" data-deactivate="#delete-flower-modal"></div>
 			<div class="modal-popup">
 				<div class="modal-body">
@@ -378,7 +425,8 @@
 								<a href="#" data-deactivate="#delete-flower-modal" class="primary-btn">NO</a>
 							</div>
 							<div class="form-control flex-stretch delete-confirm-control">
-								<a href="#page-list" class="outlined-btn">YES</a>
+								<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
+								<div  class="outlined-btn js-flower-delete">YES</div>
 							</div>			
 						</form>
 					</div>
@@ -424,7 +472,7 @@
 					<div id="new-category" >
 						<h3 class="" >Create new category</h3>
 						<div class="form-control">
-							<input class="form-input-lined" type="text" id="new-category-name" data-role="none" placeholder="New category name"/><label class="label-helper">New category name</label>
+							<input class="form-input-lined" type="text" data-role="none" placeholder="New category name"/><label class="label-helper">New category name</label>
 						</div>
 						<!-- <p>Add an image</p>
 						<div class="flex-col-center-start profile-image-container display-flex">
@@ -459,9 +507,9 @@
 <!-- ADD LOCATION -->
 	<section class="" data-role="page" id="page-set-location">
 		<header data-role="header" class="set-location-top-nav">
-			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
+			<a class="flex-col-center-center back-icon-link js-reset-add-location-page" href="#" data-rel="back">
 					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
-			<a class="zindex10 js-navigateback-two"  >Cancel</a>
+			<a class="zindex10 js-navigateback-one js-reset-add-location-page"  >Cancel</a>
 			<div class="set-location-progress-bar-container ">
 				<div class="progress-bar percent100"></div>
 			</div>
@@ -477,11 +525,11 @@
 		<div class="map"></div>
 		<footer  class="form login-container add-location-footer" data-ajax="false"  id="set-location" style="padding:10px">
 			<h3>Where did you find the flower?</h3>
-			<p class="body-text">Use the dot on the map.</p>
+			<p class="body-text" id="set-location-direction">Tap on the map to set a location.</p>
 			
 			<div class="display-flex form-control">
 				<div class="flex-stretch"></div>
-				<div class="full-btn"><a class="js-submitlocationform primary-btn">Save</a></div>
+				<div class="full-btn"><a id="save-new-location" class="js-submitlocationform primary-btn disable" >Save</a></div>
 			</div>			
 		</footer >
 	</section>
@@ -583,12 +631,12 @@
 				<div id="profile-image">
 					<div class="flex-col-center-center profile-image-container display-flex">
 						<div class="profile-image flex-col-center-center">
-							<img class="image-cover" src="images/profile.jpg" alt="profile"/>
+							<img class="image-cover" src="images/tulip-profile-placeholder-light.png" alt="profile"/>
 						</div>
-						<div class="flex-row-nowrap-end-center" style="height: 0px;">
+						<a class="flex-row-nowrap-end-center" style="height: 0px;" >
 							<div class="chage-img-container flex-col-center-center "><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
 						</div>
-					</div>
+					</a>
 					<p class="text-center text-bold">Kimi Kurata</p>
 				</div>
 				
@@ -647,6 +695,26 @@
 						<p class="drawer-item-text">Log Out</p>
 					</a>
 				</div>
+			</div>
+		</div>
+
+		<!-- CHANGE USER PROFILE IMAGE MODAL  -->
+		<div class="modal" id="save-userprofile-img-modal">
+			<div class="modal-back" data-deactivate="#save-userprofile-img-modal"></div>
+			<div class="user-upload-img-modal-popup">
+				<div style="height:var(--header-height);line-height: var(--header-height);margin-bottom: 10px;"></div>
+				<div class="flex-col-center-center profile-image-container display-flex">
+					<div class="profile-image  flex-col-center-center" id="user-image-to-replace"></div>
+				</div>
+				<form class="form flex-row-nowrap-between-center" data-ajax="false"  >
+					<div class="form-control flex-stretch delete-confirm-control">
+						<a href="#" data-deactivate="#save-userprofile-img-modal" class="outlined-btn">Cancel</a>
+					</div>
+					<div class="form-control flex-stretch delete-confirm-control">
+						<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
+						<div  class="primary-btn js-submituserupload">Save</div>
+					</div>			
+				</form>	
 			</div>
 		</div>
 	</section>
@@ -709,7 +777,31 @@
 		</div>
 	</section>
 
-	
+
+
+
+
+<!-- DELETE AFTER FINISHING CODING ADD PROFILE IMAGES 
+	<section data-role="page" id="page-user-upload" class="">
+		<header data-role="header" class="set-location-top-nav">
+			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
+					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
+			<a class="zindex10 js-submituserupload"  >Save</a>
+			<div class="set-location-progress-bar-container ">
+				<div class="progress-bar percent100"></div>
+			</div>
+		</header>
+		<div class="overscroll-x" data-role="main">
+			<input type="hidden" id="user-upload-filename">
+         <label class="image-picker replace">
+            <input type="file" data-role="none">
+         </label>
+		</div>
+		<footer class="bottom-nav" data-role="footer">
+		</footer>
+	</section>
+
+	 -->
 
 
 
@@ -737,9 +829,9 @@
 
    </script>
 
-
-
-
+	
+<!-- SOURSES -->
+<!-- GETTING DATEFORMAT ON MySQL---- https://www.mysqltutorial.org/mysql-date_format/ -->
 
 
 

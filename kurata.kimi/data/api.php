@@ -46,6 +46,21 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
 }
 
 
+function makeUpload($file,$folder) {
+   $filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+   if(@move_uploaded_file(
+      $_FILES[$file]['tmp_name'],
+      $folder.$filename
+   )) return ['result'=>$filename];
+   else return [
+      "error"=>"File Upload Failed",
+      "_FILES"=>$_FILES,
+      "filename"=>$filename
+   ];
+}
+
+
 
 function makeStatement($data) {
    try{
@@ -68,33 +83,16 @@ function makeStatement($data) {
          case "flower_by_id":
             return makeQuery($c,"SELECT * FROM `track_flowers` WHERE `id`=?",$p);
          case "location_by_id":
-            return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
+            return makeQuery($c,"SELECT *  FROM `track_locations` WHERE `id`=?",$p);
 
 
          case "flowers_by_user_id":
             return makeQuery($c,"SELECT * FROM `track_flowers` WHERE `user_id`=?",$p);
          case "locations_by_flower_id":
-            return makeQuery($c,"SELECT * FROM `track_locations` WHERE `flower_id`=?",$p);
-
-
-
+            return makeQuery($c,"SELECT id,flower_id,lat,lng,photo,icon,DATE_FORMAT(date_create,'%c/%e/%Y') AS  date_create FROM `track_locations` WHERE `flower_id`=?",$p);
 
          case "check_signin":
             return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
-
-
-
-               
-
-
-         // case "recent_flower_locations":
-         //    return makeQuery($c,"SELECT * 
-         //       FROM `track_flowers` a 
-         //       JOIN `track_locations`  l
-         //       ON a.id = l.flower_id
-         //       WHERE a.user_id = ?
-
-         //       ",$p);
 
 
          case "recent_flower_locations":
@@ -132,6 +130,47 @@ function makeStatement($data) {
                   ",$p);
 
 
+            case "search_flowers":
+               $p = ["%$p[0]%",$p[1]];
+               return makeQuery($c,"SELECT *
+                  FROM `track_flowers`
+                  WHERE
+                     `name` LIKE ? AND
+                     `user_id` = ?
+                  ",$p);
+
+            case "search_recent_flowers":
+               return makeQuery($c,"SELECT *
+                  FROM `track_flowers` a
+                  JOIN (
+                     SELECT lg.*
+                     FROM `track_locations` lg
+                     WHERE lg.id = (
+                        SELECT lt.id
+                        FROM `track_locations` lt
+                        WHERE lt.flower_id = lg.flower_id
+                        ORDER BY lt.date_create DESC
+                        LIMIT 1
+                     )
+                  ) l
+                  ON a.id = l.flower_id
+                  WHERE 
+                     a.name LIKE ? AND  
+                     a.user_id = ?
+                  ORDER BY l.flower_id, l.date_create DESC
+                  ",$p);
+
+
+
+            case "filter_flowers":
+            return makeQuery($c,"SELECT *
+               FROM `track_flowers`
+               WHERE
+                  `$p[0]` = ? AND
+                  `user_id` = ?
+               ",[$p[1],$p[2]]);
+
+
 
          /* CREATE */ 
          case "insert_user":
@@ -152,7 +191,7 @@ function makeStatement($data) {
                `track_flowers`
                (`user_id`, `name`, `type`, `color`, `size`, `img`, `date_create`)
                VALUES
-               (?,?,?,?,?, 'http://via.placeholder.com/400/?text=FLOWER', Now())
+               (?,?,?,?,?,?, Now())
                ",$p, false);
             return["id" => $c->lastInsertId()];
 
@@ -162,7 +201,7 @@ function makeStatement($data) {
                `track_locations`
                (`flower_id`, `lat`, `lng`, `photo`, `icon`, `date_create` )
                VALUES
-               (?,?,?,'http://via.placeholder.com/400/?text=PHOTO', 'http://kimikurata.com/aau/wnm617/kurata.kimi/images/tulip-map-icon.png', NOW())
+               (?,?,?,?, 'http://kimikurata.com/aau/wnm617/kurata.kimi/images/tulip-map-icon.png', NOW())
                ",$p, false);
             return["id" => $c->lastInsertId()];
 
@@ -206,8 +245,21 @@ function makeStatement($data) {
                ",$p,false);
             return ["result" => "success"];
 
+         case "update_user_image":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET `img` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
 
-
+         case "update_flower_image":
+            $r = makeQuery($c,"UPDATE
+               `track_flowers`
+               SET `img` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
 
          // case "update_location":
          //    $r = makeQuery($c,"UPDATE
@@ -219,6 +271,15 @@ function makeStatement($data) {
          //    return ["result" => "success"];
 
 
+         /* DELETE */
+         case "delete_flower":
+            $r = makeQuery($c,"DELETE FROM `track_flowers` WHERE `id` = ?",$p,false);
+            return ["result" => "success"];
+
+         case "delete_location":
+            $r = makeQuery($c,"DELETE FROM `track_locations` WHERE `id` = ?",$p,false);
+            return ["result" => "success"];
+
 
          default: return ["error"=>"No Matched Type"];
       }
@@ -228,6 +289,10 @@ function makeStatement($data) {
 }
 
 
+if(!empty($_FILES)) {
+   $r = makeUpload("image","../uploads/");
+   die(json_encode($r));
+}
 
 $data = json_decode(file_get_contents("php://input"));
 

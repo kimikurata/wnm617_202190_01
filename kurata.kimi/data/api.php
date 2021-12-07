@@ -1,5 +1,4 @@
 <?php
-
 function makeConn() {
    include "auth.php";
    try {
@@ -170,20 +169,45 @@ function makeStatement($data) {
                   `user_id` = ?
                ",[$p[1],$p[2]]);
 
+            case "filter_categories":
+            return makeQuery($c,"SELECT type, COUNT(*) duplicates
+               FROM `track_flowers` 
+               WHERE `user_id`=?
+               GROUP BY type"
+               ,$p);
+
+            case "filter_colors":
+            return makeQuery($c,"SELECT color, COUNT(*) duplicates
+               FROM `track_flowers` 
+               WHERE `user_id`=?
+               GROUP BY color"
+               ,$p);
+
+            case "filter_sizes":
+            return makeQuery($c,"SELECT size, COUNT(*) duplicates
+               FROM `track_flowers` 
+               WHERE `user_id`=?
+               GROUP BY size"
+               ,$p);
+
+       
+
 
 
          /* CREATE */ 
          case "insert_user":
-            $r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? OR `email` = ?",$p);
+            $r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? OR `email` = ?",[$p[0],$p[1]]);
             if(count($r['result'])) return ["error"=>"Username or Email already exists"];
 
             $r = makeQuery($c,"INSERT INTO
                `track_users`
-               (`username`, `email`, `password`, `img`, `date_create`)
+               (`name`, `username`, `email`, `password`, `img`, `date_create`)
                VALUES
-               (?, ?, md5(?), 'http://via.placeholder.com/400/?text=USER', NOW())
+               ('user', ?, ?, md5(?), 'http://via.placeholder.com/400/?text=USER', NOW())
                ",$p,false);
             return ["id" => $c->lastInsertId()];
+
+
 
 
          case "insert_flower":
@@ -192,6 +216,16 @@ function makeStatement($data) {
                (`user_id`, `name`, `type`, `color`, `size`, `img`, `date_create`)
                VALUES
                (?,?,?,?,?,?, Now())
+               ",$p, false);
+            return["id" => $c->lastInsertId()];
+
+
+         case "insert_only_category":
+            $r = makeQuery($c,"INSERT INTO
+               `track_flowers`
+               (`user_id`, `name`, `type`, `color`, `size`, `img`, `date_create`)
+               VALUES
+               (?,'unset',?,'unset','unset','https://via.placeholder.com/400/FFD391/fff/?text=img', Now())
                ",$p, false);
             return["id" => $c->lastInsertId()];
 
@@ -211,7 +245,17 @@ function makeStatement($data) {
 
 
 
-            /* UDATE */
+         /* UDATE */
+         case "insert_user_onboard":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `name` = ?,
+                  `img` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
          case "update_user":
             $r = makeQuery($c,"UPDATE
                `track_users`
@@ -222,6 +266,8 @@ function makeStatement($data) {
                WHERE `id` = ?
                ",$p,false);
             return ["result" => "success"];
+
+         
 
          case "update_user_password":
             $r = makeQuery($c,"UPDATE
@@ -261,14 +307,14 @@ function makeStatement($data) {
                ",$p,false);
             return ["result" => "success"];
 
-         // case "update_location":
-         //    $r = makeQuery($c,"UPDATE
-         //       `track_locations`
-         //       SET
-         //          `description` = ?
-         //       WHERE `id` = ?
-         //       ",$p,false);
-         //    return ["result" => "success"];
+         case "update_location_image":
+            $r = makeQuery($c,"UPDATE
+               `track_locations`
+               SET
+                  `photo` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
 
 
          /* DELETE */

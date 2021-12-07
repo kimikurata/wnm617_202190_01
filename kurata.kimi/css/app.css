@@ -210,16 +210,11 @@ h2, h3, h4{
 .image-cover{
    object-fit: cover;
    background-repeat: no-repeat;
-   min-width: 100%;
-   min-height: 100%;
-
 }
 
 .image-contain{
    object-fit: contain;
    background-repeat: no-repeat;
-   min-width: 100%;
-   min-height: 100%;
 }
 /* http://placehold.jp/500x500.png */
 
@@ -603,7 +598,10 @@ select:valid { color:var(--color-black); }
 .icon.active{
    fill: var(--color-main-dark);
 }
-
+.icon-xxs{
+   height:0.8em;
+   width:0.8em;
+}
 .icon-xs{
    height:1em;
    width:1em;
@@ -672,6 +670,8 @@ select:valid { color:var(--color-black); }
    background-color: var(--color-neutral-light);
    /*color: var(--color-pure-white);*/
 }
+
+input[type="submit"].primary-btn-inverted,
 .primary-btn-inverted{
    width: 100%;
    height: 2.5em;
@@ -1016,6 +1016,33 @@ select:valid { color:var(--color-black); }
 }
 
 
+/*SIGNUP*/
+.signup-user-btn{
+   background-color: var(--color-pure-white);
+   color: var(--color-neutral-dark);
+   border-radius: 2em;
+   width: 1.5em;
+   height: 1.5em;
+   text-align: center;
+   font-weight: 400;
+   font-size: 1.5em;
+   line-height: 1.5em;
+   border: 2px solid var(--color-neutral-medium);
+   position: relative;
+   transform: translate(220%,-190%);
+}
+.signup-user-img-container{
+   width: 100px;
+   height: 100px;
+   border-radius: 1em;
+   overflow: hidden;
+   background-color: var(--color-white);
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-image: url(../images/tulip-profile-placeholder-light.png);
+}
+
 
 
 /* MAP PAGE */
@@ -1132,6 +1159,7 @@ hr.chip-separator{
    object-position: center;
    object-fit: cover;
    height: 100%;
+   width: 100%;
 }
 
 .drag-bar{
@@ -1140,7 +1168,12 @@ hr.chip-separator{
    border-radius: 1em;
    background-color: var(--color-pure-white);
 }
-
+.user-profile-image{
+   object-fit: cover;
+   background-repeat: no-repeat;
+   min-width: 100%;
+   min-height: 100%;
+}
 
 
 
@@ -1257,8 +1290,38 @@ hr.list-filter-separator{
    margin-block-start: 0em;
    margin-block-end: 0em;
 }
+.callout{
+   position: relative;
+   margin: 0 1em;
+   padding: 10px 20px;
+   background-color: var(--color-main-medium);
+   border-radius: 1em;
 
+}
+.callout-text{
+   color: var(--color-pure-white);
 
+}
+.callout .notch{
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 10px);
+    margin: 0;
+    border-top: 10px solid var(--color-main-medium);
+    border-right:10px solid transparent; 
+    border-left: 10px solid transparent;
+    border-bottom: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.callout.flowerlist{
+   position: absolute;
+   bottom: 10%;
+   width: calc(100% - 2em);
+}
 
 
 
@@ -1353,7 +1416,7 @@ hr.list-filter-separator{
       width: 30%;
 }
 .category-illustration{
-   width: 80%;
+   width: 60%;
    height: auto;
    margin: auto;
 }
@@ -1373,6 +1436,10 @@ hr.list-filter-separator{
    border-radius: 1em;
    overflow: hidden;
    background-color: var(--color-white);
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+   /*background-image: url(../images/tulip-profile-placeholder-light.png);*/
 }
 
 .chage-category-img-container{
@@ -1524,10 +1591,10 @@ hr.list-filter-separator{
    box-shadow: 0 0 5px rgba(0,0,0,0.2);
    border-radius: 50%;
    text-align: center;
-   min-height: 30px;
-   min-width: 30px;
-   max-height: 30px;
-   max-width: 30px;
+   min-height: 1em;
+   min-width: 1em;
+   max-height: 1em;
+   max-width: 1em;
    z-index: 10;
    line-height: 100%;
    font-size: 2em;
@@ -1549,10 +1616,46 @@ hr.list-filter-separator{
    background-image: url(../images/tulip-image-placeholder.png);
 
 }
+.location-add-img-btn{
+   background-color: var(--color-pure-white);
+   color: var(--color-neutral-dark);
+   border-radius: 2em;
+   width: 1.5em;
+   height: 1.5em;
+   text-align: center;
+   font-weight: 400;
+   font-size: 1.5em;
+   line-height: 1.5em;
+   border: 2px solid var(--color-neutral-medium);
+   position: relative;
+   transform: translate(115%,-180%);
+}
+/*.location-add-img-container{
+   width: 100px;
+   height: 100px;
+   border-radius: 1em;
+   overflow: hidden;
+   background-color: var(--color-white);
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-image: url(../images/tulip-profile-placeholder-light.png);
+}*/
+/*.location-content-box{
+   pointer-events: none;
+}*/
 
-
-
-
+.location-image{
+   border-radius: 2em;
+   background-color: var(--color-neutral-light);
+   object-fit: contain;
+   width: 150px;
+   height: 150px;location-image-to-replace
+   overflow: hidden;
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
 
 
 
@@ -1587,7 +1690,7 @@ hr.list-filter-separator{
    overflow: hidden;
 }
 
-.chage-img-container{
+.user-change-img-container{
    background-color: var(--color-pure-white);
    color: var(--color-neutral-dark);
    border-radius: 2em;
@@ -1599,7 +1702,7 @@ hr.list-filter-separator{
    line-height: 1.5em;
    border: 2px solid var(--color-neutral-medium);
    position: relative;
-   transform: translate(150%,-70%);
+   transform: translate(150%,-35%);
 }
 
 .profile-back-icon{
@@ -1664,7 +1767,7 @@ hr.list-filter-separator{
    margin-block-end: 0em;
 }
 
-#user-image-to-replace{
+#user-image-to-replace, #new-user-image-to-replace{
    background-position: center center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -1695,24 +1798,41 @@ section#page-map [aria-roledescription="map"] div div div img {
 }
 .flower-popup-image img {
    max-width: 70px;
+   min-width: 70px;
+   max-height: 70px;
    border-radius: 1em;
+   object-fit: cover;
+   /*background-repeat: no-repeat;*/
 }
 
 
 
 
-
+/*replace images icon*/
 
 .image-picker.replace {
    position: absolute;
    top: 0;
    left: 0;
-   width: 100%;
-   height: 100%;
+   width: 1.5em;
+   height: 1.5em;
    background-position: center;
    background-size: contain;
    background-repeat: no-repeat;
 }
 
 
+/*shaking animation*/ 
+/*https://codepen.io/onion2k/pen/xfepi*/
+.shaker {
+         -webkit-animation: kf_shake 0.4s 1 linear;
+}
+@-webkit-keyframes kf_shake {
+   0% { -webkit-transform: translate(30px); }
+   20% { -webkit-transform: translate(-30px); }
+   40% { -webkit-transform: translate(15px); }
+   60% { -webkit-transform: translate(-15px); }
+   80% { -webkit-transform: translate(8px); }
+   100% { -webkit-transform: translate(0px); }
+}
 

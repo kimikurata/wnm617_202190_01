@@ -87,7 +87,7 @@
 
 
 
-	<!-- SIGN UP -->
+	<!-- SIGN UP 1-->
 	<section data-role="page" id="page-signup">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
@@ -97,9 +97,12 @@
 			</div>
 			<div class="flex-stretch"></div>
 			<form class="form signup-container" data-ajax="false"  id="sign-up-form" style="padding:10px">
-				<h3 class="signup-title">Welcome</h3>
+				<h3 class="signup-title bottom-padding-xs">Welcome</h3>
+
+
+
 				<div class="form-control  top-padding-xs">
-					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username#signin-form"/>
+					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username" />
 					<label class="label-helper">User name</label>
 				</div>
 				<div class="form-control ">
@@ -109,14 +112,71 @@
 					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" ><label class="label-helper">Password</label>
 				</div>
 				<div class="form-control ">
-					<a href="#page-map" class="primary-btn-inverted">Create Account</a>
+					<input type="submit" value="Sign Up" class="primary-btn-inverted" data-role="none"/>
 				</div>
 				<div class="flex-col-center-center">
 					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Signin</span></a>
 				</div>
+
 			</form>
 		</div>
 	</section>
+
+
+
+
+	<!-- SIGN UP 2 -->
+	<section data-role="page" id="page-signup-extrainfo">
+		<div data-role="main" class="display-flex flex-vertical">
+			<div class="flex-stretch"></div>
+			<div class="flex-col-center-center">
+				<img class="intro-logo" src="images/tulip-full-logo.svg" alt="logo">
+			</div>
+			<div class="flex-stretch"></div>
+			<form class="form login-container" data-ajax="false"  id="signup-extrainfo-form" style="padding:10px">
+				<h3>Tell us more about you!</h3>
+				<div class="form-control">
+					<input class="form-input-lined" type="text" id="sign-up-name" data-role="none" placeholder="Your name"/><label class="label-helper">Your name</label>
+				</div>
+				<p>Add an image</p>
+				<div class="flex-col-center-start profile-image-container display-flex">
+					<div class="signup-user-img-container">				
+						<!-- <img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" /> -->
+					</div>
+					<div class="signup-user-btn flex-col-center-center uplad-img-input-icon" >
+						<input type="hidden" id="signup-image-filename" >
+			         	<label class="image-picker replace " id="user-newimagepicker-label" >
+			            	<input type="file" data-role="none" class="uplad-img-input">
+			         	</label>
+					</div>
+				</div>	
+				<div class="form-control ">
+					<input type="submit" value="Start" class="primary-btn" data-role="none">
+				</div>
+				<a class="text-center text-gray text-underlined" href="#page-list">Skip</a>
+			</form>
+		</div>
+		<!-- UPLOAD USER PROFILE IMAGE FIRST TIME -->
+<!-- 		<div class="modal" id="savenew-userprofile-img-modal">
+			<div class="modal-back" data-deactivate="#savenew-userprofile-img-modal"></div>
+			<div class="user-upload-img-modal-popup">
+				<div style="height:var(--header-height);line-height: var(--header-height);margin-bottom: 10px;"></div>
+				<div class="flex-col-center-center profile-image-container display-flex">
+					<div class="profile-image  flex-col-center-center" id="new-user-image-to-replace"></div>
+				</div>
+				<form class="form flex-row-nowrap-between-center" data-ajax="false" id="save-newimage-user-profile-form"  >
+					<div class="form-control flex-stretch delete-confirm-control">
+						<a href="#" data-deactivate="#savenew-userprofile-img-modal" class="outlined-btn">Skip</a>
+					</div>
+					<div class="form-control flex-stretch delete-confirm-control">
+						<div  class="primary-btn js-load-newuserprofile-image">Upload</div>
+					</div>			
+				</form>	
+			</div>
+		</div> -->
+
+	</section>
+
 
 
 
@@ -233,8 +293,8 @@
         </form>
      </div> -->
 		<div class="list-filter-container flex-row-nowrap-start-stretch overscroll-y ">
-   /*min-width: 70px;*/
-			<a href="#" class="card flex-col-center-center show-all-card all">
+  
+<!-- 			<a href="#" class="card flex-col-center-center show-all-card all">
 				<p class=" list-filter-title">All</p>
 			</a>
 			
@@ -251,14 +311,20 @@
 			<a href="#" data-filter="type" data-value="Rose" class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title">Rose</p>
 				<p class="list-filter-counts">3 Items</p>
-			</a>
+			</a> -->
 
 		</div>
 		<div data-role="main" class="overscroll-x">
-			
+
 			<div class="display-flex flex-vertical flowerlist">
-				<div class="flowerlist-item" data-template="#flowerlist-item-template"></div>
-      </div>
+				<p class="text-center text-gray">There are no flowers in the list.</p>
+
+				<div class="callout flowerlist">
+					<p class="callout-text text-center">Tap "+" to add one</p>
+					<b class="notch "></b>
+				</div>
+				
+			</div>
 		</div>
 		<footer class="bottom-nav" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
@@ -330,7 +396,7 @@
 				<p class="bottom-padding-xs flower-location-title-box container">Locations:</p>
 			<div >
 				<div class="position-relative">
-					<a href="#page-set-location" class="add-location-btn js-chooseflower" data-setnavigateback="-2">&plus;</a>
+					<a href="#page-set-location" class="flex-col-center-center add-location-btn js-chooseflower" data-setnavigateback="-2"><img class="icon-xxs" src="images/icons/add-gray.svg" alt=""></a>
 				</div>
 				<div class="map profile-map-conainer"></div>
 			<!-- 	<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/> -->
@@ -363,6 +429,28 @@
 			</div>
 		</div>
 
+
+
+		<!-- CHANGE LOCATION IMAGE MODAL  -->
+		<div class="modal" id="save-location-img-modal">
+			<div class="modal-back" data-deactivate="#save-location-img-modal"></div>
+			<div class="user-upload-img-modal-popup">
+				<div style="height:var(--header-height);line-height: var(--header-height);margin-bottom: 10px;"></div>
+				<div class="flex-col-center-center profile-image-container display-flex">
+					<div class="location-image  flex-col-center-center" id="location-image-to-replace"></div>
+				</div>
+				<form class="form flex-row-nowrap-between-center" data-ajax="false"  >
+					<div class="form-control flex-stretch delete-confirm-control">
+						<a href="#" data-deactivate="#save-location-img-modal" class="outlined-btn">Cancel</a>
+					</div>
+					<div class="form-control flex-stretch delete-confirm-control">
+						<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
+						<div  class="primary-btn js-submitlocationupload">Save</div>
+					</div>			
+				</form>	
+			</div>
+		</div>
+
 		<!-- CHANGE FLOWER PROFILE IMAGE MODAL -->
 		<div class="modal" id="save-flowerprofile-img-modal">
 			<div class="modal-back" data-deactivate="#save-flowerprofile-img-modal"></div>
@@ -378,9 +466,7 @@
 						<!-- <a href="#page-list" class="outlined-btn ">YES</a> -->
 						<div  class="primary-btn js-submitflowerupload">Save</div>
 					</div>			
-				</form>
-				
-				
+				</form>				
 			</div>
 		</div>
 	</section>
@@ -456,21 +542,27 @@
 				<img id="set-category-illustration" class="image-cover category-illustration" src="images/category_illustration.png" alt="">
 			</div>
 		</div>
-		<form class="form login-container" data-ajax="false"  id="category-form" style="padding:10px 10px 0 10px;">
+		<div class="form login-container" data-ajax="false"  id="category-form" style="padding:10px 10px 0 10px;">
 				<div class="category-options-box ">
-					<div id="existing-category">
+					<form id="existing-category">
 						<h3 class="" >What is the category?</h3>
 						<div class="form-control bottom-padding-xs top-padding-xs" id="set-flower-select-box"></div>
-						<div class=" bottom-padding-xs">
-							<div  class="flex-row-center-center" id="open-new-category">
+						<div class="">
+							<!-- <div  class="flex-row-center-center" id="open-new-category">
 								<p class=" text-bold text-highlight">Or create new category </p>
-								<img id="drop-image"class="icon-sm"
-								src="images/icons/right.svg"/>
+								<img id="drop-image"class="icon-sm" src="images/icons/right.svg"/>
+							</div> -->
+							<div  class="flex-row-center-center" >
+								<a href="#page-set-info" class=" text-bold text-highlight">Or create new category </a>
 							</div>
 						</div>
-					</div>
-					<div id="new-category" >
-						<h3 class="" >Create new category</h3>
+						<div class="display-flex form-control">
+							<div class="flex-stretch"></div>
+							<div class="next-btn"><a id="save-category" class="primary-btn" href="#page-set-location">Next</a></div>
+						</div>
+					</form>
+					<form id="new-category" >
+						<h3 class="bottom-padding-xs" >Create new category</h3>
 						<div class="form-control">
 							<input class="form-input-lined" type="text" data-role="none" placeholder="New category name"/><label class="label-helper">New category name</label>
 						</div>
@@ -483,21 +575,23 @@
 								<div class="chage-category-img-container flex-col-center-center" ><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
 							</div>
 						</div> -->
-						<div class=" bottom-padding-xs" >
+						<div class=" " >
 							<div  class="flex-row-center-center" id="open-existing-category"><img id="drop-image"class="icon-sm"
 								src="images/icons/left.svg"/>
-								<p class=" text-bold text-highlight">Or chose form a list </p>
-								
+								<p class=" text-bold text-highlight">Or chose form a list </p>	
 							</div>
 						</div>
-					</div>	
+						<div class="display-flex form-control">
+							<div class="flex-stretch"></div>
+							<div class="next-btn"><a id="add-new-category" class="primary-btn" value="Next">Next</a></div>
+						</div>
+					</form>	
 				</div>
-				
-				<div class="display-flex form-control">
+<!-- 				<div class="display-flex form-control">
 					<div class="flex-stretch"></div>
 					<div class="next-btn"><a id="save-category" class="primary-btn" href="#page-set-location">Next</a></div>
-				</div>
-		</form>
+				</div> -->
+		</div>
 	</section>
 
 
@@ -509,7 +603,7 @@
 		<header data-role="header" class="set-location-top-nav">
 			<a class="flex-col-center-center back-icon-link js-reset-add-location-page" href="#" data-rel="back">
 					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
-			<a class="zindex10 js-navigateback-one js-reset-add-location-page"  >Cancel</a>
+			<a class="zindex10 js-navigate-back js-reset-add-location-page"  >Cancel</a>
 			<div class="set-location-progress-bar-container ">
 				<div class="progress-bar percent100"></div>
 			</div>

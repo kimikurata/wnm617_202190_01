@@ -6,7 +6,7 @@ const makeFlowerList = templater((o) => `
 			</div>
 			<div class="flower-list-item-info">
 				<p class="flower-list-item-name">${o.name}</p>
-				<p class="flower-list-item-category">${o.type}</p>
+				<p class="flower-list-item-category">${o.type} | ${o.color}</p>
 			</div>
 			
 		</div>
@@ -18,16 +18,22 @@ const makeFlowerList = templater((o) => `
 `); 
 
 
+const makeEmptyFlowerList =(o) =>`
+
+<p>You don't have any flowers in the app</p>
+
+`;
+
 
 const makeUserProfile =(o, tflowers, tcolors, tlocations) => 
 `
 <div class="profile-content-container ">
 	<div class="flex-col-center-center profile-image-container display-flex">
 		<div class="profile-image flex-col-center-center">
-			<img class="image-cover" src="${o.img}" alt="profile" id="user-display-img">
+			<img class="user-profile-image" src="${o.img}" alt="profile" id="user-display-img">
 		</div>
 		<div class="flex-row-nowrap-end-center" style="height: 0px;" >
-			<div class="chage-img-container flex-col-center-center uplad-img-input-icon" >
+			<div class="user-change-img-container flex-col-center-center uplad-img-input-icon" >
 				<input type="hidden" id="user-upload-filename" >
 	         <label class="image-picker replace " id="user-imagepicker-label" data-activate="#save-userprofile-img-modal">
 	            <input type="file" data-role="none" class="uplad-img-input">
@@ -87,10 +93,17 @@ const makeFlowerPopup = (o) => `
          
 const makeLocationPopup = (o) => `
 ${sessionStorage.locationId = o.id}
-<div class="flex-col-center-center" data-id="${o.id}">
+
+<div class="flex-col-center-center " data-id="${o.id}">
    <div class="flex-none flower-popup-image">
-      <img src="${o.photo}" alt="">
+      <img src="${o.photo}" alt="" id="location-popup-image">
    </div>
+   <div class="location-add-img-btn flex-col-center-center uplad-img-input-icon" >
+			<input type="hidden" id="location-image-filename" >
+         	<label class="image-picker replace " id="location-imagepicker-label" data-activate="#save-location-img-modal" >
+            	<input type="file" data-role="none" class="uplad-img-location-input">
+         	</label>
+	</div>
    <div class="flex-stretch flower-popup-body padding-md">
       <div class="flower-popup-type  text-highlight text-bold">Created on: <span class="text-gray  ">${o.date_create}</span> </div>
    </div>
@@ -126,6 +139,13 @@ const FormControlInputAdd = ({namespace, name, displayname, type, placeholder, v
 </div>
 `;
 
+const FormControlInputAddInverted = ({namespace, name, displayname, type, placeholder, value}) => `
+<div class="form-control">
+	<input type="${type}" id="${namespace}-${name}" class="form-input-lined inverted" data-role="none" placeholder="${placeholder}" value="${value}"/>
+	<label class="label-helper" for="${namespace}-${name}">${displayname}</label>
+</div>
+`;
+
 
 const FormControlInputEdit = ({namespace, name, displayname, type, placeholder, value}) => `
 <div class="form-control">
@@ -142,6 +162,33 @@ const FormControlTextarea = ({namespace, name, displayname, placeholder, value})
 </div>
 
 `;
+
+// const makeAddUserFromInputs = (o, namespace) => `
+// ${FormControlInputAddInverted({
+//    namespace:namespace,
+//    name:"username",
+//    displayname:"User name",
+//    type:"text",
+//    placeholder:"User name",
+//    value:o.username
+// })}
+// ${FormControlInputAddInverted({
+//    namespace:namespace,
+//    name:"email",
+//    displayname:"Email",
+//    type:"email",
+//    placeholder:"Email",
+//    value:o.email
+// })}
+// ${FormControlInputAddInverted({
+//    namespace:namespace,
+//    name:"password",
+//    displayname:"Password",
+//    type:"password",
+//    placeholder:"Password",
+//    value:o.password
+// })}
+// `;
 
 
 const makeAddFlowerInfoFromInputs = (o, namespace) => `
@@ -177,7 +224,6 @@ ${FormControlInputAdd({
    placeholder:"Size",
    value:o.size
 })}
-
 `;
 
 const makeEditFlowerInfoFromInputs = (o, namespace) => `
@@ -279,7 +325,7 @@ const makeFlowerChoiceSelect = ({flowers, name, chosen=0}) =>`
 </select><span class="label-category-name"></span>
 `;
 
-const makeFlowerListSet = (arr,target="#page-list .flowerlist") => {
+const makeFlowerListSet = (arr, target="#page-list .flowerlist") => {
 	$(".list-filter-container").html(makeFilterList(arr));
    $(target).html(makeFlowerList(arr));
 }
@@ -315,7 +361,13 @@ const makeFlowerListSet = (arr,target="#page-list .flowerlist") => {
 
 
 // FILTERS
+
+
 const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+
+
+
 
 const filterList = (flowers,type) => {
    let a = [...(new Set(flowers.map(o=>o[type])))];
@@ -343,6 +395,5 @@ const makeFilterList = (flowers) => {
 
 	`;
 }
-
 
 

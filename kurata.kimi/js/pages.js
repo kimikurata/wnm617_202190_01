@@ -15,10 +15,34 @@ const ListPage = async() => {
          type:'flowers_by_user_id',
          params:[sessionStorage.userId]
    });
+
+   let categories = await resultQuery({
+         type:'filter_categories',
+         params:[sessionStorage.userId]
+   });
+
+   let colors = await resultQuery({
+         type:'filter_colors',
+         params:[sessionStorage.userId]
+   });
+
+   let sizes = await resultQuery({
+         type:'filter_sizes',
+         params:[sessionStorage.userId]
+   });
    
-   makeFlowerListSet(flowers);
+      // console.log(flowers.length);
+   let content = (flowers.length === 0)?  makeEmptyFlowerList(): makeFlowerListSet(flowers);
+
+
+   // makeFlowerListSet(flowers);
+
+   // console.log("categories:");
+   // console.log(categories);
+
 
 }
+
 
 
 
@@ -33,7 +57,7 @@ const MapPage = async() => {
    });
 
    let flowers = result.reduce((r,o)=>{
-      o.icon = o.photo;
+      o.icon = o.img;
       if(o.lat && o.lng) r.push(o);
       return r;
    },[]);
@@ -138,6 +162,11 @@ const FlowerProfilePage = async() => {
          
          infoWindow.open(map,o);
          infoWindow.setContent(makeLocationPopup(location_result[i]));
+         sessionStorage.locationId = location_result[i].id
+
+         let modalImage = location_result[i].photo
+         console.log(location_result[i].photo);
+         $("#location-image-to-replace").css({"background-image":`url(${modalImage})`});
 
 
          // /* Activate Example */
@@ -152,9 +181,7 @@ const FlowerProfilePage = async() => {
    $(".flower-data-type").text(flower.type);
    $(".flower-data-color").text(flower.color);
    $(".flower-data-size").text(flower.size);
-   $("#flower-image-to-replace").css({
-            "background-image":`url(${flower.img})`
-         });
+   $("#flower-image-to-replace").css({"background-image":`url(${flower.img})`});
 }
 
 

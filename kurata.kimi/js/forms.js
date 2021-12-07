@@ -1,4 +1,3 @@
-
 const flowerAddForm = async () => {
    let name = $("#flower-add-name").val();
    let type = $("#flower-add-type").val();
@@ -39,62 +38,61 @@ const flowerEditForm = async () => {
    history.go(-1);
 }
 
-// const checkSignup = async () => {
-//    let email = $("#user-add-email").val();
-//    let username = $("#signup-username").val();
-//    let password = $("#user-add-password").val();
-   
 
-// // CHECK IF THE PASSWORD IS CORRECT
+
+
+
+
+
+
+
+
+
+const checkSignup = async () => {
+   let username = $("#sign-up-username").val();
+   let email = $("#sign-up-email").val();
+   let password = $("#sign-up-password").val();
+
+
+// CHECK IF THE PASSWORD IS CORRECT
 //    // let confirm = $("#user-add-password2").val();
 //    // if(password!=confirm)
 //    //    throw("Passwords don't match: You should handle this in some way.");
 
-//    // let r = await query({
-//    //    type:'insert_user',
-//    //    params:[username,email,password]
-//    // });
-
-
-//    let r = await query({
-//    //    type:'insert_user',
-//    //    params:[username,email,password]
-
-//    if(r.error) throw(r.error);
-
-//    sessionStorage.userId = r.id;
-
-//    $.mobile.navigate("#page-signup2");
-// }
-
-// const checkSignup2 = async () => {
-//    let name = $("#user-add-name").val();
-//    let image = $("#signup-image-name").val();
-
-//    let r = await query({
-//       type:'update_user_onboard',
-//       params:[name,image,sessionStorage.userId]
-//    });
-
-//    if(r.error) throw(r.error);
-
-//    $.mobile.navigate("#page-list");
-// }
-
-const userAddForm = async () => {
-   let name = $("#user-add-name").val();
-   let email = $("#user-add-email").val();
-   let password = $("#user-add-password").val();
 
    let r = await query({
-      type:'inser_user',
-      params:[name,email,password,sessionStorage.userId]
+      type:'insert_user',
+      params:[username,email,password]
    });
-
    if(r.error) throw(r.error);
 
-   history.go(-1);
+   sessionStorage.userId = r.id;
+
+   $.mobile.navigate("#page-signup-extrainfo");
+
 }
+
+const checkSignup2 = async () => {
+   let name = $("#sign-up-name").val();
+   let image = $("#signup-image-filename").val();
+
+   let r = await query({
+      type:'insert_user_onboard',
+      params:[name,image,sessionStorage.userId]
+   });
+   if(r.error) throw(r.error);
+   $.mobile.navigate("#page-list");
+}
+
+
+
+
+
+
+
+
+
+
 
 
 const userEditForm = async () => {
@@ -145,6 +143,8 @@ const locationAddForm = async () => {
 
    if (lat.length === 0 || lng.length === 0){
       $("#set-location-direction").css("color", "var(--color-warning-red)");
+
+      $("#set-location-direction").addClass('shaker');
       console.log("no lat, lng");
 
    }else{
@@ -160,26 +160,7 @@ const locationAddForm = async () => {
 }
 
 
-// original
-// const locationAddForm = async () => {
-//    let flower = $("#location-flower-chioce").val();
-//    let lat = $("#location-lat").val();
-//    let lng = $("#location-lng").val();
-//    let photoLocationColors = ["A8C6F8", "AA92E0", "CFF2F6", "798BD7"]
-//       let chosenLocationBgcolor =  photoLocationColors[Math.floor(Math.random()* photoLocationColors.length)];
-//    let photo = "https://via.placeholder.com/400/" + chosenLocationBgcolor + "/fff/?text=img";
 
-   
- 
-//    // console.log(" id "+ flower +" lat " + lat + "lng " + lng + "chosen color " + photo );
-//    let r = await query({
-//       type:'insert_location',
-//       params:[flower,lat,lng,photo]
-//    });
-
-//    if(r.error) throw(r.error);
-//    history.go($("#location-navigateback").val());
-// }
 
 
 

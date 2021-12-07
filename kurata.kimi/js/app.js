@@ -35,8 +35,6 @@ $(()=>{
        case "page-set-info": AddFlowerInfo();break;
        case "page-edit-password": ChangePasswordPage();break;
        case "page-set-category": SetCategoryPage();break;
-       // case "page-user-upload": UserImageUpload();break;
-
 
      }
    })
@@ -86,6 +84,16 @@ $(()=>{
   })
 
 
+  .on("submit", "#sign-up-form", function(e) {
+    e.preventDefault();
+    checkSignup();
+  })
+
+   .on("submit", "#signup-extrainfo-form", function(e) {
+    e.preventDefault();
+    checkSignup2();
+  })
+
 
 
 // FORM ANCHOR CLICKS -> USE THIS METHOD TO SUBMIT A FORM FORM A BUTTON OUTSIDE THE FORM ELEMENT,  add js-submituseredit to the button as a clas, delete any href="#" or data-rel="back" from the button or anchor 
@@ -120,11 +128,23 @@ $(()=>{
 
 
 // UPLOAD IMAGES
+  // signup image upload
+  .on("change","#user-newimagepicker-label input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d);
+         $("#signup-image-filename").val("uploads/"+d.result);
+         $(".signup-user-img-container").css({
+            "background-image":`url(uploads/${d.result})`
+          });
+      })
+   })
+
   // user image edit
   .on("change","#user-imagepicker-label input",function(e){
       checkUpload(this.files[0])
       .then(d=>{
-         console.log(d + sessionStorage.userId);
+         console.log(d);
          $("#user-upload-filename").val("uploads/"+d.result);
          $("#user-image-to-replace").css({
             "background-image":`url(uploads/${d.result})`
@@ -141,11 +161,11 @@ $(()=>{
          params: [image,sessionStorage.userId]
       }).then(d=>{
 
-         if(d.error) throw(d.error);
+        if(d.error) throw(d.error);
 
-         history.go(0);
+        history.go(0);
       })
-   })
+  })
 
 
 
@@ -176,6 +196,32 @@ $(()=>{
    })
 
 
+  // locaton image edit
+  .on("change","#location-imagepicker-label input",function(e){
+    checkUpload(this.files[0])
+    .then(d=>{
+       console.log(d);
+       $("#location-image-filename").val("uploads/"+d.result);
+       $("#location-image-to-replace").css({
+          "background-image":`url(uploads/${d.result})`
+       });
+    })
+ })
+
+  .on("click",".js-submitlocationupload",function(e) {
+      let images = $("#location-image-filename").val();
+      let image = (images.length === 0)? $("#location-popup-image").attr('src'): images;
+
+      query({
+         type:"update_location_image",
+
+         params: [image,sessionStorage.locationId]
+      }).then(d=>{
+         if(d.error) throw(d.error);
+
+         history.go(0);
+      })
+   })
 
 
 

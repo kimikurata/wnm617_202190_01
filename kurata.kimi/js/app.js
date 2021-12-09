@@ -35,6 +35,7 @@ $(()=>{
        case "page-set-info": AddFlowerInfo();break;
        case "page-edit-password": ChangePasswordPage();break;
        case "page-set-category": SetCategoryPage();break;
+       case "page-map-serach-result": MapPageSearch();break;
 
      }
    })
@@ -79,10 +80,11 @@ $(()=>{
   .on("submit", "#map-search-form", function(e) {
     e.preventDefault();
     let s = $(this).find("input").val();
-    // console.log(s);
+    console.log(s);
     checkMapSearchForm(s);
   })
 
+ 
 
   .on("submit", "#sign-up-form", function(e) {
     e.preventDefault();
@@ -93,6 +95,10 @@ $(()=>{
     e.preventDefault();
     checkSignup2();
   })
+
+  $(document).on('click', '.ui-input-clear', function () {
+  alert('text cleared');
+})
 
 
 

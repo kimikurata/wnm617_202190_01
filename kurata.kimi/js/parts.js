@@ -92,7 +92,7 @@ const makeFlowerPopup = (o) => `
 
          
 const makeLocationPopup = (o) => `
-${sessionStorage.locationId = o.id}
+
 
 <div class="flex-col-center-center " data-id="${o.id}">
    <div class="flex-none flower-popup-image">
@@ -162,33 +162,6 @@ const FormControlTextarea = ({namespace, name, displayname, placeholder, value})
 </div>
 
 `;
-
-// const makeAddUserFromInputs = (o, namespace) => `
-// ${FormControlInputAddInverted({
-//    namespace:namespace,
-//    name:"username",
-//    displayname:"User name",
-//    type:"text",
-//    placeholder:"User name",
-//    value:o.username
-// })}
-// ${FormControlInputAddInverted({
-//    namespace:namespace,
-//    name:"email",
-//    displayname:"Email",
-//    type:"email",
-//    placeholder:"Email",
-//    value:o.email
-// })}
-// ${FormControlInputAddInverted({
-//    namespace:namespace,
-//    name:"password",
-//    displayname:"Password",
-//    type:"password",
-//    placeholder:"Password",
-//    value:o.password
-// })}
-// `;
 
 
 const makeAddFlowerInfoFromInputs = (o, namespace) => `
@@ -329,35 +302,43 @@ const makeFlowerListSet = (arr, target="#page-list .flowerlist") => {
 	$(".list-filter-container").html(makeFilterList(arr));
    $(target).html(makeFlowerList(arr));
 }
-//HOW TO CREATE THIS MAP USING THE VALUE FROM SEARCH BAR??????-----------------------
-// const makeLocationsMapSet = (arr) =>{
-// 	console.log(arr);
+// HOW TO CREATE THIS MAP USING THE VALUE FROM SEARCH BAR??????-----------------------
 
-// 	let mapEl = await makeMap("#page-map .map");
-//    makeMarkers(mapEl,flowers);
+const makeLocationsMapSet = (arr) =>{
+	// console.log(arr);
+		let flowers = result.reduce((r,o)=>{
+		   o.icon = o.img;
+		   if(o.lat && o.lng) r.push(o);
+		   return r;
+		},[]);
+
+	// let mapEl = await makeMap("#page-map .map");
+ //   makeMarkers(mapEl,flowers);
 
 
 
-//    let {infoWindow,map,markers} = mapEl.data();
-//    markers.forEach((o,i)=>{
-//       o.addListener("click",function(){
+   let {infoWindow,map,markers} = mapEl.data();
+   markers.forEach((o,i)=>{
+      o.addListener("click",function(){
 
-//          /* Simple Example */
-//          // sessionStorage.flowerId = flowers[i].flower_id;
-//          // $.mobile.navigate("#page-flower-profile")
+         /* Simple Example */
+         // sessionStorage.flowerId = flowers[i].flower_id;
+         // $.mobile.navigate("#page-flower-profile")
 
-//          /* InfoWindow Example */
-//          // infoWindow.open(map,o);
-//          // infoWindow.setContent(makeFlowerPopup(flowers[i]))
+         /* InfoWindow Example */
+         // infoWindow.open(map,o);
+         // infoWindow.setContent(makeFlowerPopup(flowers[i]))
 
-//          // /* Activate Example */
-//          $("#map-item-modal")
-//             .addClass("active")
-//             .find(".modal-body")
-//             .html(makeFlowerModal(flowers[i]))
-//       })
-//    });
-// }
+         // /* Activate Example */
+         $("#map-item-modal")
+            .addClass("active")
+            .find(".modal-body")
+            .html(makeFlowerModal(flowers[i]))
+      })
+   });
+}
+
+
 
 
 // FILTERS
@@ -366,11 +347,10 @@ const makeFlowerListSet = (arr, target="#page-list .flowerlist") => {
 const capitalize = s => s[0].toUpperCase()+s.substr(1);
 
 
-
-
-
 const filterList = (flowers,type) => {
    let a = [...(new Set(flowers.map(o=>o[type])))];
+
+
    return templater(o=>o?`
    	<a href="#" data-filter="${type}" data-value="${o}" class="card flex-col-center-start list-filter-item ">
 				<p class="list-filter-title ">${capitalize(o)}</p>
@@ -396,4 +376,35 @@ const makeFilterList = (flowers) => {
 	`;
 }
 
+
+const makeRecentMarkers = async (arr)=> {
+   let flowers = arr.reduce((r,o)=>{
+      o.icon = o.img;
+      if(o.lat && o.lng) r.push(o);
+      return r;
+   },[]);
+
+   let mapEl = await makeMap("#page-map .map");
+   makeMarkers(mapEl,flowers);
+
+   let {infoWindow,map,markers} = mapEl.data();
+   markers.forEach((o,i)=>{
+      o.addListener("click",function(){
+
+         /* Simple Example */
+         // sessionStorage.flowerId = flowers[i].flower_id;
+         // $.mobile.navigate("#page-flower-profile")
+
+         /* InfoWindow Example */
+         // infoWindow.open(map,o);
+         // infoWindow.setContent(makeFlowerPopup(flowers[i]))
+
+         // /* Activate Example */
+         $("#map-item-modal")
+            .addClass("active")
+            .find(".modal-body")
+            .html(makeFlowerModal(flowers[i]))
+      })
+   });
+}
 

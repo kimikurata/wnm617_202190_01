@@ -139,6 +139,7 @@ function makeStatement($data) {
                   ",$p);
 
             case "search_recent_flowers":
+               $p = ["%$p[0]%",$p[1]];
                return makeQuery($c,"SELECT *
                   FROM `track_flowers` a
                   JOIN (
@@ -161,6 +162,7 @@ function makeStatement($data) {
 
 
 
+
             case "filter_flowers":
             return makeQuery($c,"SELECT *
                FROM `track_flowers`
@@ -169,29 +171,31 @@ function makeStatement($data) {
                   `user_id` = ?
                ",[$p[1],$p[2]]);
 
+           
+
             case "filter_categories":
-            return makeQuery($c,"SELECT type, COUNT(*) duplicates
+            return makeQuery($c,"SELECT type, COUNT(*) typeduplicates
                FROM `track_flowers` 
                WHERE `user_id`=?
                GROUP BY type"
                ,$p);
 
+
             case "filter_colors":
-            return makeQuery($c,"SELECT color, COUNT(*) duplicates
+            return makeQuery($c,"SELECT color, COUNT(*) colorduplicates
                FROM `track_flowers` 
                WHERE `user_id`=?
                GROUP BY color"
                ,$p);
 
             case "filter_sizes":
-            return makeQuery($c,"SELECT size, COUNT(*) duplicates
+            return makeQuery($c,"SELECT size, COUNT(*) sizeduplicates
                FROM `track_flowers` 
                WHERE `user_id`=?
                GROUP BY size"
                ,$p);
 
        
-
 
 
          /* CREATE */ 
@@ -205,8 +209,8 @@ function makeStatement($data) {
                VALUES
                ('user', ?, ?, md5(?), 'http://via.placeholder.com/400/?text=USER', NOW())
                ",$p,false);
-            return ["id" => $c->lastInsertId()];
-
+            $r['id'] = $c->lastInsertId();
+            return $r;
 
 
 
@@ -217,7 +221,8 @@ function makeStatement($data) {
                VALUES
                (?,?,?,?,?,?, Now())
                ",$p, false);
-            return["id" => $c->lastInsertId()];
+            $r['id'] = $c->lastInsertId();
+            return $r;
 
 
          case "insert_only_category":
@@ -227,7 +232,8 @@ function makeStatement($data) {
                VALUES
                (?,'unset',?,'unset','unset','https://via.placeholder.com/400/FFD391/fff/?text=img', Now())
                ",$p, false);
-            return["id" => $c->lastInsertId()];
+            $r['id'] = $c->lastInsertId();
+            return $r;
 
 
          case "insert_location":
@@ -237,8 +243,8 @@ function makeStatement($data) {
                VALUES
                (?,?,?,?, 'http://kimikurata.com/aau/wnm617/kurata.kimi/images/tulip-map-icon.png', NOW())
                ",$p, false);
-            return["id" => $c->lastInsertId()];
-
+            $r['id'] = $c->lastInsertId();
+            return $r;
 
 
 
@@ -254,7 +260,7 @@ function makeStatement($data) {
                   `img` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
          case "update_user":
             $r = makeQuery($c,"UPDATE
@@ -265,7 +271,7 @@ function makeStatement($data) {
                   `email` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
          
 
@@ -276,7 +282,7 @@ function makeStatement($data) {
                   `password` = md5(?)
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
 
          case "update_flower":
@@ -289,15 +295,15 @@ function makeStatement($data) {
                   `size` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
-
+            return $r;
+            
          case "update_user_image":
             $r = makeQuery($c,"UPDATE
                `track_users`
                SET `img` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
          case "update_flower_image":
             $r = makeQuery($c,"UPDATE
@@ -305,7 +311,7 @@ function makeStatement($data) {
                SET `img` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
          case "update_location_image":
             $r = makeQuery($c,"UPDATE
@@ -314,18 +320,17 @@ function makeStatement($data) {
                   `photo` = ?
                WHERE `id` = ?
                ",$p,false);
-            return ["result" => "success"];
+            return $r;
 
 
          /* DELETE */
          case "delete_flower":
             $r = makeQuery($c,"DELETE FROM `track_flowers` WHERE `id` = ?",$p,false);
-            return ["result" => "success"];
+            return $r;
 
          case "delete_location":
             $r = makeQuery($c,"DELETE FROM `track_locations` WHERE `id` = ?",$p,false);
-            return ["result" => "success"];
-
+            return $r;
 
          default: return ["error"=>"No Matched Type"];
       }

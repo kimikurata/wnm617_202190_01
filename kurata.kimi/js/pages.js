@@ -45,16 +45,14 @@ const ListPage = async() => {
 
 
 
-
-
-
-
 const MapPage = async() => {
 
    let result = await resultQuery({
       type:'recent_flower_locations',
       params:[sessionStorage.userId]
    });
+
+   // makeRecentMarkers(result);
 
    let flowers = result.reduce((r,o)=>{
       o.icon = o.img;
@@ -85,11 +83,9 @@ const MapPage = async() => {
       })
    });
 
-   // console.log(mapEl.data())
-   // mapEl.data('markers').forEach((o,i)=>{
-   //    console.log(o,i)
-   // });
 }
+
+
 
 
 
@@ -280,6 +276,3 @@ const SetCategoryPage = async() => {
    });
    $("#select-category").val(result[0].id);
 }
-
-
-

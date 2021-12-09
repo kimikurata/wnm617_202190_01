@@ -1038,7 +1038,7 @@ input[type="submit"].primary-btn-inverted,
    overflow: hidden;
    background-color: var(--color-white);
    background-position: center;
-   background-size: contain;
+   background-size: cover;
    background-repeat: no-repeat;
    background-image: url(../images/tulip-profile-placeholder-light.png);
 }
@@ -1174,8 +1174,20 @@ hr.chip-separator{
    min-width: 100%;
    min-height: 100%;
 }
-
-
+.no-reults-message-box{
+   margin: 1em;
+   background-color: #280642b0;
+   border-radius: 1em;
+   z-index: 13;
+   display: none;
+}
+.no-reults-message-box.active{
+   display: block;
+}
+.no-reults-text{
+   text-align: center;
+   color: var(--color-pure-white);
+}
 
 
 
@@ -1228,6 +1240,7 @@ hr.chip-separator{
 .list-filter-title{
    line-height: 1em;
    color: var(--color-black);
+   white-space: nowrap;
 }
 
 .list-filter-counts{
@@ -1800,6 +1813,7 @@ section#page-map [aria-roledescription="map"] div div div img {
    max-width: 70px;
    min-width: 70px;
    max-height: 70px;
+   min-height: 70px;
    border-radius: 1em;
    object-fit: cover;
    /*background-repeat: no-repeat;*/

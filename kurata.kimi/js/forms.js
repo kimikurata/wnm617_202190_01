@@ -39,15 +39,6 @@ const flowerEditForm = async () => {
 }
 
 
-
-
-
-
-
-
-
-
-
 const checkSignup = async () => {
    let username = $("#sign-up-username").val();
    let email = $("#sign-up-email").val();
@@ -83,16 +74,6 @@ const checkSignup2 = async () => {
    if(r.error) throw(r.error);
    $.mobile.navigate("#page-list");
 }
-
-
-
-
-
-
-
-
-
-
 
 
 const userEditForm = async () => {
@@ -160,10 +141,6 @@ const locationAddForm = async () => {
 }
 
 
-
-
-
-
 const checkSearchForm = async (s) => {
    // console.log(s);
    let flowers = await query({
@@ -185,9 +162,15 @@ const checkMapSearchForm = async (s) => {
    if(flowers.error) throw(flowers.error);
 
    console.log("serach map result is below");
-   console.log(flowers);;
+   console.log(flowers);
+   makeRecentMarkers(flowers.result);
 
-   // makeLocationsMapSet(flowers.result);
+   if(flowers.result.length === 0) {
+      $("#no-results-note").addClass("active");
+   }
+   else {
+      $("#no-results-note").removeClass("active");
+   }
 }
 
 

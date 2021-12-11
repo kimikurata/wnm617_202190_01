@@ -70,7 +70,6 @@ const makeUserProfile =(o, tflowers, tcolors, tlocations) =>
 		<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID: </span> ${o.id}</p>
 	</div>
 </div>
-
 `;
 
 
@@ -92,8 +91,6 @@ const makeFlowerPopup = (o) => `
 
          
 const makeLocationPopup = (o) => `
-
-
 <div class="flex-col-center-center " data-id="${o.id}">
    <div class="flex-none flower-popup-image">
       <img src="${o.photo}" alt="" id="location-popup-image">
@@ -160,7 +157,6 @@ const FormControlTextarea = ({namespace, name, displayname, placeholder, value})
 	<textarea id="${namespace}-${name}" class=""  data-role="none" placeholder="${placeholder}" >${value}</textarea>
 	<label class="label-helper" for="${namespace}-${name}"/>${displayname}</label>
 </div>
-
 `;
 
 
@@ -265,7 +261,6 @@ ${FormControlInputEdit({
    placeholder:"Email",
    value:o.email
 })}
-
 `;
 
 
@@ -291,9 +286,9 @@ ${FormControlInputAdd({
 
 const makeFlowerChoiceSelect = ({flowers, name, chosen=0}) =>`
 <select class="form-select-lined" id="${name}" data-role="none">
-	<option value="" selected disabled hidden >Select an option</option>
+	// <option value="" selected disabled hidden >Select an option</option>
 	${templater(o=>`
-			<option value="${o.id}" ${o.id===chosen?'selected':''}>${o.name}</option>
+			<option value="${o.id}" >${o.name}</option>
 		`)(flowers)}
 </select><span class="label-category-name"></span>
 `;
@@ -338,26 +333,76 @@ const makeLocationsMapSet = (arr) =>{
    });
 }
 
-
-
-
-// FILTERS
-
+// FILTERS TEST
 
 const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+// How to count number of occurrences of repeated names in an array of objects in JavaScript ?
+// https://www.geeksforgeeks.org/how-to-count-number-of-occurrences-of-repeated-names-in-an-array-of-objects-in-javascript/
+function findOcc(arr, key){
+  let arr2 = [];
+    
+  arr.forEach((x)=>{
+       
+    // Checking if there is any object in arr2
+    // which contains the key value
+     if(arr2.some((val)=>{ return val["key"] == x[key] })){
+         
+       // If yes! then increase the occurrence by 1
+       arr2.forEach((k)=>{
+         if(k["key"] === x[key]){ 
+           k["occurrence"]++
+         }
+      })  
+     }else{
+       // If not! Then create a new object initialize 
+       // it with the present iteration key's value and 
+       // set the occurrence to 1
+       let a = {}
+       a["key"] = x[key]
+       a["occurrence"] = 1
+       arr2.push(a);
+     }
+  })
+  return arr2
+}
+  
+
 
 
 const filterList = (flowers,type) => {
    let a = [...(new Set(flowers.map(o=>o[type])))];
+   let b = findOcc(flowers, type)
+
+   // console.log(b);
 
 
    return templater(o=>o?`
-   	<a href="#" data-filter="${type}" data-value="${o}" class="card flex-col-center-start list-filter-item ">
-				<p class="list-filter-title ">${capitalize(o)}</p>
-				<p class="list-filter-counts">3 Items</p>
+   	<a href="#" data-filter="${type}" data-value="${o.key}" class="card flex-col-center-start list-filter-item ">
+				<p class="list-filter-title ">${capitalize(o.key)}</p>
+				<p class="list-filter-counts">${o.occurrence} Items</p>
 			</a>
-   	`:'')(a);
+   	`:'')(b);
 }
+
+
+
+// FILTERS ORIGINAL
+// const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+
+// const filterList = (flowers,type) => {
+//    let a = [...(new Set(flowers.map(o=>o[type])))];
+
+
+
+//    return templater(o=>o?`
+//    	<a href="#" data-filter="${type}" data-value="${o}" class="card flex-col-center-start list-filter-item ">
+// 				<p class="list-filter-title ">${capitalize(o)}</p>
+// 				<p class="list-filter-counts">3 Items</p>
+// 			</a>
+//    	`:'')(a);
+// }
 
 
 const makeFilterList = (flowers) => {
@@ -371,8 +416,6 @@ const makeFilterList = (flowers) => {
 		${filterList(flowers,'color')}
 		<hr class="list-filter-separator"  style="border-right: 1px solid var(--color-neutral-medium;">
 		${filterList(flowers,'size')}
-
-
 	`;
 }
 

@@ -35,7 +35,6 @@ $(()=>{
        case "page-set-info": AddFlowerInfo();break;
        case "page-edit-password": ChangePasswordPage();break;
        case "page-set-category": SetCategoryPage();break;
-       case "page-map-serach-result": MapPageSearch();break;
 
      }
    })
@@ -112,7 +111,7 @@ $(()=>{
     .on("click",".js-submitlocationform",function(e){
       e.preventDefault();
       locationAddForm();
-   })
+    })
 
 
   .on("click",".js-reset-add-location-page",function(e){
@@ -120,8 +119,6 @@ $(()=>{
     $("#location-lng").removeAttr('value');
     $("#set-location-direction").css("color", "var(--color-neutral-dark)");
     $( "#save-new-location" ).addClass( "disable" );
-
-
   })
 
 
@@ -160,7 +157,6 @@ $(()=>{
   .on("click",".js-submituserupload",function(e) {
       let images = $("#user-upload-filename").val();
       let image = (images.length === 0)? $("#user-display-img").attr('src'): images;
-
 
       query({
          type:"update_user_image",
@@ -223,13 +219,14 @@ $(()=>{
 
          params: [image,sessionStorage.locationId]
       }).then(d=>{
-         if(d.error) throw(d.error);
-
-         history.go(0);
+         if(d.error) throw(d.error); 
       })
    })
 
 
+
+
+  
 
 
 

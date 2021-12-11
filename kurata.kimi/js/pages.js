@@ -61,7 +61,14 @@ const MapPage = async() => {
    },[]);
 
    let mapEl = await makeMap("#page-map .map");
-   makeMarkers(mapEl,flowers);
+   
+   if (flowers.length === 0){
+      $("#empty-map-message").addClass("active");
+   }else{
+      $("#empty-map-message").removeClass("active");
+      makeMarkers(mapEl,flowers);
+
+   }
 
    let {infoWindow,map,markers} = mapEl.data();
    markers.forEach((o,i)=>{
@@ -109,8 +116,6 @@ const UserProfilePage = async() => {
       params:[sessionStorage.userId]});  
    let tcolors = colors.length;
    // console.log("total colors are " + tcolors);
-
-
 
    let result = await resultQuery({
          type:'user_by_id',
@@ -237,8 +242,6 @@ const AddLocationPage = async() => {
       makeMarkers(mapEl,[e.latLng]);
       $( "#save-new-location" ).removeClass( "disable" );
       $("#set-location-direction").css("color", "var(--color-neutral-dark)");
-
-
    })
 }
 
@@ -260,11 +263,12 @@ const SetCategoryPage = async() => {
          params:[sessionStorage.userId]
    });
 
+
    $("#set-flower-select-box").html(
       makeFlowerChoiceSelect({
          flowers:result,
          name:"select-category", 
-         chosen: 0
+         // chosen: 0
       })
    );
 

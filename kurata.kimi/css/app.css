@@ -1188,6 +1188,9 @@ hr.chip-separator{
    text-align: center;
    color: var(--color-pure-white);
 }
+#empty-map-message{
+   display: none;
+}
 
 
 
@@ -1248,6 +1251,7 @@ hr.chip-separator{
    font-size: 0.8em;
    line-height: 1em;
    color: var(--color-neutral-medium);
+   padding-top: 0.1em;
 }
 
 .list-filter-item.active{
@@ -1336,6 +1340,14 @@ hr.list-filter-separator{
    width: calc(100% - 2em);
 }
 
+.callout.emptymap{
+   position: absolute;
+   bottom: 7em;
+   width: calc(100% - 2em);
+}
+#empty-map-message.active{
+   display: block;
+}
 
 
 

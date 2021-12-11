@@ -1,4 +1,7 @@
 const flowerAddForm = async () => {
+
+   sessionStorage.navPage = 'newcategory'
+
    let name = $("#flower-add-name").val();
    let type = $("#flower-add-type").val();
    let color = $("#flower-add-color").val();
@@ -9,7 +12,7 @@ const flowerAddForm = async () => {
 
    // console.log(name,type,color,size,img);
 
-      let r = await query({
+   let r = await query({
       type:'insert_flower',
       params:[sessionStorage.userId,name,type,color,size,img]
    });
@@ -17,7 +20,15 @@ const flowerAddForm = async () => {
    if(r.error) throw(r.error);
 
    sessionStorage.flowerId = r.id;
-   history.go(-1);
+   if(sessionStorage.navPage = 'newcategory'){
+      let select =  $("#location-flower-chioce").val(r.id);
+      $.mobile.navigate("#page-set-location");
+      $('#location-navigateback').val(-3);
+
+   }else{
+      history.go(-1);
+   } 
+   sessionStorage.navPage = 'existingcategory'
 }
 
 
@@ -113,6 +124,7 @@ const userEditPasswordForm = async () => {
 
 
 const locationAddForm = async () => {
+
    let flower = $("#location-flower-chioce").val();
    let lat = $("#location-lat").val();
    let lng = $("#location-lng").val();

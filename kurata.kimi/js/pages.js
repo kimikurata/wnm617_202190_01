@@ -147,7 +147,7 @@ const FlowerProfilePage = async() => {
       });
 
    let mapEl = await makeMap("#page-flower-profile .map");
-   makeMarkers(mapEl,location_result);
+   makeIconMarkers(mapEl,location_result);
 
    console.log(location_result);
 

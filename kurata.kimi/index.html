@@ -62,14 +62,16 @@
 				<p class="slogan">The Flower Explorer</p>
 			</div>
 			<div class="flex-stretch"></div>
-			<form class="form login-container" data-ajax="false"  id="signin-form" style="padding:10px">
-				<h3 class="login-title">Welcome back</h3>
+			<form class="" data-ajax="false"  id="signin-form" style="padding:10px">
+				<h3 class="login-title bottom-padding-sm">Welcome back</h3>
 				<div class="form-control top-padding-xs">
-					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username">
 					<label class="label-helper">User name</label>
+					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username">
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password"><label class="label-helper">Password</label>
+					<label class="label-helper">Password</label>
+					<input class="form-input-lined" type="password" id="signin-password" data-role="none" placeholder="Password">
+
 				</div>
 				<div class="form-control ">
 					<input type="submit" class="form-button" data-role="none" value="Sign in">
@@ -102,14 +104,17 @@
 
 
 				<div class="form-control  top-padding-xs">
+					<label class="label-helper inverted">User name</label>
 					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username" />
-					<label class="label-helper">User name</label>
+					
 				</div>
 				<div class="form-control ">
-					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email"><label class="label-helper">Email</label>
+					<label class="label-helper inverted">Email</label>
+					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email">
 				</div>
 				<div class="form-control bottom-padding-sm">
-					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" ><label class="label-helper">Password</label>
+					<label class="label-helper inverted">Password</label>
+					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" >
 				</div>
 				<div class="form-control ">
 					<input type="submit" value="Sign Up" class="primary-btn-inverted" data-role="none"/>
@@ -196,7 +201,7 @@
 				</form>
 			</div>
 			<a href="#page-user-profile">
-				<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
+				<div class="profile-icon flex-col-center-center"><img class="icon-smd" src="images/icons/profile.svg" alt="profile"></div>
 			</a>
 		</div>
 		<!-- MAP PAGE FILTERS   -->
@@ -228,24 +233,26 @@
 			<p class="callout-text text-center">Tap "+" to add Items</p>
 			<b class="notch "></b>
 		</div>
+		<a class="" href="#page-set-category" data-setnavigateback="-2" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
 		<footer class="bottom-nav map-footer" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 				<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
-					<svg id="iconmap" class="icon icon-md active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg><p class="bottom-nav-name active">MAP</p>
+					<svg id="iconmap" class="icon icon-mdl active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg><p class="bottom-nav-name active">MAP</p>
 				</a>
 				<div class="spacer-container">
 					<img class="spacer-image " src="images/circle_spacer_even.svg" alt="">
 				</div>
 				<a class="bottom-nav-link list-link flex-col-center-center" href="#page-list">
-					<svg id="iconlist" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
+					<svg id="iconlist" class="icon icon-mdl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
 					<p class="bottom-nav-name">LIST</p>
 				</a>
 			</div>
 		</footer>
-		<a class="" href="#page-set-category" data-setnavigateback="-2" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
+		
+		<!-- MOP POPUP MODAL -->
 		<div class="modal" id="map-item-modal">
 			<div class="modal-back" data-deactivate="#map-item-modal"></div>
-			<div class="modal-drawer bottom top-rounded">
+			<div class="modal-drawer bottom top-rounded map-page-popup">
 				<div class="modal-head" id="profile-modal">
 					<div class="flex-row-center-center modal-icon-box" data-deactivate="#map-item-modal">
 						<div class="drag-bar"></div>      
@@ -281,13 +288,13 @@
 		<div class="flex-row-nowrap-between-center">
 			<div class="flex-stretch search-container">
 				<div class="flex-stretch ">
-					<form data-ajax="false" id="list-search-form" class="search-bar-form">
+					<form data-ajax="false" id="list-search-form" class="search-bar-form lighter-shadow">
 						<input  type="search" data-role="none" placeholder="Search.."/>
 					</form>
 				</div>
 			</div>
 			<a href="#page-user-profile">
-				<div class="profile-icon flex-col-center-center"><img class="icon-sm" src="images/icons/profile.svg" alt="profile"></div>
+				<div class="profile-icon lighter-shadow flex-col-center-center"><img class="icon-smd" src="images/icons/profile.svg" alt="profile"></div>
 			</a>
 		</div>
 		<div class="list-filter-container flex-row-nowrap-start-stretch overscroll-y ">
@@ -306,16 +313,16 @@
 		<footer class="bottom-nav" data-role="footer">
 			<div class="flex-row-nowrap-start-center">
 				<a class="bottom-nav-link map-link flex-col-center-center" href="#page-map">
-					<svg id="iconmap" class="icon icon-md " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg><p class="bottom-nav-name ">MAP</p>
+					<svg id="iconmap" class="icon icon-mdl " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" ><path d="M60,76.23a5,5,0,0,1-4-2C53.15,70.48,38.8,51.13,38.8,41a21.2,21.2,0,1,1,42.4,0c0,4.73-2.9,11.64-8.87,21.13C68.21,68.69,64.15,74,64,74.26A5,5,0,0,1,60,76.23Zm0-46.42A11.21,11.21,0,0,0,48.8,41c0,3.66,5.28,13.12,11.2,21.7,5.92-8.58,11.2-18,11.2-21.7A11.21,11.21,0,0,0,60,29.81Z" /><path d="M101.92,93.66,95.65,74.25a5,5,0,0,0-4.76-3.46H86.05a9.46,9.46,0,0,1,0,10h1.2l3,9.4H29.71l3-9.4h9.33a5,5,0,0,0,0-10h-13a5,5,0,0,0-4.76,3.46L18.08,93.66a5,5,0,0,0,4.75,6.53H97.17a5,5,0,0,0,4.75-6.53Z" /><circle cx="77.92" cy="75.79" r="4.56" /></svg><p class="bottom-nav-name ">MAP</p>
 				</a>
 				<div class="spacer-container"><img class="spacer-image " src="images/circle_spacer.svg" alt=""></div>
 				<a class="bottom-nav-link list-link flex-col-center-center" href="#page-list">
-					<svg id="iconlist" class="icon icon-md active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
+					<svg id="iconlist" class="icon icon-mdl active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="32" cy="36.42" r="7.5" /><path d="M88.89,42.92H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="60" r="7.5" /><path d="M88.89,66.5H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /><circle cx="32" cy="83.58" r="7.5" /><path d="M88.89,90.08H53.14a6.5,6.5,0,0,1,0-13H88.89a6.5,6.5,0,0,1,0,13Z" /></svg>
 					<p class="bottom-nav-name active">LIST</p>
 				</a>
 			</div>
 		</footer>
-		<a class="" href="#page-set-info" ><div class="add-btn flex-col-center-center"><svg id="iconadd" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
+		<a class="" href="#page-set-info" ><div class="add-btn  flex-col-center-center lighter-shadow"><svg id="iconadd" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
 	</section>
 
 
@@ -328,7 +335,7 @@
 	<section data-role="page" id="page-flower-profile">
 		<header data-role="header" class="floating-header" id="flower-profile-topnav">
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow_w.svg" alt="back"></a>
+					<img class="icon-mdl icon" src="images/icons/arrow_w.svg" alt="back"></a>
 		</header>
 		<div data-role="main " class="overscroll-x" id="flower-profile-main">
 			<div class="flower-image-container ">
@@ -349,13 +356,13 @@
 								<p class=" flower-profile-name " >Flower Name</p>
 								<div class="flex-stretch"></div>
 								<!-- <a class="flex-col-center-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;"><svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg></a> -->
-								<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#bdc4c6"/><circle cx="88.48" cy="31.45" r="9" style="fill:#bdc4c6"/></svg></a>
+								<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-smd" style="margin-right: 5px;"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#bdc4c6"/><circle cx="88.48" cy="31.45" r="9" style="fill:#bdc4c6"/></svg></a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container top-padding-xs flower-info-box flex-row-nowrap-start-center">
+			<div class="container top-padding-sm bottom-padding-xs flower-info-box flex-row-nowrap-start-center">
 				<div class="flex-col-start-center flower-info-box">
 					<p class=" flower-info  flower-info-text flower-data-type" >Tulip</p>
 					<p class=" flower-info  flower-info-title" >Category</p>
@@ -369,10 +376,14 @@
 					<p class=" flower-info  flower-info-title" >Size</p>
 				</div>
 			</div>
-				<p class="bottom-padding-xs flower-location-title-box container">Locations:</p>
+				<!-- <p class="bottom-padding-xs flower-location-title-box container">Locations:</p> -->
 			<div >
+
 				<div class="position-relative">
 					<a href="#page-set-location" class="flex-col-center-center add-location-btn js-chooseflower" data-setnavigateback="-1"><img class="icon-xxs" src="images/icons/add-gray.svg" alt=""></a>
+				</div>
+				<div class="position-relative ">
+					<p class="flower-map-top-box">Locations:</p>
 				</div>
 				<div class="map profile-map-conainer"></div>
 			<!-- 	<img class="flower-image image-cover" src="images/map_placeholder2.png" alt="flower image"/> -->
@@ -414,7 +425,7 @@
 			<div class="modal-back" data-deactivate="#save-location-img-modal"></div>
 			<div class="user-upload-img-modal-popup">
 				<div style="height:var(--header-height);line-height: var(--header-height);margin-bottom: 10px;"></div>
-				<div class="flex-col-center-center profile-image-container display-flex">
+				<div class="flex-col-center-center modal-flower-image-container display-flex">
 					<div class="location-image  flex-col-center-center" id="location-image-to-replace"></div>
 				</div>
 				<form class="form flex-row-nowrap-between-center" data-ajax="false"  >
@@ -580,7 +591,7 @@
 	<section class="" data-role="page" id="page-set-location">
 		<header data-role="header" class="set-location-top-nav">
 			<a class="flex-col-center-center back-icon-link js-reset-add-location-page" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
+					<img class="icon-mdl icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10 js-navigate-back js-reset-add-location-page"  >Cancel</a>
 			<div class="set-location-progress-bar-container ">
 				<div class="progress-bar percent100"></div>
@@ -660,7 +671,7 @@
 	<section data-role="page" id="page-set-info">
 		<header data-role="header">
 			<a class="flex-col-center-center back-icon-link js-navigateback-one" >
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
+					<img class="icon-mdl icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10 js-navigateback-one" href="index.html#page-map" data-rel="#page-map">Cancel</a>
 		</header>
 		<div data-role="main">
@@ -694,7 +705,7 @@
 	<section data-role="page" id="page-user-profile">
 		<header class="" data-role="header">
 				<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
+					<img class="icon-mdl icon" src="images/icons/arrow.svg" alt="back"/></a>
 				<h1 class="profile-page-title">Profile</h1>
 				<div class="flex-col-center-center  profile-more-icon-conainer" data-activate="#profile-more-modal" href="#" ><img class="icon-sm" src="images/icons/more.svg" alt="more"/></div>	
 		</header>
@@ -707,35 +718,35 @@
 						</div>
 						<a class="flex-row-nowrap-end-center" style="height: 0px;" >
 							<div class="chage-img-container flex-col-center-center "><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
-						</div>
-					</a>
-					<p class="text-center text-bold">Kimi Kurata</p>
-				</div>
+							</div>
+						</a>
+						<p class="user-profile-name">Kimi Kurata</p>
+					</div>
 				
-				<div class="flex-row-nowrap-between-center user-numbers-container">
-					<div class="number-card flex-col-center-center">
-						<p id="total-of-flowers" class="data-number">7</p>
-						<p class="data-title">Flowers</p>
+					<div class="flex-row-nowrap-between-center user-numbers-container">
+						<div class="number-card flex-col-center-center">
+							<p id="total-of-flowers" class="data-number">7</p>
+							<p class="data-title">Flowers</p>
+						</div>
+						<div class="number-card flex-col-center-center">
+							<p class="data-number">3</p>
+							<p class="data-title">Colors</p>
+						</div>
+						<div class="number-card flex-col-center-center">
+							<p class="data-number">14</p>
+							<p class="data-title">Locations</p>
+						</div>
 					</div>
-					<div class="number-card flex-col-center-center">
-						<p class="data-number">3</p>
-						<p class="data-title">Colors</p>
+					<hr class="top-margin-xs bottom-margin-sm" style="border: 1px solid var(--color-neutral-light);">
+					<div class="container">
+						<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Email:</span> kimiemail@gmail.com</p>
 					</div>
-					<div class="number-card flex-col-center-center">
-						<p class="data-number">14</p>
-						<p class="data-title">Locations</p>
+					<div class="container ">
+						<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Member since: </span>2021</p>
 					</div>
-				</div>
-				<hr class="top-margin-xs bottom-margin-sm" style="border: 1px solid var(--color-neutral-light);">
-				<div class="container">
-					<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Email:</span> kimiemail@gmail.com</p>
-				</div>
-				<div class="container ">
-					<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Member since: </span>2021</p>
-				</div>
-				<div class="container ">
-					<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID:</span> 00063</p>
-				</div>
+					<div class="container ">
+						<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID:</span> 00063</p>
+					</div>
 			</div>
 		</div>
 		<div class="modal" id="profile-more-modal">
@@ -743,28 +754,28 @@
 			<div class="modal-drawer right">
 				<div class="modal-head" id="profile-modal">
 					<div class="flex-row-nowrap-start-center modal-icon-box" data-deactivate="#profile-more-modal">
-						<svg id="iconclose" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M67.07,60,85.14,41.93a5,5,0,0,0-7.07-7.07L60,52.93,41.93,34.86a5,5,0,1,0-7.07,7.07L52.93,60,34.86,78.07a5,5,0,1,0,7.07,7.07L60,67.07,78.07,85.14a5,5,0,0,0,7.07-7.07Z" style="fill: white;"/></svg>         
+						<svg id="iconclose" class="icon icon-smd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M67.07,60,85.14,41.93a5,5,0,0,0-7.07-7.07L60,52.93,41.93,34.86a5,5,0,1,0-7.07,7.07L52.93,60,34.86,78.07a5,5,0,1,0,7.07,7.07L60,67.07,78.07,85.14a5,5,0,0,0,7.07-7.07Z" style="fill: white;"/></svg>         
 					</div>
 				</div>
 				<div class="modal-body">
 					<a class="flex-row-start-center" href="#page-edit-user" data-deactivate="#profile-more-modal">
-						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/edit.svg" alt="edit"/>
+						<div class="flex-col-center-center side-minu-icon-box">
+							<img class=" icon icon-smd" src="images/icons/edit.svg" alt="edit"/>
 						</div>
-						<p class="drawer-item-text">Edit</p>
+						<p class="side-drawer-item-text">Edit Profile</p>
 					</a>
 					<a class="flex-row-start-center" href="#page-edit-password" data-deactivate="#profile-more-modal">
-						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/password.svg" alt="password"/>
+						<div class="flex-col-center-center side-minu-icon-box">
+							<img class=" icon icon-smd" src="images/icons/password.svg" alt="password"/>
 						</div>
-						<p class="drawer-item-text">Change password</p>
+						<p class="side-drawer-item-text">Change password</p>
 					</a>
 					<hr style="border-top: 1px solid  var(--color-neutral-light);">
 					<a class="flex-row-start-center js-logout"  data-deactivate="#profile-more-modal">
-						<div class="flex-col-center-center">
-							<img class=" icon icon-sm" src="images/icons/logout.svg" alt="password"/>
+						<div class="flex-col-center-center side-minu-icon-box">
+							<img class=" icon icon-smd" src="images/icons/logout.svg" alt="password"/>
 						</div>
-						<p class="drawer-item-text">Log Out</p>
+						<p class="side-drawer-item-text">Log Out</p>
 					</a>
 				</div>
 			</div>
@@ -857,7 +868,7 @@
 	<section data-role="page" id="page-user-upload" class="">
 		<header data-role="header" class="set-location-top-nav">
 			<a class="flex-col-center-center back-icon-link" href="#" data-rel="back">
-					<img class="icon-md icon" src="images/icons/arrow.svg" alt="back"/></a>
+					<img class="icon-mdl icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10 js-submituserupload"  >Save</a>
 			<div class="set-location-progress-bar-container ">
 				<div class="progress-bar percent100"></div>
@@ -904,6 +915,7 @@
 	
 <!-- SOURSES -->
 <!-- GETTING DATEFORMAT ON MySQL---- https://www.mysqltutorial.org/mysql-date_format/ -->
+<!-- /*SOURSE https://codepen.io/SitePoint/pen/zGyLt*/ -->
 
 
 

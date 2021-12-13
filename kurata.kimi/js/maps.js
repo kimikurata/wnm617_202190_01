@@ -45,12 +45,38 @@ const makeMarkers = (mapEl,mapLocs) => {
    position: o,
    map,
    icon: {
-    url:o.icon,
-    scaledSize: {
-     width:40,
-     height:40
- }
-        }
+        url:o.icon,
+        scaledSize: {
+            width:60,
+            height:60
+            }
+    }
+    });
+  markers.push(m);
+});
+
+ mapEl.data("markers",markers);
+ setMapBounds(mapEl,mapLocs);
+}
+
+const makeIconMarkers = (mapEl,mapLocs) => {
+ let {map,markers} = mapEl.data();
+
+ if(markers) markers.forEach(o=>o.setMap(null));
+
+ markers = [];
+
+ mapLocs.forEach(o=>{
+  let m = new google.maps.Marker({
+   position: o,
+   map,
+   icon: {
+        url:o.icon,
+        scaledSize: {
+            width:45,
+            height:45
+            }
+    }
     });
   markers.push(m);
 });

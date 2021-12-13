@@ -41,7 +41,7 @@ const makeUserProfile =(o, tflowers, tcolors, tlocations) =>
 			</div>
 		</div>
 	</div>
-	<p class="text-center text-bold">${o.name}</p>
+	<p class="user-profile-name">${o.name}</p>
 	<div class="flex-row-nowrap-between-center user-numbers-container">
 		<div class="number-card flex-col-center-center">
 			<p id="total-of-flowers" class="data-number">${tflowers}</p>
@@ -58,16 +58,16 @@ const makeUserProfile =(o, tflowers, tcolors, tlocations) =>
 	</div>
 	<hr class="top-margin-xs bottom-margin-sm" style="border: 1px solid var(--color-neutral-light);">
 	<div class="container">
-		<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User name: </span>${o.username}</p>
+		<p class="user-profile-info"><span style="color: var(--color-main-medium); font-weight: 600;">User name: </span>${o.username}</p>
 	</div>
 	<div class="container">
-		<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Email: </span>${o.email}</p>
+		<p class="user-profile-info"><span style="color: var(--color-main-medium); font-weight: 600;">Email: </span>${o.email}</p>
 	</div>
 	<div class="container ">
-		<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">Member since: </span>${o.date_create}</p>
+		<p class="user-profile-info"><span style="color: var(--color-main-medium); font-weight: 600;">Member since: </span>${o.date_create}</p>
 	</div>
 	<div class="container ">
-		<p class="text-light text-gray"><span style="color: var(--color-main-medium); font-weight: 600;">User ID: </span> ${o.id}</p>
+		<p class="user-profile-info"><span style="color: var(--color-main-medium); font-weight: 600;">User ID: </span> ${o.id}</p>
 	</div>
 </div>
 `;
@@ -92,10 +92,10 @@ const makeFlowerPopup = (o) => `
          
 const makeLocationPopup = (o) => `
 <div class="flex-col-center-center " data-id="${o.id}">
-   <div class="flex-none flower-popup-image">
+   <div class="flex-col-center-center flower-prof-popup-image">
       <img src="${o.photo}" alt="" id="location-popup-image">
    </div>
-   <div class="location-add-img-btn flex-col-center-center uplad-img-input-icon" >
+   <div class="prof-location-add-img-btn flex-col-center-center uplad-img-input-icon" >
 			<input type="hidden" id="location-image-filename" >
          	<label class="image-picker replace " id="location-imagepicker-label" data-activate="#save-location-img-modal" >
             	<input type="file" data-role="none" class="uplad-img-location-input">
@@ -107,7 +107,7 @@ const makeLocationPopup = (o) => `
    <div class="remove-flower">
 		<div class="flex-row-start-center" data-activate="#delete-location-modal" style="margin-right: 1em;">
 			<svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg>
-			<p class="text-light text-gray">Delete Location</p>
+			<p class="text-light text-gray" style="font-size:1.3em;">Delete Location</p>
 		</div>
 	</div>
 </div>
@@ -131,31 +131,31 @@ const makeFlowerModal = (o) => `
 
 const FormControlInputAdd = ({namespace, name, displayname, type, placeholder, value}) => `
 <div class="form-control">
+   <label class="label-helper" for="${namespace}-${name}">${displayname}</label>
 	<input type="${type}" id="${namespace}-${name}" class="form-input-lined"  data-role="none" placeholder="${placeholder}" value="${value}"/>
-	<label class="label-helper" for="${namespace}-${name}">${displayname}</label>
 </div>
 `;
 
 const FormControlInputAddInverted = ({namespace, name, displayname, type, placeholder, value}) => `
 <div class="form-control">
+   <label class="label-helper" for="${namespace}-${name}">${displayname}</label>
 	<input type="${type}" id="${namespace}-${name}" class="form-input-lined inverted" data-role="none" placeholder="${placeholder}" value="${value}"/>
-	<label class="label-helper" for="${namespace}-${name}">${displayname}</label>
 </div>
 `;
 
 
 const FormControlInputEdit = ({namespace, name, displayname, type, placeholder, value}) => `
 <div class="form-control">
-	<label class="label-visible" for="${namespace}-${name}" >${displayname}</label>
-	<input type="${type}" id="${namespace}-${name}" class="form-input-lined"  data-role="none" placeholder="${placeholder}" value="${value}"/>
+   <label class="label-visible" for="${namespace}-${name}" >${displayname}</label>
+   <input type="${type}" id="${namespace}-${name}" class="form-input-lined"  data-role="none" placeholder="${placeholder}" value="${value}"/>
 </div>
 `;
 
 
 const FormControlTextarea = ({namespace, name, displayname, placeholder, value}) => `
 <div class="form-control">
+   <label class="label-helper" for="${namespace}-${name}"/>${displayname}</label>
 	<textarea id="${namespace}-${name}" class=""  data-role="none" placeholder="${placeholder}" >${value}</textarea>
-	<label class="label-helper" for="${namespace}-${name}"/>${displayname}</label>
 </div>
 `;
 

@@ -361,5 +361,29 @@ $(()=>{
     $(".spacer-image").attr("src", "images/circle_spacer_even.svg");
     console.log("odd screen");
   }
+
+
+  // ADD FORM LABLE ANIMATION
+  $(document).on("focus", ".form-input-lined", function(e){
+    $(this).prev().css("visibility", "visible");
+
+ });
+  $(document).on("focusout", ".form-input-lined", function(e){
+    if( $(this).val().length === 0 ) {
+        $(this).prev().css("visibility", "hidden");
+    }
+ });
+    $(document).on("focus", ".form-input-lined", function(e){
+    $(this).prev().css("visibility", "visible");
+
+ });
+  $(document).on("focusout", ".form-input-lined", function(e){
+    if( $(this).val().length === 0 ) {
+        $(this).prev().css("visibility", "hidden");
+    }
+ });
+  
+
+ 
   
 });

@@ -14,13 +14,18 @@ const makeFlowerList = templater((o) => `
 			<img class="icon icon-sm" src="images/icons/arrow-right.svg" alt="next">
 		</div>
 	</div>
-	<hr style="border: 1px solid var(--color-pure-white);">
+	<hr style="border: 1px solid var(--color-white);">
 `); 
 
 
-const makeEmptyFlowerList =(o) =>`
+const makeEmptyFlowerList =(o) =>
+`
+<p class="text-center text-gray">There are no flowers in the list.</p>
+<div class="callout flowerlist">
+   <p class="callout-text text-center">Tap "+" to add a flower</p>
+   <b class="notch "></b>
+</div>
 
-<p>You don't have any flowers in the app</p>
 
 `;
 
@@ -121,7 +126,7 @@ const makeFlowerModal = (o) => `
 	</div>
 	<div class="flex-col-start-center">
 		<p class="drawer-item-text-title text-bold">${o.name}</p>
-		<p class="drawer-item-text-info text-gray">${o.type} / ${o.color}</p>
+		<p class="drawer-item-text-info text-gray">${o.type} | ${o.color}</p>
 	</div>
 </div>
 `;
@@ -296,6 +301,9 @@ const makeFlowerChoiceSelect = ({flowers, name, chosen=0}) =>`
 const makeFlowerListSet = (arr, target="#page-list .flowerlist") => {
 	$(".list-filter-container").html(makeFilterList(arr));
    $(target).html(makeFlowerList(arr));
+}
+const makeEmptyFlowerListSet = (arr, target="#page-list .flowerlist") => {
+   $(target).html(makeEmptyFlowerList(arr));
 }
 // HOW TO CREATE THIS MAP USING THE VALUE FROM SEARCH BAR??????-----------------------
 

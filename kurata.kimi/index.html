@@ -57,14 +57,14 @@
 	<section data-role="page" id="page-signin">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
-			<div class="flex-col-center-center">
+			<div class="flex-col-center-center resize">
 				<img class="intro-logo" src="images/tulip-full-logo.svg" alt="logo"/>
 				<p class="slogan">The Flower Explorer</p>
 			</div>
 			<div class="flex-stretch"></div>
-			<form class="" data-ajax="false"  id="signin-form" style="padding:10px">
-				<h3 class="login-title bottom-padding-sm">Welcome back</h3>
-				<div class="form-control top-padding-xs">
+			<form class="" data-ajax="false"  id="signin-form" style="padding:1em 2em">
+				<h3 class="login-title ">Let's Sign you in</h3>
+				<div class="form-control ">
 					<label class="label-helper">User name</label>
 					<input class="form-input-lined" type="text" id="signin-username" data-role="none" placeholder="Username">
 				</div>
@@ -93,38 +93,37 @@
 	<section data-role="page" id="page-signup">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
-			<div class="flex-col-center-center">
+			<div class="flex-col-center-center resize">
 				<img class="intro-logo" src="images/tulip-full-logo.svg" alt="logo">
 				<p class="slogan">The Flower Explorer</p>
 			</div>
 			<div class="flex-stretch"></div>
-			<form class="form signup-container" data-ajax="false"  id="sign-up-form" style="padding:10px">
-				<h3 class="signup-title bottom-padding-xs">Welcome</h3>
-
-
-
-				<div class="form-control  top-padding-xs">
-					<label class="label-helper inverted">User name</label>
-					<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username" />
-					
-				</div>
-				<div class="form-control ">
-					<label class="label-helper inverted">Email</label>
-					<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email">
-				</div>
-				<div class="form-control bottom-padding-sm">
-					<label class="label-helper inverted">Password</label>
-					<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" >
-				</div>
-				<div class="form-control ">
-					<input type="submit" value="Sign Up" class="primary-btn-inverted" data-role="none"/>
-				</div>
-				<div class="flex-col-center-center">
-					<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Signin</span></a>
-				</div>
-
-			</form>
+			<form class="form signup-container" data-ajax="false"  id="sign-up-form" style="padding:1em 2em">
+					<div class="overscroll-x">
+						<h3 class="signup-title ">Create Account</h3>
+						<div class="form-control  top-padding-xxs">
+							<label class="label-helper inverted">User name</label>
+							<input class="form-input-lined inverted" type="text" id="sign-up-username" data-role="none" placeholder="Username" />				
+						</div>
+						<div class="form-control ">
+							<label class="label-helper inverted">Email</label>
+							<input class="form-input-lined inverted" type="email" id="sign-up-email" data-role="none" placeholder="Email">
+						</div>
+						<div class="form-control bottom-padding-sm">
+							<label class="label-helper inverted">Password</label>
+							<input class="form-input-lined inverted" type="password" id="sign-up-password" data-role="none" placeholder="Password" >
+						</div>
+						<div class="form-control ">
+							<input type="submit" value="Sign Up" class="primary-btn-inverted" data-role="none"/>
+						</div>
+						<div class="flex-col-center-center">
+							<a class="signup-link bottom-padding-xs text-center" href="#page-signin">Already have an account? <span class="text-white text-underlined">Sign In</span></a>
+						</div>
+					</div>
+				</form>
 		</div>
+
+
 	</section>
 
 
@@ -158,7 +157,7 @@
 				<div class="form-control ">
 					<input type="submit" value="Start" class="primary-btn" data-role="none">
 				</div>
-				<a class="text-center text-gray text-underlined" href="#page-list">Skip</a>
+				<!-- <a class="skip-text" href="#page-list">Skip</a> -->
 			</form>
 		</div>
 		<!-- UPLOAD USER PROFILE IMAGE FIRST TIME -->
@@ -179,7 +178,6 @@
 				</form>	
 			</div>
 		</div> -->
-
 	</section>
 
 
@@ -189,8 +187,7 @@
 
 
 	<!-- PAGE MAP-->
-	<section data-role="page" id="page-map" class="">
-			
+	<section data-role="page" id="page-map" class="">		
 		<div class="flex-row-nowrap-between-center search-container">
 			<div class="flex-stretch ">
 				<!-- <form  action="">
@@ -216,8 +213,6 @@
 			<p class="chip">White</p>
 			<p class="chip">Purple</p>
 		</div> -->
-
-
 			<!-- MAP PAGE MARKERS DESIGN  -->
 			<!-- <div class="map-area flex-col-center-center">
 				<div class="flex-col-center-center" data-activate="#map-item-modal">
@@ -225,8 +220,7 @@
 						<img class="map-item-img" src="images/tulips.jpeg" alt="" />
 					</div>
 					<div class="location-dot"></div>
-				</div>
-				
+				</div>		
 			</div> -->
 		<div class="map"></div>
 		<div class="callout emptymap" id="empty-map-message" >
@@ -253,7 +247,7 @@
 		<div class="modal" id="map-item-modal">
 			<div class="modal-back" data-deactivate="#map-item-modal"></div>
 			<div class="modal-drawer bottom top-rounded map-page-popup">
-				<div class="modal-head" id="profile-modal">
+				<div class="modal-head" id="map-modal">
 					<div class="flex-row-center-center modal-icon-box" data-deactivate="#map-item-modal">
 						<div class="drag-bar"></div>      
 					</div>
@@ -265,7 +259,7 @@
 						</div>
 						<div class="flex-col-start-center">
 							<p class="drawer-item-text-title text-bold">Flower nickname</p>
-							<p class="drawer-item-text-info text-gray">Purple / Tulip</p>
+							<p class="drawer-item-text-info text-gray">Purple | Tulip</p>
 						</div>
 					</a>
 				</div>
@@ -300,14 +294,12 @@
 		<div class="list-filter-container flex-row-nowrap-start-stretch overscroll-y ">
 		</div>
 		<div data-role="main" class="overscroll-x">
-
 			<div class="display-flex flex-vertical flowerlist">
-				<p class="text-center text-gray">There are no flowers in the list.</p>
-
+<!-- 				<p class="text-center text-gray">There are no flowers in the list.</p>
 				<div class="callout flowerlist">
 					<p class="callout-text text-center">Tap "+" to add a flower</p>
 					<b class="notch "></b>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<footer class="bottom-nav" data-role="footer">
@@ -322,7 +314,7 @@
 				</a>
 			</div>
 		</footer>
-		<a class="" href="#page-set-info" ><div class="add-btn  flex-col-center-center lighter-shadow"><svg id="iconadd" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
+		<a class="js-set-navpage-existingcat" href="#page-set-info" ><div class="add-btn  flex-col-center-center lighter-shadow"><svg id="iconadd" class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M90.08,53.5H66V29.44a6.5,6.5,0,1,0-13,0v8.05h0v16H29a6.5,6.5,0,0,0,0,13H53V90.56a6.5,6.5,0,0,0,6.5,6.5h0a6.5,6.5,0,0,0,6.5-6.5V66.5H90.08a6.5,6.5,0,0,0,0-13Z" /></svg></div></a>
 	</section>
 
 
@@ -355,8 +347,8 @@
 							<div class="flex-row-center-center">
 								<p class=" flower-profile-name " >Flower Name</p>
 								<div class="flex-stretch"></div>
-								<!-- <a class="flex-col-center-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;"><svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#bdc4c6"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#bdc4c6"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#bdc4c6"/></svg></a> -->
-								<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-smd" style="margin-right: 5px;"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#bdc4c6"/><circle cx="88.48" cy="31.45" r="9" style="fill:#bdc4c6"/></svg></a>
+								<!-- <a class="flex-col-center-center" href="" data-activate="#delete-flower-modal" style="margin-right: 1em;"><svg id="icondelete" class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M88.76,41.37a6.53,6.53,0,0,0-4.91-2.24H36.15a6.5,6.5,0,0,0-6.42,7.49L37.78,99a6.51,6.51,0,0,0,6.43,5.51H76.35A6.49,6.49,0,0,0,82.78,99l7.5-52.4A6.52,6.52,0,0,0,88.76,41.37ZM52.94,91.46l-.44,0a3,3,0,0,1-3-2.56L44.4,54a3,3,0,0,1,5.93-.87l5.14,34.9A3,3,0,0,1,52.94,91.46ZM76.72,54l-5.14,34.9a3,3,0,0,1-3,2.56l-.44,0a3,3,0,0,1-2.53-3.4l5.13-34.9a3,3,0,0,1,5.94.87Z" style="fill:#96a6ab"/><path d="M74.84,27.15a11.45,11.45,0,0,1,2-6.5H67.45a8.11,8.11,0,0,0,0-.86,7.5,7.5,0,1,0-15,0,8.11,8.11,0,0,0,0,.86H34.69a6.5,6.5,0,1,0,0,13H76.86A11.45,11.45,0,0,1,74.84,27.15Z" style="fill:#96a6ab"/><circle cx="86.34" cy="27.15" r="6.5" style="fill:#96a6ab"/></svg></a> -->
+								<a class="flex-col-center-center" href="#page-edit-flower"><svg id="iconedit" class="icon icon-smd" style="margin-right: 5px;"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M74.54,32.63l-46.19,46-4.27,17,17-4.19,46.2-46A14,14,0,0,1,74.54,32.63Z" style="fill:#96a6ab"/><circle cx="88.48" cy="31.45" r="9" style="fill:#96a6ab"/></svg></a>
 							</div>
 						</div>
 					</div>
@@ -378,7 +370,6 @@
 			</div>
 				<!-- <p class="bottom-padding-xs flower-location-title-box container">Locations:</p> -->
 			<div >
-
 				<div class="position-relative">
 					<a href="#page-set-location" class="flex-col-center-center add-location-btn js-chooseflower" data-setnavigateback="-1"><img class="icon-xxs" src="images/icons/add-gray.svg" alt=""></a>
 				</div>
@@ -542,12 +533,12 @@
 								<img id="drop-image"class="icon-sm" src="images/icons/right.svg"/>
 							</div> -->
 							<div  class="flex-row-center-center" >
-								<a href="#page-set-info" class=" text-bold text-highlight">Or create new category </a>
+								<a href="#page-set-info" class=" text-bold text-highlight js-set-navpage-newcategory">Or create new category </a>
 							</div>
 						</div>
 						<div class="display-flex form-control">
 							<div class="flex-stretch"></div>
-							<div class="next-btn"><a id="save-category" class="primary-btn " href="#page-set-location">Next</a></div>
+							<div class="next-btn"><a id="save-category" class="primary-btn js-set-navpage-existingcat" href="#page-set-location">Next</a></div>
 						</div>
 					</form>
 					<form id="new-category" >
@@ -561,7 +552,7 @@
 								<img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" />
 							</div>
 							<div class="flex-row-nowrap-end-center" style="height: 0px;">
-								<div class="chage-category-img-container flex-col-center-center" ><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
+								<div class="chage-category-img-container flex-col-center-center" ><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#96a6ab"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#96a6ab"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#96a6ab"/></svg></div>
 							</div>
 						</div> -->
 						<div class=" " >
@@ -647,7 +638,7 @@
 					<img class="new-category-img image-cover" src="images/flower_placeholder.png" alt="" />
 				</div>
 				<div class="flex-row-nowrap-end-center" style="height: 0px;">
-					<div class="chage-category-img-container flex-col-center-center" ><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
+					<div class="chage-category-img-container flex-col-center-center" ><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#96a6ab"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#96a6ab"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#96a6ab"/></svg></div>
 				</div>
 			</div>			
 			<div class="display-flex form-control">
@@ -674,15 +665,15 @@
 					<img class="icon-mdl icon" src="images/icons/arrow.svg" alt="back"/></a>
 			<a class="zindex10 js-navigateback-one" href="index.html#page-map" data-rel="#page-map">Cancel</a>
 		</header>
-		<div data-role="main">
+		<div data-role="main" id="add-info-main">
 			<div class="progress-bar-container">
 				<div class="progress-bar percent100"></div>
 			</div>
-			<div class="illustration-contaier flex-col-center-center">
+			<div class="illustration-contaier flex-col-center-center resize">
 				<img class="image-cover info-illustration set-info" src="images/info_illustration.png" alt=""/>
 			</div>
 		</div>
-		<form class="form login-container" data-ajax="false"  id="flower-add-form" style="padding:10px">
+		<form class="form add-info-container" data-ajax="false"  id="flower-add-form" style="padding:10px">
 			<h3>Tell us about the flower</h3>
 			<div id="add-flower-info-inputs-box"></div>
 			<div class="display-flex form-control ">
@@ -717,7 +708,7 @@
 							<img class="image-cover" src="images/tulip-profile-placeholder-light.png" alt="profile"/>
 						</div>
 						<a class="flex-row-nowrap-end-center" style="height: 0px;" >
-							<div class="chage-img-container flex-col-center-center "><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#bdc4c6"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#bdc4c6"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#bdc4c6"/></svg></div>
+							<div class="chage-img-container flex-col-center-center "><svg id="iconcamera" class="icon icon-ssm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M85.38,40.72a10.8,10.8,0,0,1-1.28,10.1,4.24,4.24,0,0,1,2.34,3.78V75.47a4.26,4.26,0,0,1-4.26,4.26H37.82a4.26,4.26,0,0,1-4.26-4.26V54.6a4.26,4.26,0,0,1,4.26-4.26h7.86a5,5,0,0,0,5-5V38.86a1.26,1.26,0,0,1,1.25-1.25H66.75a10.9,10.9,0,0,1,8.42-4,11.11,11.11,0,0,1,3.07.44,11.27,11.27,0,0,0-10.17-6.47H51.93A11.27,11.27,0,0,0,40.68,38.86v1.48H37.82A14.27,14.27,0,0,0,23.56,54.6V75.47A14.27,14.27,0,0,0,37.82,89.73H82.18A14.27,14.27,0,0,0,96.44,75.47V54.6A14.26,14.26,0,0,0,85.38,40.72Z" style="fill:#96a6ab"/><circle cx="75.17" cy="44.56" r="5.92" style="fill:#96a6ab"/><circle cx="61.5" cy="62.36" r="9.21" style="fill:#96a6ab"/></svg></div>
 							</div>
 						</a>
 						<p class="user-profile-name">Kimi Kurata</p>

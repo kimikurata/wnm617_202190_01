@@ -31,9 +31,16 @@ const ListPage = async() => {
          params:[sessionStorage.userId]
    });
    
-      // console.log(flowers.length);
-   let content = (flowers.length === 0)?  makeEmptyFlowerList(): makeFlowerListSet(flowers);
+   // console.log(flowers.length);
+  
+   if(flowers.length === 0){
+      makeEmptyFlowerListSet(flowers);
+      // console.log("empty list");
+   }else{
+      makeFlowerListSet(flowers);
+      // console.log("will be alist");
 
+   }
 
    // makeFlowerListSet(flowers);
 

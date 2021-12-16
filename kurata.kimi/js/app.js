@@ -120,6 +120,12 @@ $(()=>{
     $("#set-location-direction").css("color", "var(--color-neutral-dark)");
     $( "#save-new-location" ).addClass( "disable" );
   })
+  .on("click",".js-set-navpage-newcategory",function(){
+   sessionStorage.navPage = 'newcategory'
+  })
+  .on("click",".js-set-navpage-existingcat",function(){
+   sessionStorage.navPage = 'existingcategory'
+  })
 
 
 // FILTER LIST
@@ -218,8 +224,10 @@ $(()=>{
          type:"update_location_image",
 
          params: [image,sessionStorage.locationId]
+
       }).then(d=>{
          if(d.error) throw(d.error); 
+         history.go(0);
       })
    })
 
@@ -366,7 +374,7 @@ $(()=>{
   // ADD FORM LABLE ANIMATION
   $(document).on("focus", ".form-input-lined", function(e){
     $(this).prev().css("visibility", "visible");
-
+    
  });
   $(document).on("focusout", ".form-input-lined", function(e){
     if( $(this).val().length === 0 ) {
@@ -384,6 +392,4 @@ $(()=>{
  });
   
 
- 
-  
 });

@@ -1,6 +1,5 @@
 const flowerAddForm = async () => {
 
-   sessionStorage.navPage = 'newcategory'
 
    let name = $("#flower-add-name").val();
    let type = $("#flower-add-type").val();
@@ -20,15 +19,14 @@ const flowerAddForm = async () => {
    if(r.error) throw(r.error);
 
    sessionStorage.flowerId = r.id;
-   if(sessionStorage.navPage = 'newcategory'){
+   if(sessionStorage.navPage === 'newcategory'){
       let select =  $("#location-flower-chioce").val(r.id);
       $.mobile.navigate("#page-set-location");
       $('#location-navigateback').val(-3);
-
    }else{
-      history.go(-1);
+      $.mobile.navigate("#page-list");
+
    } 
-   sessionStorage.navPage = 'existingcategory'
 }
 
 

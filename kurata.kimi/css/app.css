@@ -1,6 +1,6 @@
 :root {
 	--color-neutral-light:#f3f3f3 ;
-	--color-neutral-medium: #bdc4c6;
+	--color-neutral-medium: #96a6ab;
 	--color-neutral-dark: #868e94 ;
 
 	--color-main-light: #fff4f3;
@@ -374,13 +374,16 @@ h2, h3, h4{
     top: 0;
     left: 0;
     box-shadow: none;
-    z-index: 1;
+    z-index: 12;
 }
 
 
 
 
 /* FORM ELEMENTS */
+.ui-mobile label, .ui-controlgroup-label{
+   margin: 0px;
+}
 .form {}
 .form-control {
    margin: 1em 0;
@@ -397,6 +400,8 @@ h2, h3, h4{
    font: inherit;
    -webkit-appearance: none;
 }
+
+
 
 .form .form-button,
 .form-button {
@@ -431,6 +436,10 @@ h2, h3, h4{
    border-bottom:1px solid var(--color-neutral-medium);
    -webkit-appearance:none;
    color: var(--color-black);
+   font-size: 1.3em;
+}
+.form-input-lined:focus::placeholder {
+   color: transparent;
 }
 
 .label-visible{
@@ -448,7 +457,9 @@ h2, h3, h4{
 .form-input-lined.inverted::placeholder{
    color: var(--color-white);
 }
-
+.form-input-lined.inverted:focus::placeholder {
+   color: transparent;
+}
 .form-input-lined:focus {
    border-bottom:2px solid var(--color-main-medium);
 }
@@ -587,9 +598,11 @@ select:valid { color:var(--color-black); }
    padding: 4px; 
    font-weight: 600;
    font-size: 1em;
-   color:var(--color-main-medium);
+   color:var(--color-main-dark);
    line-height: 1;
    visibility: hidden;
+   font-size: 1.3em;
+
 
 }
 .label-helper.inverted{
@@ -698,7 +711,7 @@ select:valid { color:var(--color-black); }
    /*color: var(--color-pure-white);*/
 }
 
-input[type="submit"].primary-btn-inverted,
+input[type="submit"].primary-btn-inverted, 
 .primary-btn-inverted{
    width: 100%;
    height: 2.5em;
@@ -980,7 +993,6 @@ input[type="submit"].primary-btn-inverted,
 
 
 
-
 /*LOGIN*/
 .login-container{
    background-color: var(--color-pure-white);
@@ -991,6 +1003,8 @@ input[type="submit"].primary-btn-inverted,
    background-color: var(--color-main-dark);
    border-radius: 0em 4em 0em 0em;
    box-shadow: 0px 5px 18px 0px rgb(180 172 172 / 70%);
+   max-height: 100vh;
+   overflow-x: scroll;
 }
 
 .slogan{
@@ -999,6 +1013,9 @@ input[type="submit"].primary-btn-inverted,
    text-decoration: ;
    font-weight: 300;
    color: var(--color-neutral-medium);
+   font-size: 1.3em;
+
+
 }
 
 .slogan2{
@@ -1020,20 +1037,20 @@ input[type="submit"].primary-btn-inverted,
 
 .login-title{
    width: 100%;
-   text-align: center;
-   color: var(--color-main-dark);
+   /*text-align: center;*/
+   color: var(--color-black);
    margin-block-start: 1em;
    margin-block-end: 0em;
-   font-size: 1.5em;
+   font-size: 2em;
 }
 
 .signup-title{
    width: 100%;
-   text-align: center;
+   /*text-align: center;*/
    color: var(--color-pure-white);
    margin-block-start: 1em;
    margin-block-end: 0em;
-   font-size: 1.5em;
+   font-size: 2em;
 }
 
 .login-link{
@@ -1075,7 +1092,13 @@ input[type="submit"].primary-btn-inverted,
    background-repeat: no-repeat;
    background-image: url(../images/tulip-profile-placeholder-light.png);
 }
-
+.skip-text{
+   text-align: center;
+   color: var(--color-neutral-dark);
+   text-decoration: underline;
+   width: 100%;
+   min-width: 100%;
+}
 
 
 /* MAP PAGE */
@@ -1114,6 +1137,7 @@ input[type="submit"].primary-btn-inverted,
    left: 0;
    right: 0;
    box-shadow:0 0 15px 1px rgb(72 40 80 / 31%);
+   z-index: 2;
 
 }
 
@@ -1224,7 +1248,7 @@ hr.chip-separator{
    display: none;
 }
 .modal-drawer.bottom.top-rounded.map-page-popup{
-   height: 35vh;
+   height: auto;
 }
 
 /*LIST PAGE*/
@@ -1524,6 +1548,14 @@ hr.list-filter-separator{
    /*position: absolute;*/
 }
 
+.add-info-container{
+   background-color: var(--color-pure-white);
+   border-radius: 0em 4em 0em 0em;
+   box-shadow: 0px 5px 18px 0px rgb(72 40 80 / 26%);
+ /*  max-height: 90vh;
+   overflow-x: scroll;*/
+}
+
 
 
 
@@ -1543,6 +1575,7 @@ hr.list-filter-separator{
    background-color: var(--color-neutral-light);
    overflow: hidden; 
    max-height: 500px;
+   min-height: 320px;
 }
 
 .flower-image{
@@ -1551,7 +1584,7 @@ hr.list-filter-separator{
 }
 
 .corners{
-   margin-top: -10em;
+   margin-top: -9.5em;
 }
 
 .inverted-corner{
@@ -1582,7 +1615,7 @@ hr.list-filter-separator{
    line-height: 1.7em;
    position: relative;
    transform-origin: top right;
-   transform: translate(-0.5em,-280%);
+   transform: translate(-0.5em,-300%);
 }
 
 .flower-profile-name{
@@ -1647,7 +1680,7 @@ hr.list-filter-separator{
 .add-location-btn{
    position: absolute;
    background-color: var(--color-pure-white);
-   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   box-shadow: 0 0 10px rgb(72 40 80 / 17%);
    border-radius: 50%;
    text-align: center;
    min-height: 1.2em;
@@ -1795,9 +1828,10 @@ hr.list-filter-separator{
    font-weight: 400;
    font-size: 1.5em;
    line-height: 1.5em;
-   border: 2px solid var(--color-neutral-medium);
+   /*border: 2px solid var(--color-neutral-medium);*/
    position: relative;
    transform: translate(150%,-35%);
+   box-shadow: 0 0 15px 1px rgb(73 70 74 / 25%);
 }
 
 .profile-back-icon{
@@ -1823,7 +1857,7 @@ hr.list-filter-separator{
 .data-number{
    text-align: center;
    font-weight: 600;
-   font-size: 1.6em;
+   font-size: 1.8em;
    margin-block-start: 0em;
    margin-block-end: 0em;
    color: var(--color-main-dark);
@@ -1841,7 +1875,10 @@ hr.list-filter-separator{
    height: 3em;
    background-color: var(--color-main-dark);
 }
-
+#map-modal{
+    height: 2em;
+   background-color: var(--color-main-dark);
+}
 .modal-icon-box{
    height: 100%;
    padding-left: 10px;
@@ -1858,7 +1895,7 @@ hr.list-filter-separator{
 
 .drawer-item-text-info{
    padding-left:0.5em;
-   color: var(--color-neutral-medium);
+   color: var(--color-neutral-dark);
    font-weight: 300;
    margin-block-start: 0em;
    margin-block-end: 0em;
@@ -1879,7 +1916,7 @@ hr.list-filter-separator{
 .user-profile-name{
    text-align: center;
    font-weight: 600;
-   font-size:1.5em;
+   font-size:1.8em;
 }
 
 
@@ -1952,6 +1989,25 @@ section#page-map [aria-roledescription="map"] div div div img {
    60% { -webkit-transform: translate(-15px); }
    80% { -webkit-transform: translate(8px); }
    100% { -webkit-transform: translate(0px); }
+}
+
+@media screen and (max-height: 640px) {
+   .resize{
+     height: 0;
+     overflow: hidden;
+   }
+   #add-info-main{
+      flex: 1 1 0%;
+   }
+   #signin-form{
+      max-height: 100vh;
+      overflow-x: scroll;
+   }
+   .add-info-container{
+   max-height: 90vh;
+   overflow-x: scroll;
+   }
+   
 }
 
 
